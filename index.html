@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Training for Meditators</title>
+<meta name="theme-color" content="#29251F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#29251F; --raised:#322D26; --raised-2:#3A342C; --code:#3A342C;
+    --text:#F2ECE1; --soft:#D9CFC0; --muted:#A99C88;
+    --accent:#E6A368; --accent-bright:#F0B988; --visited:#F0B988;
+    --rule:#4A4339; --rule-strong:#5A5248; --ink:#2A2014;
+    --maxw:46rem;
+  }
+  *{box-sizing:border-box;}
+  html,body{background:var(--bg);}
+  body{
+    margin:0; color:var(--text);
+    font-family:"Source Serif 4",serif; font-size:1.08rem; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent); color:var(--ink);}
+  a{color:var(--accent); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.22rem;}
+  a:visited{color:var(--visited);}
+
+  /* ---------- Top bar (with accent rule, DYP-style) ---------- */
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between; gap:2rem;
+    padding:1.25rem 3.5rem 1rem;
+    background:var(--bg);
+    position:sticky; top:0; z-index:20;
+  }
+  .wordmark{font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:1.25rem; letter-spacing:0; text-transform:none; color:var(--text); text-decoration:none;}
+  .wordmark:visited{color:var(--text);} .wordmark .accent, .wordmark:visited .accent{color:var(--accent);}
+  .nav-cta{font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.86rem; letter-spacing:.02em; color:var(--ink); background:var(--accent); padding:.62rem 1.15rem; border-radius:5px; text-decoration:none; white-space:nowrap; transition:background .15s ease, transform .15s ease;}
+  .nav-cta:visited{color:var(--ink);}
+  .nav-cta:hover{background:var(--accent-bright); transform:translateY(-1px);}
+
+  /* ---------- Container grid: rail | content | spacer ---------- */
+  .container{
+    display:grid;
+    grid-template-columns:minmax(13rem,16rem) minmax(0,var(--maxw)) minmax(0,1fr);
+    gap:4.5rem; align-items:start;
+    padding:2.6rem 3.5rem 5rem;
+  }
+
+  /* ---------- Left CONTENTS rail ---------- */
+  .rail{position:sticky; top:5rem; font-size:1rem;}
+  .rail .label{
+    font-family:"IBM Plex Mono",monospace; font-size:.72rem; font-weight:600;
+    letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0 0 1.4rem;
+  }
+  .rail nav a{
+    display:block; padding:.5rem .75rem; margin:.18rem 0; border-radius:4px;
+    font-family:"Source Sans 3",sans-serif; font-weight:500; font-size:.96rem;
+    color:var(--text); text-decoration:none; line-height:1.15;
+  }
+  .rail nav a .num{font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--muted); margin-right:.5rem;}
+  .rail nav a:hover{color:var(--accent); text-decoration:underline; text-underline-offset:.2rem;}
+  .rail nav a.active{background:var(--accent); color:var(--ink); font-weight:700;}
+  .rail nav a.active .num{color:var(--ink);}
+  .rail .rail-cta{
+    margin-top:1.5rem; padding-top:1.3rem; border-top:1px solid var(--rule);
+  }
+  .rail .rail-cta a{display:block; padding:.55rem .75rem; color:var(--accent); font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:.96rem; text-decoration:none;}
+  .rail .rail-cta a:hover{text-decoration:underline; text-underline-offset:.2rem;}
+
+  /* ---------- Content column ---------- */
+  .content{min-width:0;}
+  .content section{max-width:none; margin:0;}
+  .section{padding:3.4rem 0;}
+  .content > section:first-child{padding-top:.5rem;}
+  .section + .section{border-top:1px solid var(--rule);}
+
+  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.72rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0 0 1.3rem;}
+
+  h1,h2,h3{font-family:"Source Serif 4",serif; font-weight:600; letter-spacing:0; text-wrap:balance;}
+  h1{color:var(--accent); font-size:2.85rem; line-height:1.05; margin:0 0 1.2rem;}
+  h2{color:var(--soft); font-size:1.95rem; line-height:1.15; margin:0 0 1rem;}
+  h3{color:var(--text); font-size:1.35rem; line-height:1.25; margin:0 0 .5rem;}
+  p{margin:0 0 1.2rem; text-wrap:pretty;}
+  .lede{font-size:1.15rem; color:var(--text);}
+  strong{font-weight:600; color:var(--text);}
+  .mono{font-family:"IBM Plex Mono",monospace;}
+
+  /* ---------- Hero ---------- */
+  .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:2.4rem; align-items:center; padding-top:1.2rem; padding-bottom:3.4rem;}
+  .hero h1{margin-bottom:1rem;}
+  .hero .sub{font-size:1.12rem; color:var(--text); margin-bottom:1.7rem;}
+  .btn{display:inline-block; font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.96rem; letter-spacing:.01em; color:var(--ink); background:var(--accent); padding:.82rem 1.6rem; border-radius:6px; text-decoration:none; transition:background .15s ease, transform .15s ease;}
+  .btn:visited{color:var(--ink);}
+  .btn:hover{background:var(--accent-bright); transform:translateY(-1px);}
+  .trust{font-family:"IBM Plex Mono",monospace; font-size:.76rem; color:var(--muted); margin:1.6rem 0 0; line-height:1.7;}
+  .trust b{color:var(--soft); font-weight:600;}
+  .logostrip{margin:.4rem 0; background:var(--raised); border:1px solid var(--rule); border-radius:10px; padding:.95rem 1.8rem;}
+  .logostrip .logos-label{display:block; font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin:0 0 .7rem;}
+  .logostrip .logos-row{display:flex; align-items:center; justify-content:space-between; gap:1.4rem 2.5rem; flex-wrap:wrap;}
+  .logostrip .logo-img{height:1.4rem; width:auto; opacity:.82;}
+  .videobox{position:relative; aspect-ratio:4/3; border-radius:10px; background:var(--raised); border:1px solid var(--rule); display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .videobox::after{content:"VIDEO TESTIMONIAL"; position:absolute; bottom:.8rem; left:.9rem; font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.16em; color:var(--muted);}
+  .play{width:4rem; height:4rem; border-radius:50%; background:rgba(230,163,104,.16); border:1px solid var(--accent); display:flex; align-items:center; justify-content:center;}
+  .play::before{content:""; border-style:solid; border-width:.55rem 0 .55rem .92rem; border-color:transparent transparent transparent var(--accent); margin-left:.22rem;}
+
+  /* ---------- Two-column lists ---------- */
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:2.2rem;}
+  .cols > div{background:var(--raised); border:1px solid var(--rule); border-radius:10px; padding:1.5rem 1.6rem;}
+  .col-label{font-family:"Source Sans 3",sans-serif; font-size:.74rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin:0 0 1rem;}
+  .feat{list-style:none; margin:0; padding:0;}
+  .feat li{margin:0 0 1rem; line-height:1.5; font-size:1.02rem;}
+  .feat li b{color:var(--text);}
+  .feat li span{color:var(--muted);}
+
+  /* ---------- Persona / quote cards ---------- */
+  .cards{display:flex; flex-direction:column; gap:1rem; margin-top:2rem;}
+  .qcard{padding:1.4rem 1.6rem; background:var(--raised); border:1px solid var(--rule); border-left:3px solid var(--accent); border-radius:0 8px 8px 0;}
+  .qcard .q{font-weight:600; color:var(--text); font-size:1.08rem; margin:0 0 .5rem; font-style:italic;}
+  .qcard p{margin:0; color:var(--soft); font-size:1.02rem;}
+
+  /* ---------- What we do bullets ---------- */
+  .dolist{list-style:none; margin:1.8rem 0 1.5rem; padding:0;}
+  .dolist li{margin:0 0 1.3rem; line-height:1.6;}
+  .dolist li b{color:var(--text);}
+  .closing{color:var(--soft);}
+  .dogrid{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin:2rem 0 1.6rem;}
+  .docard{background:var(--raised); border:1px solid var(--rule); border-radius:10px; padding:1.4rem 1.5rem;}
+  .docard h3{font-family:"Source Serif 4",serif; font-weight:600; font-size:1.18rem; color:var(--text); margin:0 0 .45rem; line-height:1.2;}
+  .docard p{margin:0; color:var(--soft); font-size:1rem; line-height:1.5;}
+
+  /* ---------- Session cases (timeline) ---------- */
+  .sessions{display:flex; flex-direction:column; gap:1rem; margin-top:2rem;}
+  .scase{background:var(--raised); border:1px solid var(--rule); border-radius:10px; padding:1.4rem 1.6rem;}
+  .scase h4{font-family:"Source Serif 4",serif; font-weight:600; font-size:1.18rem; color:var(--text); margin:0 0 .3rem; line-height:1.25;}
+  .scase .frame{font-style:italic; color:var(--muted); font-size:.97rem; margin:0 0 1rem; line-height:1.5;}
+  .scase .tl{display:flex; flex-direction:column; gap:.55rem; margin:0; padding:0; list-style:none;}
+  .scase .tl li{display:flex; gap:1rem; align-items:baseline; line-height:1.45;}
+  .scase .tl .time{flex:0 0 3.2rem; font-family:"IBM Plex Mono",monospace; font-size:.76rem; color:var(--accent); white-space:nowrap;}
+  .scase .tl .what{color:var(--soft); font-size:.97rem;}
+
+  /* ---------- Testimonials ---------- */
+  .featured{display:flex; gap:1.1rem; align-items:flex-start; margin:1.6rem 0 .2rem;}
+  .featured .avatar{flex:0 0 3rem; width:3rem; height:3rem; border-radius:50%; background:var(--raised); border:1px solid var(--rule);}
+  .featured blockquote{margin:0; font-style:italic; color:var(--text); font-size:1.02rem; line-height:1.55;}
+  .featured cite{display:block; margin-top:.55rem; font-style:normal; font-family:"IBM Plex Mono",monospace; font-size:.76rem; color:var(--muted);}
+  .tgrid{columns:2; column-gap:1rem; margin-top:2rem;}
+  .tcard{background:var(--raised); border:1px solid var(--rule); border-radius:10px; padding:1.3rem 1.4rem; margin:0 0 1rem; break-inside:avoid;}
+  .thead{display:flex; align-items:center; gap:.7rem; margin-bottom:.8rem;}
+  .tcard .avatar{flex:0 0 2.3rem; width:2.3rem; height:2.3rem; border-radius:50%; background:var(--bg); border:1px solid var(--rule);}
+  .tcard .tname{font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.92rem; color:var(--text);}
+  .tcard blockquote{margin:0; font-style:italic; color:var(--soft); font-size:.97rem; line-height:1.55;}
+  img.avatar{object-fit:cover; display:block;}
+
+  /* ---------- Access ---------- */
+  .access{display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem;}
+  .acard{padding:1.5rem 1.6rem; background:var(--raised); border:1px solid var(--rule); border-radius:8px;}
+  .acard h3{font-family:"Source Sans 3",sans-serif; font-size:1.02rem; font-weight:700; color:var(--accent); margin:0 0 .55rem;}
+  .acard p{margin:0; color:var(--soft); font-size:.98rem; line-height:1.55;}
+  .acard .acard-link{margin-top:.9rem;}
+  .acard .acard-link a{font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:.9rem; color:var(--accent); text-decoration:none;}
+  .acard .acard-link a:hover{text-decoration:underline; text-underline-offset:.2rem;}
+
+  /* ---------- Meet Tanner ---------- */
+  .bio{display:grid; grid-template-columns:.4fr 1fr; gap:2rem; align-items:start; margin-top:1.5rem;}
+  .portrait{aspect-ratio:3/4; border-radius:10px; background:var(--raised); border:1px solid var(--rule); position:relative;}
+  .portrait::after{content:"PORTRAIT"; position:absolute; bottom:.8rem; left:.9rem; font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.16em; color:var(--muted);}
+  .bio p{color:var(--soft);}
+  img.portrait{object-fit:cover; width:100%; min-width:0;}
+
+  /* ---------- FAQ ---------- */
+  .faq{margin-top:1.6rem; border-top:1px solid var(--rule);}
+  .faq details{border-bottom:1px solid var(--rule);}
+  .faq summary{cursor:pointer; list-style:none; padding:1rem 0; font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:1.05rem; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:1rem;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+"; font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:1.3rem; font-weight:400;}
+  .faq details[open] summary::after{content:"\2013";}
+  .faq details[open] summary{color:var(--accent);}
+  .faq .ans{padding:0 0 1.1rem; color:var(--soft); font-size:1.02rem;}
+
+  /* ---------- Final CTA ---------- */
+  .final{padding:3.4rem 0 1rem;}
+  .final-panel{text-align:center; padding:2.8rem 2rem; border-radius:14px; background:var(--raised); border:1px solid var(--rule-strong);}
+  .final-panel h2{color:var(--accent); margin-bottom:.7rem;}
+  .final-panel p{color:var(--soft); max-width:32rem; margin:0 auto 1.8rem;}
+
+  footer{border-top:1px solid var(--rule); margin-top:2.4rem; padding-top:1.8rem; display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted);}
+  footer a{color:var(--muted);}
+  .copy-email{background:none; border:0; padding:0; margin:0; font:inherit; color:var(--muted); cursor:pointer; text-decoration:underline; text-underline-offset:.2rem;}
+  .copy-email:hover{color:var(--soft);}
+  .copy-email.copied{color:var(--accent); text-decoration:none;}
+
+  @media (max-width:980px){
+    .topbar{padding:1rem 1.4rem;}
+    .container{grid-template-columns:1fr; gap:2rem; padding:2rem 1.4rem 3rem;}
+    .rail{display:none;}
+    .hero{grid-template-columns:1fr; gap:2rem;}
+    .cols,.access{grid-template-columns:1fr; gap:1.5rem;}
+    .tgrid{columns:1;}
+    .sessions{grid-template-columns:1fr;}
+    .bio{grid-template-columns:1fr; gap:1.3rem;}
+    h1{font-size:2.3rem;} h2{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="#top">Personal Training <span class="accent">for Meditators</span></a>
+  <a class="nav-cta" href="https://cal.com/tannerholman/pt-for-meditators-1-1" target="_blank" rel="noopener">Book a free call</a>
+</header>
+
+<div class="container" id="top">
+
+  <!-- LEFT RAIL -->
+  <aside class="rail">
+    <p class="label">Contents</p>
+    <nav>
+      <a href="#s01"><span class="num">01</span>What you'll gain</a>
+      <a href="#s02"><span class="num">02</span>Is this you?</a>
+      <a href="#s03"><span class="num">03</span>What we do</a>
+      <a href="#s04"><span class="num">04</span>A typical session</a>
+      <a href="#s05"><span class="num">05</span>What clients say</a>
+      <a href="#s06"><span class="num">06</span>Cost &amp; support</a>
+      <a href="#s07"><span class="num">07</span>Meet Tanner</a>
+      <a href="#s08"><span class="num">08</span>FAQ</a>
+    </nav>
+    <div class="rail-cta"><a href="#start">Start here &rarr;</a></div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div>
+        
+        <h1>Personal Training for Meditators</h1>
+        <p class="sub">One-on-one training designed as an extension of your meditation practice. Learn to enjoy exertion, inhabit your body, and carry spacious clarity into movement.</p>
+        <a class="btn" href="https://cal.com/tannerholman/pt-for-meditators-1-1" target="_blank" rel="noopener">Book a free intro call</a>
+      </div>
+      <div class="videobox"><span class="play"></span></div>
+    </section>
+
+    <!-- ON / OFF THE CUSHION -->
+        <div class="logostrip">
+      <span class="logos-label">Trusted by practitioners from</span>
+      <div class="logos-row">
+        <img class="logo-img" src="logos/google.svg" alt="Google">
+        <img class="logo-img" src="logos/mercury.png" alt="Mercury">
+        <img class="logo-img" src="logos/mit.svg" alt="MIT">
+        <img class="logo-img" src="logos/evolving-ground.png" alt="Evolving Ground">
+      </div>
+    </div>
+
+    <!-- FEATURED TESTIMONIAL -->
+    <div class="featured">
+      <img class="avatar" src="headshots/elwyn.jpg" alt="Elwyn Foote">
+      <div>
+        <blockquote>“When I visited you in Colorado, it caused a serious paradigm shift in my relationship to exercise. It went from an arduous obligation to an extension of my contemplative practice that I find really pleasant and look forward to. My mana and HP are higher than ever. My capacity to do everything in my life is boosted. I get more done. When I meditate, it's great — and now exercise feels like that too.”</blockquote>
+        <cite>— Elwyn Foote</cite>
+      </div>
+    </div>
+
+    <section class="section" id="s01">
+      <p class="eyebrow">01 &middot; Why it matters</p>
+      <h2>On the cushion, and off the cushion</h2>
+      <p class="lede">Many meditators are far more at home in the mind than in the body. When the body becomes a place you can inhabit in all its joy and richness, your practice opens in two directions.</p>
+      <div class="cols">
+        <div>
+          <p class="col-label">Feel good while you sit</p>
+          <ul class="feat">
+            <li><b>Drop in faster</b> <span>— embodiment makes it easier to feel steady and settled</span></li>
+            <li><b>Stay comfortable longer</b> <span>— find an easy seat and meet discomfort skillfully</span></li>
+            <li><b>More to practice with</b> <span>— opening the body allows sensory experience to be vivid and available</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">Feel good while you move</p>
+          <ul class="feat">
+            <li><b>Actually enjoy exertion</b> <span>— learn to experience movement as delightful</span></li>
+            <li><b>Extend practice off the cushion</b> <span>— equanimity in motion is less brittle</span></li>
+            <li><b>Functional strength &amp; mobility</b> <span>— tailored to <em>your</em> body and life</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- IS THIS YOU -->
+    <section class="section" id="s02">
+      <p class="eyebrow">02 &middot; Who it's for</p>
+      <h2>Is this you?</h2>
+      <p class="lede">People come to this work from a few different places. See if one of these sounds like you.</p>
+      <div class="cards">
+        <div class="qcard">
+          <p class="q">“I think exercise is good for me — but I've never enjoyed it.”</p>
+          <p>Exercise has felt like a grind: forceful, joyless, something you <em>should</em> do. But you know from meditation that your relationship to an experience can change. Maybe it can change here too.</p>
+        </div>
+        <div class="qcard">
+          <p class="q">“I already move — but it feels cut off from my practice.”</p>
+          <p>Exercise is a habit you value, but you sense it could be more. You want the clarity you find sitting to come with you when you run, lift, or play on the floor with your kid.</p>
+        </div>
+        <div class="qcard">
+          <p class="q">“I'm spacious on the cushion — but it vanishes the moment things get dynamic.”</p>
+          <p>You're chill on the cushion. But ask you to juggle three balls — or lift, or run, or learn a dance step — and the spaciousness can evaporate. Where does it go when you start lifting weights? This work is about closing that gap.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE ACTUALLY DO -->
+    <section class="section" id="s03">
+      <p class="eyebrow">03 &middot; What we do together</p>
+      <h2>What we actually do</h2>
+      <p class="lede">The aim is a changed relationship to movement: from intimidated to autonomous, from a grind to something alive and life-supporting. We use whatever will help you most — strength training, mobility, health metrics and biomarkers, as well as somatics, standing meditation, and posture work.</p>
+      <div class="dogrid">
+        <div class="docard"><h3>From mind to body</h3><p>You might have forty ways to work with a thought and ~none for how to work with your body. We practice attuning to space, sensation, and pleasure <em>while moving</em>. And make sure it transfers to what matters most, whether that’s lifting, running, or playing on the carpet with your toddler.</p></div>
+        <div class="docard"><h3>Games, tasks, improvisation</h3><p>A testing ground for playfulness, and for expanding what even counts as “exercise.”</p></div>
+        <div class="docard"><h3>Movement quality and posture</h3><p>Real-time feedback for moving with less risk and more elegance; and support to make sitting and standing practice more enjoyable.</p></div>
+        <div class="docard"><h3>Learning to fish</h3><p>You're not a passive participant. The aim is always your own agency: to assess, adapt, and author your own practice over time.</p></div>
+      </div>
+      <p class="closing">I'm not here to break you, or write you off if you're not “tough enough.” <em>The wider the base, the higher you can build</em> — with most clients, I start from where enjoyment is already available, and help grow practice from there.</p>
+    </section>
+
+    <!-- A TYPICAL SESSION -->
+    <section class="section" id="s04">
+      <p class="eyebrow">04 &middot; What it looks like</p>
+      <h2>A typical session</h2>
+      <p class="lede">Here are three session outlines, anonymized:</p>
+      <div class="sessions">
+        <div class="scase">
+          <h4>A · Finding pleasure in exertion</h4>
+          <p class="frame">A meditator who learned to dread exertion after a lifetime of unpleasant exercise.</p>
+          <ul class="tl">
+            <li><span class="time">0–10</span><span class="what">Check-in</span></li>
+            <li><span class="time">10–40</span><span class="what">Listening for pleasurable sensation in exertion — guided meditation + workout</span></li>
+            <li><span class="time">40–60</span><span class="what">Learning to explore movement sensorially instead of a dry mechanical routine</span></li>
+          </ul>
+        </div>
+        <div class="scase">
+          <h4>B · Fluidity for a busy parent</h4>
+          <p class="frame">A parent with a toddler and little spare time.</p>
+          <ul class="tl">
+            <li><span class="time">0–10</span><span class="what">Check-in</span></li>
+            <li><span class="time">10–25</span><span class="what">Active recall — he guides himself aloud through a practice we'd already covered, to test and troubleshoot</span></li>
+            <li><span class="time">25–50</span><span class="what">Guided somatic movement — experiencing the body as a connected whole</span></li>
+            <li><span class="time">50–60</span><span class="what">Squatting and floorwork improvisation and play</span></li>
+          </ul>
+        </div>
+        <div class="scase">
+          <h4>C · Bridging strength and meditation</h4>
+          <p class="frame">Already trains regularly, but it feels walled off from his meditation.</p>
+          <ul class="tl">
+            <li><span class="time">0–10</span><span class="what">Check-in</span></li>
+            <li><span class="time">10–35</span><span class="what">Strength work — calibrating load, refining form</span></li>
+            <li><span class="time">35–60</span><span class="what">A guided practice to bring meditation into his runs</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="closing">Each session shares the same through-line: movement as an extension of practice.</p>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="s05">
+      <p class="eyebrow">05 &middot; What changed</p>
+      <h2>What people say</h2>
+      <div class="tgrid">
+        <div class="tcard"><div class="thead"><img class="avatar" src="headshots/scott.jpg" alt="Scott Schaffter"><span class="tname">Scott Schaffter</span></div><blockquote>“Tanner has been a superb trainer for close to two years. His approach focused on sustainability rather than complete and utter annihilation, and it helped me grow and maintain consistency. Particularly helpful through rehabbing a knee injury — a judgement-free space. I can't recommend him more highly!”</blockquote></div>
+        <div class="tcard"><div class="thead"><span class="avatar"></span><span class="tname">Cathy Benjamin</span></div><blockquote>“I've been pleasantly surprised by how creative Tanner has been — the ‘exercises’ don't feel like exercises at all. We always have a lot of fun and I'm never bored. If you're intimidated about starting personal training, I highly encourage you to try working with Tanner.”</blockquote></div>
+        <div class="tcard"><div class="thead"><span class="avatar"></span><span class="tname">Vaidhyanathan</span></div><blockquote>“I felt like I'd never get rid of the pain. Now I can release my low back at will, move my neck into new territory, and I'm back to walking and running.”</blockquote></div>
+        <div class="tcard"><div class="thead"><img class="avatar" src="headshots/max.jpg" alt="Max Soweski"><span class="tname">Max Soweski</span></div><blockquote>“An easy recommendation for anyone who meditates. Meditation can create habits of being static and even disembodied — turns out the antidote to this is feeling into the many accomplishments our bodies achieve on a daily basis! Tanner makes this readily available.”</blockquote></div>
+        <div class="tcard"><div class="thead"><img class="avatar" src="headshots/joe.jpg" alt="Joe Gherity"><span class="tname">Joe Gherity</span></div><blockquote>“I recommend it as a bridge into easeful movement that I simply didn't think was possible on my own. It expands the possibility space for how you experience your body.”</blockquote></div>
+        <div class="tcard"><div class="thead"><img class="avatar" src="headshots/yetsal.jpg" alt="Ye'tsal Khandro"><span class="tname">Ye'tsal Khandro</span></div><blockquote>“Tanner brought new life to my opening awareness meditation practice. By connecting with my body, it became much easier to stay with sensations, slow down, and at times allow thoughts to completely fall away. I now begin my meditation this way—gently using the body mapping teachings, and then, once I feel grounded, letting them naturally fade. I find myself wishing this had been available to me earlier, as so many of my meditation sits might have felt more settled and embodied. I'm deeply grateful to Tanner for enlivening my practice and for helping me see, in such a clear and compassionate way, how closely the body is connected to emotions and everyday awareness. I am noticing so much that is happening that I was ignoring. I feel huge gratitude for everything that has to go on in a tiny movement.”</blockquote></div>
+        <div class="tcard"><div class="thead"><img class="avatar" src="headshots/matthew.jpg" alt="Matthew Phillips"><span class="tname">Matthew Phillips</span></div><blockquote>“I've had plenty of meditation teachers, instructors, and podcasts tell me to ‘feel the earth support me,’ but to be honest I never really got it. The way I explored it with Tanner made me really feel embodied for the first time — and it's something I still enjoy checking into at various points during the day.”</blockquote></div>
+      </div>
+    </section>
+
+    <!-- ACCESS -->
+    <section class="section" id="s06">
+      <p class="eyebrow">06 &middot; Money stuff</p>
+      <h2>Making it work</h2>
+      <div class="access">
+        <div class="acard">
+          <h3>Your company may cover this</h3>
+          <p>Many clients get reimbursed through L&amp;D, professional development, or wellness budgets. We provide documentation.</p>
+          <p class="acard-link"><a href="#">Learn how &rarr;</a></p>
+        </div>
+        <div class="acard">
+          <h3>Scholarships available</h3>
+          <p>Students, academics, non-profit staff, between jobs, or working at an impact-driven org? We offer reduced-rate sessions. Tell us about your situation and we'll work it out.</p>
+          <p class="acard-link"><a href="#">Apply &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET TANNER -->
+    <section class="section" id="s07">
+      <p class="eyebrow">07 &middot; Your trainer</p>
+      <h2>Meet Tanner</h2>
+      <div class="bio">
+        <img class="portrait" src="headshots/tanner.jpg" alt="Tanner Holman">
+        <div>
+          <p>Certified personal trainer since 2022. I was on track for a doctorate in physical therapy but left — I didn't want to spend the rest of my life handing people exercise printouts in a sterile clinic that I knew they'd never follow. My way into movement was elite athletics as a kid, but theatre school gave me my first adult taste of movement as joy, expression, and play. Since then I've worked normies and athletes, and one-on-one to help people out of chronic pain. These days I work mostly with meditators — people who already know transformation is possible, and want to extend that possibility into their bodies.</p>
+          <p>For those who love a list of modalities, here are some of my biggest influences: mainstream exercise science (TM), Feldenkrais, Alexander, Fighting Monkey Practice, Ido Portal, Vajrayana, dance. I've spent most of the last ten years immersed in these modalities; it's been a joy to shift my focus to teaching them.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="s08">
+      <p class="eyebrow">08 &middot; Good to know</p>
+      <h2>Frequently asked</h2>
+      <div class="faq">
+        <details open><summary>Is this remote?</summary><div class="ans">Yes — over video. You'll need a bit of space and a camera.</div></details>
+        <details><summary>How often would we meet?</summary><div class="ans">We set a cadence that fits your life. The usual standard is at least one session per week. You commit to three months of work at the outset, so we have enough time to see real progress.</div></details>
+        <details><summary>What will we actually do?</summary><div class="ans">Depends entirely on you — strength, mobility, somatics, therapeutic work, general fitness, or a blend.</div></details>
+        <details><summary>What does it cost?</summary><div class="ans">$125 per session.</div></details>
+        <details><summary>Do I need to be fit, flexible, or experienced?</summary><div class="ans">No. You need willingness to be an active participant and to “learn to fish.”</div></details>
+      </div>
+    </section>
+
+    <!-- START HERE -->
+    <section class="final" id="start">
+      <div class="final-panel">
+        <p class="eyebrow" style="margin-bottom:.9rem;">&rarr; Start here</p>
+        <h2>Start with a free call</h2>
+        <p>A free 30-minute conversation about what you want from a movement practice — no pressure to sign up for anything.</p>
+        <a class="btn" href="https://cal.com/tannerholman/pt-for-meditators-1-1" target="_blank" rel="noopener">Book a free call</a>
+      </div>
+    </section>
+
+    <footer>
+      <span>Personal Training for Meditators</span>
+      <span>Tanner Holman &middot; <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email</button> &middot; <a href="https://substack.com/@sniffthis" target="_blank" rel="noopener">Substack</a></span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  // Wordmark always returns to the very top of the page (not the #top container, which sits under the sticky header).
+  var wm = document.querySelector('.wordmark');
+  if(wm){ wm.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); }); }
+  // Footer email: copy to clipboard with a brief confirmation.
+  var ce = document.querySelector('.copy-email');
+  if(ce){
+    ce.addEventListener('click', function(){
+      var email = ce.getAttribute('data-email');
+      function done(){
+        if(ce.dataset.busy) return;
+        ce.dataset.busy = '1';
+        ce.textContent = 'Copied \u2713';
+        ce.classList.add('copied');
+        setTimeout(function(){ ce.textContent = 'Email'; ce.classList.remove('copied'); ce.dataset.busy=''; }, 1600);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(email).then(done, done);
+      } else {
+        var t=document.createElement('textarea'); t.value=email; t.style.position='fixed'; t.style.opacity='0';
+        document.body.appendChild(t); t.select();
+        try{document.execCommand('copy');}catch(e){}
+        document.body.removeChild(t); done();
+      }
+    });
+  }
+  var rail = document.querySelector('.rail nav');
+  if(!rail) return;
+  var links = [].slice.call(rail.querySelectorAll('a[href^="#"]'));
+  var byId = {}, sections = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(el){ byId[id] = a; sections.push(el); }
+  });
+  function activate(id){
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(byId[id]) byId[id].classList.add('active');
+  }
+  // Clicking a contents item makes it active immediately; briefly lock the
+  // scroll-spy so it doesn't override the click while the page jumps.
+  var lockUntil = 0;
+  links.forEach(function(a){
+    a.addEventListener('click', function(){
+      activate(a.getAttribute('href').slice(1));
+      lockUntil = Date.now() + 700;
+    });
+  });
+  // Active = the last section whose top has crossed 35% down the viewport.
+  function spy(){
+    if(Date.now() < lockUntil) return;
+    var marker = window.innerHeight * 0.35;
+    var current = null; // nothing highlighted while still in the hero zone
+    for(var i=0;i<sections.length;i++){
+      if(sections[i].getBoundingClientRect().top <= marker) current = sections[i];
+    }
+    if(window.innerHeight + window.scrollY >= document.body.scrollHeight - 2){
+      current = sections[sections.length-1];
+    }
+    if(current){ activate(current.id); }
+    else { links.forEach(function(a){ a.classList.remove('active'); }); }
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(function(){ spy(); ticking=false; }); ticking=true; }
+  }, {passive:true});
+  spy();
+})();
+</script>
+
+</body>
+</html>

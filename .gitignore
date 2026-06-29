@@ -1,0 +1,6 @@
+# internal working files — not part of the published site
+*.md
+index-leftrail.html
+index-topbar.html
+.DS_Store
+logos/_tmp.png
