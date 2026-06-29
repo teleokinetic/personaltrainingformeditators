@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  html,body{margin:0;padding:0;background:#111;}
+  #frame{border:0;display:block;background:#29251F;}
+  #w{font-family:monospace;color:#aaa;font-size:11px;padding:4px 6px;}
+</style>
+</head>
+<body>
+<div id="w"></div>
+<iframe id="frame" src="index-leftrail.html"></iframe>
+<script>
+  const params = new URLSearchParams(location.search);
+  const width = parseInt(params.get('w') || '390', 10);
+  const f = document.getElementById('frame');
+  f.style.width = width + 'px';
+  document.getElementById('w').textContent = 'viewport width = ' + width + 'px';
+  f.addEventListener('load', function(){
+    function fit(){
+      try{
+        const doc = f.contentDocument;
+        const h = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight);
+        f.style.height = h + 'px';
+      }catch(e){}
+    }
+    fit();
+    setTimeout(fit, 400);
+    setTimeout(fit, 1200);
+  });
+</script>
+</body>
+</html>
