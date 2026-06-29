@@ -222,6 +222,12 @@
     .hero h1{font-size:2.1rem;}
     .hero{padding-bottom:2.4rem;}
 
+    /* Lead with the video so the title isn't repeated right under the wordmark */
+    .hero .videobox{order:-1; margin-bottom:.4rem;}
+    /* The sticky bar already covers booking — drop the redundant inline hero button */
+    .hero .btn{display:none;}
+    .hero .sub{margin-bottom:0;}
+
     /* Section 03 cards were still 2-up and badly cramped — stack them */
     .dogrid{grid-template-columns:1fr; gap:1rem;}
 
