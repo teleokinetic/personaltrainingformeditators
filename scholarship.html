@@ -182,7 +182,7 @@
     <p class="lede">Glad you&rsquo;re here. I hold a number of reduced-rate spots for students, academics, non-profit staff, people between jobs, and folks doing impact-driven work. Tell me about your situation and I&rsquo;ll get back to you with next steps.</p>
   </div>
 
-  <form id="scholarship-form" action="https://formsubmit.co/tannerholman97@gmail.com" method="POST">
+  <form id="scholarship-form" action="https://formsubmit.co/e5140376f99018c5113aaaa81b550434" method="POST">
     <input type="hidden" name="_subject" value="PTFM scholarship application">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
@@ -325,15 +325,17 @@
     error.classList.remove('show');
     var btn = form.querySelector('button[type=submit]');
     btn.disabled = true; btn.textContent = 'Sending…';
-    fetch('https://formsubmit.co/ajax/tannerholman97@gmail.com', {
+    fetch('https://formsubmit.co/ajax/e5140376f99018c5113aaaa81b550434', {
       method:'POST',
       headers:{'Accept':'application/json'},
       body:new FormData(form)
     }).then(function(r){
       if(!r.ok) throw new Error('HTTP '+r.status);
       return r.json();
-    }).then(function(){
-      showSuccess();
+    }).then(function(d){
+      // FormSubmit reports success as the string "true"; anything else is a failed relay.
+      if(d && (d.success === 'true' || d.success === true)){ showSuccess(); }
+      else { throw new Error(d && d.message); }
     }).catch(function(){
       btn.disabled = false; btn.textContent = 'Submit application';
       error.classList.add('show');
