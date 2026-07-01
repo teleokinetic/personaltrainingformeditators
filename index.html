@@ -194,8 +194,19 @@
   .tcard blockquote{margin:0; font-style:italic; color:var(--soft); font-size:.97rem; line-height:1.55;}
   img.avatar{object-fit:cover; display:block;}
 
+  /* ---------- Pricing: two open columns ---------- */
+  .price-lede{margin:0 0 2.2rem; color:var(--soft); max-width:60ch;}
+  .pricing{display:grid; grid-template-columns:1fr 1fr; gap:0;}
+  .plan{padding:0 2.2rem 0 0;}
+  .plan + .plan{border-left:1px solid var(--rule); padding:0 0 0 2.2rem;}
+  .plan-label{font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 .7rem;}
+  .plan-price{font-family:"Newsreader",serif; font-size:2.3rem; line-height:1; color:var(--head); margin:0 0 .6rem;}
+  .plan-price .per{font-size:1.1rem; color:var(--soft);}
+  .plan-meta{margin:0; color:var(--soft); font-size:.98rem; line-height:1.55;}
+  .price-note{font-family:"Source Sans 3",sans-serif; font-size:.9rem; color:var(--muted); margin:1.6rem 0 0;}
+
   /* ---------- Access: two open columns ---------- */
-  .access{display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:2.4rem;}
+  .access{display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:2.4rem; border-top:1px solid var(--rule); padding-top:2.4rem;}
   .acard{padding:0 2.2rem 0 0;}
   .acard + .acard{border-left:1px solid var(--rule); padding:0 0 0 2.2rem;}
   .acard h3{font-family:"Source Sans 3",sans-serif; font-size:1.02rem; font-weight:700; color:var(--text); margin:0 0 .55rem;}
@@ -248,11 +259,13 @@
     .rail{display:none;}
     .hero{grid-template-columns:1fr; gap:1rem;}
     .breath{max-width:260px;}
-    .cols,.access{grid-template-columns:1fr; gap:0;}
+    .cols,.access,.pricing{grid-template-columns:1fr; gap:0;}
     .cols > div{padding:0 0 1.8rem;}
     .cols > div + div{border-left:0; border-top:1px solid var(--rule); padding:1.8rem 0 0;}
     .access .acard{padding:0 0 1.8rem;}
     .access .acard + .acard{border-left:0; border-top:1px solid var(--rule); padding:1.8rem 0 0;}
+    .plan{padding:0 0 1.8rem;}
+    .plan + .plan{border-left:0; border-top:1px solid var(--rule); padding:1.8rem 0 0;}
     .dogrid{grid-template-columns:1fr;}
     .docard{padding:1.5rem 0;}
     .docard:nth-child(odd){border-right:0; padding-left:0;}
@@ -333,7 +346,7 @@
       <a href="#s03"><span class="num">03</span>What we do</a>
       <a href="#s04"><span class="num">04</span>A typical session</a>
       <a href="#s05"><span class="num">05</span>What clients say</a>
-      <a href="#s06"><span class="num">06</span>Making it affordable</a>
+      <a href="#s06"><span class="num">06</span>Cost &amp; coverage</a>
       <a href="#s07"><span class="num">07</span>Meet Tanner</a>
       <a href="#s08"><span class="num">08</span>FAQ</a>
     </nav>
@@ -492,7 +505,21 @@
     <!-- ACCESS -->
     <section class="section" id="s06">
       <p class="eyebrow">06 &middot; Money stuff</p>
-      <h2>Making it affordable</h2>
+      <h2>Cost &amp; coverage</h2>
+      <p class="price-lede">Training starts with a three-month commitment &mdash; weekly sessions. Two ways to pay for it:</p>
+      <div class="pricing">
+        <div class="plan">
+          <p class="plan-label">Three months</p>
+          <p class="plan-price">$1,800</p>
+          <p class="plan-meta">paid once &middot; 12 weekly sessions &middot; $150 per session</p>
+        </div>
+        <div class="plan">
+          <p class="plan-label">Monthly</p>
+          <p class="plan-price">$700<span class="per">/month</span></p>
+          <p class="plan-meta">4 sessions a month &middot; $175 per session</p>
+        </div>
+      </div>
+      <p class="price-note">Paying upfront saves $300 over the three months.</p>
       <div class="access">
         <div class="acard">
           <h3>Your company may cover this</h3>
@@ -530,7 +557,7 @@
         <details><summary>How often would we meet?</summary><div class="ans">We set a cadence that fits your life. The usual standard is at least one session per week. You commit to three months of work at the outset, so we have enough time to see real progress.</div></details>
         <details><summary>What will we actually do?</summary><div class="ans">Depends entirely on you &mdash; strength, mobility, somatics, therapeutic work, general fitness, or a blend.</div></details>
         <details><summary>How is this different from regular personal training?</summary><div class="ans">A typical trainer programs your body and keeps you accountable. Here, attention is half the work: we train how you experience movement, not just what you can do &mdash; and the aim is a practice you'll eventually author yourself, not a routine you comply with.</div></details>
-        <details><summary>What does it cost?</summary><div class="ans">$125 per session.</div></details>
+        <details><summary>What does it cost?</summary><div class="ans">$1,800 for the three months, paid upfront &mdash; or $700 a month. That&rsquo;s $150 vs. $175 per session. If cost is a barrier, scholarship and reimbursement options are under <a href="#s06">Cost &amp; coverage</a>.</div></details>
         <details><summary>Do I need to be fit, flexible, or experienced?</summary><div class="ans">No. You need willingness to be an active participant and to &ldquo;learn to fish.&rdquo;</div></details>
         <details><summary>Do I need to be a serious meditator?</summary><div class="ans">No. If you have some kind of contemplative practice &mdash; even a wobbly one &mdash; you'll be at home here. What matters is that you're interested in approaching movement this way.</div></details>
       </div>
