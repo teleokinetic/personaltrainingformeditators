@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Training Covered at Work &middot; Personal Training for Meditators</title>
+<meta name="description" content="How to get one-on-one training covered by your employer: the budgets it fits, an email template for your manager, and the documentation I provide.">
+<meta property="og:title" content="Your company may cover this.">
+<meta property="og:description" content="The budgets it fits, an email template for your manager, and the documentation I provide.">
+<meta property="og:image" content="https://personaltrainingformeditators.com/og.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="Personal Training for Meditators — one-on-one training designed as an extension of your meditation practice.">
+<meta property="og:url" content="https://personaltrainingformeditators.com/reimbursement/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#29251F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23E6A368' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#29251F; --raised:#322D26; --raised-2:#3A342C;
+    --text:#F2ECE1; --head:#EDE3D2; --soft:#D9CFC0; --muted:#A99C88;
+    --accent:#E6A368; --accent-bright:#F0B988; --visited:#F0B988;
+    --rule:#443D33; --rule-strong:#5A5248; --ink:#2A2014;
+    --maxw:46rem;
+  }
+  *{box-sizing:border-box;}
+  html,body{background:var(--bg);}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; color:var(--text);
+    font-family:"Source Serif 4",serif; font-size:1.08rem; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent); color:var(--ink);}
+  a{color:var(--accent); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.22rem;}
+  a:visited{color:var(--visited);}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between; gap:2rem;
+    padding:1.1rem 3rem;
+    background:rgba(41,37,31,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+    position:sticky; top:0; z-index:20;
+  }
+  .wordmark{font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:1.2rem; color:var(--text); text-decoration:none;}
+  .wordmark:visited{color:var(--text);} .wordmark .accent, .wordmark:visited .accent{color:var(--accent);}
+  .nav-cta{font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.86rem; letter-spacing:.02em; color:var(--ink); background:var(--accent); padding:.6rem 1.35rem; border-radius:999px; text-decoration:none; white-space:nowrap; transition:background .15s ease, transform .15s ease;}
+  .nav-cta:visited{color:var(--ink);}
+  .nav-cta:hover{background:var(--accent-bright); transform:translateY(-1px);}
+
+  /* ---------- Single centered column ---------- */
+  .container{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:3rem 3rem 5rem;
+  }
+  .content{min-width:0;}
+  .section{padding:4.2rem 0;}
+  .content > section:first-child{padding-top:1rem;}
+  .section + .section{border-top:1px solid var(--rule);}
+
+  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 1.5rem;}
+
+  h1,h2{font-family:"Newsreader",serif; font-weight:400; letter-spacing:.005em; text-wrap:balance; color:var(--head);}
+  h1{font-size:2.95rem; line-height:1.1; margin:0 0 1.3rem;}
+  h2{font-size:2.15rem; line-height:1.12; margin:0 0 1.1rem;}
+  h1 em, h2 em{font-style:italic; font-weight:400;}
+  p{margin:0 0 1.2rem; text-wrap:pretty;}
+  .lede{font-size:1.15rem; color:var(--text);}
+  strong{font-weight:600; color:var(--text);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:1.6rem; padding-bottom:4.2rem;}
+  .hero .sub{font-size:1.14rem; color:var(--soft); margin-bottom:0; max-width:36rem;}
+  .hero > *{animation:rise .7s cubic-bezier(.2,.6,.2,1) both;}
+  .hero > *:nth-child(2){animation-delay:.08s;}
+  .hero > *:nth-child(3){animation-delay:.16s;}
+  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+
+  .btn{display:inline-block; font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.98rem; letter-spacing:.01em; color:var(--ink); background:var(--accent); padding:.85rem 1.9rem; border-radius:999px; text-decoration:none; transition:background .15s ease, transform .15s ease;}
+  .btn:visited{color:var(--ink);}
+  .btn:hover{background:var(--accent-bright); transform:translateY(-1px);}
+
+  /* ---------- Budget categories ---------- */
+  .feat{list-style:none; margin:2.2rem 0 0; padding:0;}
+  .feat li{margin:0 0 1.35rem; line-height:1.55; font-size:1.02rem;}
+  .feat li b{color:var(--text);}
+  .feat li span{color:var(--muted);}
+  .fine-note{font-family:"Source Sans 3",sans-serif; font-size:.9rem; color:var(--muted); margin:2rem 0 0;}
+
+  /* ---------- The letter (kept as a card: an artifact) ---------- */
+  .letter{background:var(--raised); border:1px solid var(--rule); border-radius:8px; padding:1.7rem 1.9rem; margin-top:2.2rem;}
+  .letter .subject{font-family:"IBM Plex Mono",monospace; font-size:.82rem; color:var(--muted); margin:0 0 1.3rem; padding-bottom:1.1rem; border-bottom:1px solid var(--rule);}
+  .letter .subject b{color:var(--text); font-weight:500;}
+  .letter p{color:var(--soft); font-size:1rem; line-height:1.65;}
+  .letter p:last-child{margin-bottom:0;}
+  .letter .ph{font-style:italic; color:var(--head); border-bottom:1px dashed var(--rule-strong);}
+  .letter-actions{margin-top:1.1rem; display:flex; align-items:center; gap:1rem;}
+  .btn-ghost{
+    font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:.9rem; letter-spacing:.01em;
+    color:var(--accent); background:none; border:1px solid var(--rule-strong); border-radius:999px;
+    padding:.55rem 1.3rem; cursor:pointer;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent-bright);}
+  .btn-ghost.copied{color:var(--accent); border-color:var(--accent);}
+
+  /* ---------- FAQ ---------- */
+  .faq{margin-top:1.8rem; border-top:1px solid var(--rule);}
+  .faq details{border-bottom:1px solid var(--rule);}
+  .faq summary{cursor:pointer; list-style:none; padding:1.05rem 0; font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:1.05rem; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:1rem;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+"; font-family:"IBM Plex Mono",monospace; color:var(--muted); font-size:1.3rem; font-weight:400; transition:color .15s ease;}
+  .faq details[open] summary::after{content:"\2013"; color:var(--accent);}
+  .faq summary:hover::after{color:var(--accent);}
+  .faq .ans{padding:0 0 1.15rem; color:var(--soft); font-size:1.02rem;}
+
+  /* ---------- Final CTA ---------- */
+  .final{padding:5rem 0 1.5rem; text-align:center; border-top:1px solid var(--rule);}
+  .final .breath{max-width:120px; margin-bottom:2rem;}
+  .final h2{font-size:2.6rem; margin-bottom:1.6rem;}
+  .final p{color:var(--soft); max-width:30rem; margin:0 auto 2.2rem;}
+  .final .aside-line{font-size:.9rem; color:var(--muted); max-width:30rem; margin:1.3rem auto 0;}
+  .final .aside-line .copy-email{color:var(--accent);}
+  .final .aside-line .copy-email:hover{color:var(--accent-bright);}
+
+  /* Signature: the breath */
+  .breath{position:relative; width:100%; aspect-ratio:1; max-width:330px; margin:0 auto;}
+  .breath .ring{position:absolute; border-radius:50%;}
+  .breath .r1{inset:8%;  border:1px solid rgba(242,236,225,.26); animation:breathe 8s ease-in-out infinite;}
+  .breath .r2{inset:19%; border:1px solid rgba(230,163,104,.58); animation:breathe-in 8s ease-in-out infinite;}
+  @keyframes breathe{0%,100%{transform:scale(.94);} 50%{transform:scale(1.05);}}
+  @keyframes breathe-in{0%,100%{transform:scale(1.04);} 50%{transform:scale(.93);}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .breath .ring{animation:none;}
+    .hero > *{animation:none;}
+    .btn:hover,.nav-cta:hover{transform:none;}
+  }
+
+  footer{border-top:1px solid var(--rule); margin-top:3.5rem; padding-top:1.8rem; display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted);}
+  footer a{color:var(--muted);}
+  .copy-email{background:none; border:0; padding:0; margin:0; font:inherit; color:var(--muted); cursor:pointer; text-decoration:underline; text-underline-offset:.2rem;}
+  .copy-email:hover{color:var(--soft);}
+  .copy-email.copied{color:var(--accent); text-decoration:none;}
+
+  @media (max-width:980px){
+    .topbar{padding:1rem 1.4rem;}
+    .container{padding:2rem 1.4rem 3rem;}
+    h1{font-size:2.7rem;} h2{font-size:1.8rem;}
+    .final h2{font-size:2.1rem;}
+  }
+
+  @media (max-width:600px){
+    .topbar{padding:.85rem 1.2rem;}
+    .wordmark{font-size:1.1rem;}
+    .nav-cta{font-size:.8rem; padding:.5rem 1.1rem;}
+    .container{padding:1.2rem 1.2rem 2.4rem;}
+    .section{padding:3rem 0;}
+    h1{font-size:2.35rem;} h2{font-size:1.6rem;}
+    .lede{font-size:1.08rem;}
+    .hero{padding-top:2.6rem; padding-bottom:2.6rem;}
+    .letter{padding:1.3rem 1.2rem;}
+    .final{padding:3.6rem 0 1rem;}
+    .final .breath{max-width:96px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="/">Personal Training <span class="accent">for Meditators</span></a>
+  <a class="nav-cta" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
+</header>
+
+<div class="container">
+  <div class="content">
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="eyebrow">Cost &amp; coverage &middot; reimbursement</p>
+      <h1>Your company may<br><em>cover this</em>.</h1>
+      <p class="sub">Many companies cover one-on-one training through wellness, learning &amp; development, or professional development budgets. This page gives you the language and the paperwork details to make the ask easy.</p>
+    </section>
+
+    <!-- WHERE IT FITS -->
+    <section class="section" id="budgets">
+      <p class="eyebrow">Where it fits</p>
+      <h2>Use a budget that already exists</h2>
+      <p class="lede">Companies rarely have a &ldquo;personal training&rdquo; line item &mdash; but most set money aside for employee wellbeing and growth. Training with me commonly fits under:</p>
+      <ul class="feat">
+        <li><b>Wellness or fitness stipend</b> <span>&mdash; the most direct fit. This is personal training: strength, mobility, and a sustainable exercise practice.</span></li>
+        <li><b>Learning &amp; development</b> <span>&mdash; the aim here is learning to fish. You leave with a durable skill &mdash; training yourself &mdash; not a routine you rent.</span></li>
+        <li><b>Coaching or professional development</b> <span>&mdash; one-on-one coaching that builds the capacity underneath your work: energy, focus, stress regulation.</span></li>
+      </ul>
+      <p class="fine-note">If your company runs its stipend through a platform (Forma, Compt, Benepass, and the like), you may not need to ask anyone &mdash; just submit the receipt.</p>
+    </section>
+
+    <!-- THE ASK -->
+    <section class="section" id="ask">
+      <p class="eyebrow">The ask</p>
+      <h2>Send your manager a short note</h2>
+      <p class="lede">Fill in the brackets &mdash; your manager's name, the budget your company uses, and what you want from training &mdash; and send it.</p>
+      <div class="letter" id="letter">
+        <p class="subject">Subject: <b>Budget for personal training?</b></p>
+        <p>Hi <span class="ph">[manager's name]</span>,</p>
+        <p>I'd like to use my <span class="ph">[wellness / L&amp;D / professional development]</span> budget for one-on-one personal training with Personal Training for Meditators (personaltrainingformeditators.com).</p>
+        <p>It's weekly training over video &mdash; strength, mobility, and posture work with a strong focus on attention, so it supports stress regulation and steady energy at work, not just fitness. I'd use it for <span class="ph">[what you want &mdash; e.g., building an exercise practice I'll actually keep, undoing desk-work stiffness, more energy through the week]</span>.</p>
+        <p>Would it be okay to submit this for reimbursement? They provide itemized receipts and invoices, and can also bill the company directly.</p>
+        <p>Thanks,<br><span class="ph">[your name]</span></p>
+      </div>
+      <div class="letter-actions">
+        <button type="button" class="btn-ghost" id="copy-letter">Copy this template</button>
+      </div>
+    </section>
+
+    <!-- PAPERWORK -->
+    <section class="section" id="paperwork">
+      <p class="eyebrow">Paperwork</p>
+      <h2>Receipts, invoices, direct billing</h2>
+      <p>I provide itemized receipts and invoices &mdash; service description, session dates, amount, and business details &mdash; in whatever form your finance or HR team needs.</p>
+      <p>If reimbursement isn't the right path, I can bill your company directly. Point me to a manager, HR partner, or finance contact and we'll set it up.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <p class="eyebrow">Good to know</p>
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details><summary>Which budget should I name?</summary><div class="ans">Whichever your company already has. Wellness and fitness stipends are the most common route; learning &amp; development, professional development, and coaching budgets also work. Use the name your company uses.</div></details>
+        <details><summary>Can my company pay you directly?</summary><div class="ans">Yes. I can invoice a manager, HR partner, or finance contact directly &mdash; no reimbursement round-trip needed.</div></details>
+        <details><summary>What documentation do I get?</summary><div class="ans">An itemized receipt or invoice: service description, session dates, amount, and my business details. If your finance team has a specific form or format, I'm happy to work with it.</div></details>
+        <details><summary>Will my employer see what we work on?</summary><div class="ans">No. Your company gets billing paperwork, not session notes. What you share about your training is entirely up to you.</div></details>
+        <details><summary>Can I use an HSA or FSA?</summary><div class="ans">Usually not. Personal training generally isn't HSA/FSA-eligible without a doctor's letter of medical necessity. The budgets above are the more reliable route.</div></details>
+        <details><summary>What if my company says no?</summary><div class="ans">Ask me about scholarships &mdash; I offer reduced-rate sessions for students, academics, non-profit staff, and people between jobs. Tell me about your situation and we'll work it out. Details under <a href="/#s06">Cost &amp; coverage</a>.</div></details>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final" id="start">
+      <div class="breath" aria-hidden="true">
+        <span class="ring r1"></span>
+        <span class="ring r2"></span>
+      </div>
+      <h2>Covered or not &mdash;<br>start with a free call</h2>
+      <p>You don't need your company's answer before we talk. Book the intro call, and I'll help you make the ask afterward &mdash; including anything your finance team needs.</p>
+      <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
+      <p class="aside-line">Questions about receipts, invoices, or direct billing? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button>.</p>
+    </section>
+
+    <footer>
+      <span><a href="/">Personal Training for Meditators</a></span>
+      <span>Tanner Holman &middot; <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email</button> &middot; <a href="https://substack.com/@sniffthis" target="_blank" rel="noopener">Substack</a></span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  // Copy the email template as plain text (brackets included).
+  var btn = document.getElementById('copy-letter');
+  var letter = document.getElementById('letter');
+  function flash(el, label){
+    if(el.dataset.busy) return;
+    el.dataset.busy = '1';
+    var prev = el.textContent;
+    el.textContent = label;
+    el.classList.add('copied');
+    setTimeout(function(){ el.textContent = prev; el.classList.remove('copied'); el.dataset.busy=''; }, 1600);
+  }
+  function copyText(text, el, label){
+    function done(){ flash(el, label); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var t=document.createElement('textarea'); t.value=text; t.style.position='fixed'; t.style.opacity='0';
+      document.body.appendChild(t); t.select();
+      try{document.execCommand('copy');}catch(e){}
+      document.body.removeChild(t); done();
+    }
+  }
+  if(btn && letter){
+    btn.addEventListener('click', function(){
+      var text = [].map.call(letter.querySelectorAll('p'), function(p){ return p.innerText; }).join('\n\n');
+      copyText(text, btn, 'Copied ✓');
+    });
+  }
+  // Email: copy to clipboard with a brief confirmation.
+  document.querySelectorAll('.copy-email').forEach(function(ce){
+    ce.addEventListener('click', function(){
+      copyText(ce.getAttribute('data-email'), ce, 'Copied ✓');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
