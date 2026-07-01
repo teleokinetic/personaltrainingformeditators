@@ -215,8 +215,15 @@
   /* ---------- Final CTA: open air, ring revisited ---------- */
   .final{padding:5rem 0 1.5rem; text-align:center; border-top:1px solid var(--rule);}
   .final .breath{max-width:120px; margin-bottom:2rem;}
-  .final h2{font-size:2.6rem; margin-bottom:.8rem;}
+  .final h2{font-size:2.6rem; margin-bottom:1.6rem;}
   .final p{color:var(--soft); max-width:30rem; margin:0 auto 2.2rem;}
+  .final .steps{list-style:none; margin:0 auto 2.4rem; padding:0; max-width:33rem; text-align:left; display:flex; flex-direction:column; gap:.85rem;}
+  .final .steps li{display:flex; gap:1rem; align-items:baseline; line-height:1.5;}
+  .final .steps .step-num{flex:0 0 1.1rem; font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--accent);}
+  .final .steps .step-what{color:var(--soft); font-size:1rem;}
+  .final .aside-line{font-size:.9rem; color:var(--muted); max-width:30rem; margin:1.3rem auto 0;}
+  .final .aside-line .copy-email{color:var(--accent);}
+  .final .aside-line .copy-email:hover{color:var(--accent-bright);}
 
   footer{border-top:1px solid var(--rule); margin-top:3.5rem; padding-top:1.8rem; display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted);}
   footer a{color:var(--muted);}
@@ -433,7 +440,7 @@
           <p class="frame">A meditator who learned to dread exertion after a lifetime of unpleasant exercise.</p>
           <ul class="tl">
             <li><span class="time">0&ndash;10</span><span class="what">Check-in</span></li>
-            <li><span class="time">10&ndash;40</span><span class="what">Listening for pleasurable sensation in exertion &mdash; guided meditation + workout</span></li>
+            <li><span class="time">10&ndash;40</span><span class="what">Listening for pleasurable sensation in exertion &mdash; a guided meditation woven through her workout</span></li>
             <li><span class="time">40&ndash;60</span><span class="what">Learning to explore movement sensorially instead of a dry mechanical routine</span></li>
           </ul>
         </div>
@@ -500,7 +507,7 @@
       <div class="bio">
         <img class="portrait" src="headshots/tanner.jpg" alt="Tanner Holman">
         <div>
-          <p>Certified personal trainer since 2022. I was on track for a doctorate in physical therapy but left &mdash; I didn't want to spend the rest of my life handing people exercise printouts in a sterile clinic that I knew they'd never follow. My way into movement was elite athletics as a kid, but theatre school gave me my first adult taste of movement as joy, expression, and play. Since then I've worked with normies and athletes, and one-on-one to help people out of chronic pain. These days I work mostly with meditators &mdash; people who already know transformation is possible, and want to extend that possibility into their bodies.</p>
+          <p>Certified personal trainer since 2022. I was on track for a doctorate in physical therapy but left &mdash; I didn't want to spend the rest of my life handing people exercise printouts in a sterile clinic that I knew they'd never follow. My way into movement was elite athletics as a kid, but theatre school gave me my first adult taste of movement as joy, expression, and play. Since then I've worked with normies and athletes, and one-on-one to help people out of chronic pain. This work grew out of my own practice: for years my meditation stayed heady and uncomfortable &mdash; no grip, no hold &mdash; until I learned to find openness and enjoyment in the body. These days I work mostly with meditators &mdash; people who already know transformation is possible, and want to extend that possibility into their bodies.</p>
           <p>For those who love a list of modalities, here are some of my biggest influences: mainstream exercise science&trade;, Feldenkrais, Alexander, Fighting Monkey Practice, Ido Portal, Vajrayana, dance. I've spent most of the last ten years immersed in these modalities; it's been a joy to shift my focus to teaching them.</p>
         </div>
       </div>
@@ -529,8 +536,13 @@
         <span class="ring r2"></span>
       </div>
       <h2>Start with a free call</h2>
-      <p>A free 30-minute conversation about what you want from a movement practice &mdash; no pressure to sign up for anything.</p>
+      <ol class="steps">
+        <li><span class="step-num">1</span><span class="step-what">A free 30-minute call &mdash; what do you want from a movement practice, and do we fit?</span></li>
+        <li><span class="step-num">2</span><span class="step-what">If we're both a yes: a three-month container &mdash; weekly sessions, enough time for real change.</span></li>
+        <li><span class="step-num">3</span><span class="step-what">A practice that becomes yours &mdash; delight in being a body, on and off the cushion, and the skill to grow it yourself.</span></li>
+      </ol>
       <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
+      <p class="aside-line">No pressure to sign up for anything. Prefer to write first? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button>.</p>
     </section>
 
     <footer>
@@ -552,16 +564,15 @@
   var wm = document.querySelector('.wordmark');
   if(wm){ wm.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); }); }
   // Footer email: copy to clipboard with a brief confirmation.
-  var ce = document.querySelector('.copy-email');
-  if(ce){
+  document.querySelectorAll('.copy-email').forEach(function(ce){
     ce.addEventListener('click', function(){
-      var email = ce.getAttribute('data-email');
+      var email = ce.getAttribute('data-email'), label = ce.textContent;
       function done(){
         if(ce.dataset.busy) return;
         ce.dataset.busy = '1';
         ce.textContent = 'Copied ✓';
         ce.classList.add('copied');
-        setTimeout(function(){ ce.textContent = 'Email'; ce.classList.remove('copied'); ce.dataset.busy=''; }, 1600);
+        setTimeout(function(){ ce.textContent = label; ce.classList.remove('copied'); ce.dataset.busy=''; }, 1600);
       }
       if(navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(email).then(done, done);
@@ -572,7 +583,7 @@
         document.body.removeChild(t); done();
       }
     });
-  }
+  });
   var rail = document.querySelector('.rail nav');
   if(!rail) return;
   var links = [].slice.call(rail.querySelectorAll('a[href^="#"]'));
