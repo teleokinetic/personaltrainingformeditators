@@ -323,6 +323,9 @@
   form.addEventListener('submit', function(e){
     e.preventDefault();
     error.classList.remove('show');
+    // Per-applicant subject keeps every application in its own Gmail thread.
+    var who = form.querySelector('#f-name').value.trim();
+    if(who){ form.querySelector('[name="_subject"]').value = 'PTFM scholarship application — ' + who; }
     var btn = form.querySelector('button[type=submit]');
     btn.disabled = true; btn.textContent = 'Sending…';
     fetch('https://formsubmit.co/ajax/e5140376f99018c5113aaaa81b550434', {
