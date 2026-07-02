@@ -23,6 +23,7 @@
     --text:#F2ECE1; --head:#EDE3D2; --soft:#D9CFC0; --muted:#A99C88;
     --accent:#E6A368; --accent-bright:#F0B988; --visited:#F0B988;
     --rule:#443D33; --rule-strong:#5A5248; --ink:#2A2014;
+    --control:#877B6C; --control-bright:#9E907E;
     --maxw:34rem;
   }
   *{box-sizing:border-box;}
@@ -75,14 +76,14 @@
 
   input[type="text"],input[type="email"],textarea{
     display:block; width:100%;
-    background:var(--raised); border:1px solid var(--rule); border-radius:8px;
+    background:var(--raised); border:1px solid var(--control); border-radius:8px;
     color:var(--text); caret-color:var(--accent);
     font-family:"Source Serif 4",serif; font-size:1.02rem; line-height:1.55;
     padding:.7rem .95rem;
     transition:border-color .15s ease;
   }
   input::placeholder,textarea::placeholder{color:var(--muted); opacity:.75;}
-  input:hover,textarea:hover{border-color:var(--rule-strong);}
+  input:hover,textarea:hover{border-color:var(--control-bright);}
   input:focus-visible,textarea:focus-visible{outline:none; border-color:var(--accent);}
   textarea{resize:vertical; min-height:7.5rem;}
 
@@ -100,7 +101,7 @@
   .choice input{position:absolute; opacity:0; pointer-events:none;}
   .choice .dot{
     flex:0 0 1.05rem; width:1.05rem; height:1.05rem; border-radius:50%;
-    border:1px solid var(--rule-strong); position:relative; top:.14rem;
+    border:1px solid var(--control); position:relative; top:.14rem;
     transition:border-color .15s ease;
   }
   .choice .dot::after{
@@ -135,6 +136,10 @@
   /* ---------- Success state ---------- */
   .success{display:none; text-align:center; padding:3.2rem 0 1rem;}
   .success.show{display:block; animation:rise .7s cubic-bezier(.2,.6,.2,1) both;}
+  /* No-JS fallback: FormSubmit redirects to #form-success, :target reveals it. */
+  .success:target{display:block; animation:rise .7s cubic-bezier(.2,.6,.2,1) both;}
+  body:has(.success:target) .page-head, body:has(.success:target) form{display:none;}
+  .success h2:focus{outline:none;}
   .success .breath{max-width:120px; margin-bottom:2rem;}
   .success p{color:var(--soft); max-width:26rem; margin:0 auto 1.2rem;}
 
@@ -155,7 +160,7 @@
 
   @media (prefers-reduced-motion: reduce){
     .breath .ring{animation:none;}
-    .page-head,form,.success.show{animation:none;}
+    .page-head,form,.success.show,.success:target{animation:none;}
     .btn:hover{transform:none;}
   }
 
@@ -186,7 +191,7 @@
     <input type="hidden" name="_subject" value="PTFM scholarship application">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://personaltrainingformeditators.com/scholarship?sent=1">
+    <input type="hidden" name="_next" value="https://personaltrainingformeditators.com/scholarship#form-success">
     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
     <div class="field">
@@ -260,7 +265,7 @@
 
     <div class="form-actions">
       <button class="btn" type="submit">Submit application</button>
-      <p class="form-error" id="form-error">Something didn&rsquo;t go through. Try again in a moment &mdash; or just <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">email me</button> directly.</p>
+      <p class="form-error" id="form-error" role="alert">Something didn&rsquo;t go through. Try again in a moment &mdash; or just <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">email me</button> directly.</p>
       <p class="aside-line">Prefer to skip the form? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button> instead.</p>
     </div>
   </form>
@@ -270,7 +275,7 @@
       <span class="ring r1"></span>
       <span class="ring r2"></span>
     </div>
-    <h2>Thanks for applying.</h2>
+    <h2 id="success-title" tabindex="-1">Thanks for applying.</h2>
     <p>Your application is in. I&rsquo;ll get back to you by email within a couple of days.</p>
     <p class="aside-line">In the meantime, feel free to <a href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">book a free intro call</a>.</p>
   </div>
@@ -315,10 +320,11 @@
     document.querySelector('.page-head').style.display = 'none';
     success.classList.add('show');
     window.scrollTo({top:0});
+    document.getElementById('success-title').focus({preventScroll:true});
   }
 
-  // Returning from the no-JS fallback redirect.
-  if(new URLSearchParams(location.search).get('sent') === '1'){ showSuccess(); }
+  // Returning from the no-JS fallback redirect (or an old ?sent=1 link).
+  if(location.hash === '#form-success' || new URLSearchParams(location.search).get('sent') === '1'){ showSuccess(); }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
