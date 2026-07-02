@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholarship Application &mdash; Personal Training for Meditators</title>
+<meta name="description" content="Apply for a reduced-rate spot. Students, academics, non-profit staff, between jobs, or impact-driven work — tell me about your situation and we'll work it out.">
+<meta property="og:title" content="Scholarship Application — Personal Training for Meditators">
+<meta property="og:description" content="Apply for a reduced-rate spot. Tell me about your situation and we'll work it out.">
+<meta property="og:image" content="https://personaltrainingformeditators.com/og.png">
+<meta property="og:url" content="https://personaltrainingformeditators.com/scholarship">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://personaltrainingformeditators.com/scholarship">
+<meta name="theme-color" content="#29251F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23E6A368' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#29251F; --raised:#322D26; --raised-2:#3A342C;
+    --text:#F2ECE1; --head:#EDE3D2; --soft:#D9CFC0; --muted:#A99C88;
+    --accent:#E6A368; --accent-bright:#F0B988; --visited:#F0B988;
+    --rule:#443D33; --rule-strong:#5A5248; --ink:#2A2014;
+    --control:#877B6C; --control-bright:#9E907E;
+    --maxw:34rem;
+  }
+  *{box-sizing:border-box;}
+  html,body{background:var(--bg);}
+  body{
+    margin:0; color:var(--text);
+    font-family:"Source Serif 4",serif; font-size:1.08rem; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent); color:var(--ink);}
+  a{color:var(--accent); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.22rem;}
+  a:visited{color:var(--visited);}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between; gap:2rem;
+    padding:1.1rem 3rem;
+    background:rgba(41,37,31,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+    position:sticky; top:0; z-index:20;
+  }
+  .wordmark{font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:1.2rem; color:var(--text); text-decoration:none;}
+  .wordmark:visited{color:var(--text);} .wordmark .accent, .wordmark:visited .accent{color:var(--accent);}
+  .back-link{font-family:"Source Sans 3",sans-serif; font-weight:500; font-size:.92rem; color:var(--soft); text-decoration:none; white-space:nowrap;}
+  .back-link:visited{color:var(--soft);}
+  .back-link:hover{color:var(--text); text-decoration:underline; text-underline-offset:.2rem;}
+
+  /* ---------- Single centered column ---------- */
+  .container{max-width:var(--maxw); margin:0 auto; padding:3.4rem 1.4rem 4rem;}
+
+  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 1.5rem;}
+  h1,h2{font-family:"Newsreader",serif; font-weight:400; letter-spacing:.005em; text-wrap:balance; color:var(--head);}
+  h1{font-size:2.6rem; line-height:1.1; margin:0 0 1.3rem;}
+  h2{font-size:2.15rem; line-height:1.12; margin:0 0 1.1rem;}
+  h1 em, h2 em{font-style:italic; font-weight:400;}
+  p{margin:0 0 1.2rem; text-wrap:pretty;}
+  .lede{font-size:1.13rem; color:var(--soft);}
+  .lede strong{font-weight:600; color:var(--text);}
+
+  .page-head{animation:rise .7s cubic-bezier(.2,.6,.2,1) both;}
+
+  /* ---------- Form ---------- */
+  form{border-top:1px solid var(--rule); margin-top:2.4rem; padding-top:2.6rem; animation:rise .7s cubic-bezier(.2,.6,.2,1) .12s both;}
+  .field{margin:0 0 2.3rem;}
+  .field-label{display:block; font-family:"Source Serif 4",serif; font-weight:600; font-size:1.16rem; line-height:1.3; color:var(--text); margin:0 0 .35rem; text-wrap:balance;}
+  .req{color:var(--accent);}
+  .hint{font-family:"Source Sans 3",sans-serif; font-size:.9rem; line-height:1.5; color:var(--muted); margin:0 0 .8rem;}
+  .field-label + input, .field-label + textarea{margin-top:.45rem;}
+
+  input[type="text"],input[type="email"],textarea{
+    display:block; width:100%;
+    background:var(--raised); border:1px solid var(--control); border-radius:8px;
+    color:var(--text); caret-color:var(--accent);
+    font-family:"Source Serif 4",serif; font-size:1.02rem; line-height:1.55;
+    padding:.7rem .95rem;
+    transition:border-color .15s ease;
+  }
+  input::placeholder,textarea::placeholder{color:var(--muted); opacity:.75;}
+  input:hover,textarea:hover{border-color:var(--control-bright);}
+  input:focus-visible,textarea:focus-visible{outline:none; border-color:var(--accent);}
+  textarea{resize:vertical; min-height:7.5rem;}
+
+  /* Radio groups: quiet bordered rows, accent when chosen */
+  fieldset{border:0; margin:0; padding:0;}
+  fieldset legend{padding:0;}
+  .choices{display:flex; flex-direction:column; gap:.6rem; margin-top:.65rem;}
+  .choice{
+    position:relative; display:flex; align-items:baseline; gap:.85rem;
+    border:1px solid var(--rule); border-radius:8px;
+    padding:.75rem 1rem; cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .choice:hover{border-color:var(--rule-strong);}
+  .choice input{position:absolute; opacity:0; pointer-events:none;}
+  .choice .dot{
+    flex:0 0 1.05rem; width:1.05rem; height:1.05rem; border-radius:50%;
+    border:1px solid var(--control); position:relative; top:.14rem;
+    transition:border-color .15s ease;
+  }
+  .choice .dot::after{
+    content:""; position:absolute; inset:3px; border-radius:50%;
+    background:var(--accent); transform:scale(0);
+    transition:transform .15s ease;
+  }
+  .choice:has(input:checked){border-color:var(--accent); background:var(--raised);}
+  .choice:has(input:checked) .dot{border-color:var(--accent);}
+  .choice input:checked + .dot::after{transform:scale(1);}
+  .choice:has(input:focus-visible){outline:2px solid var(--accent); outline-offset:3px;}
+  .choice-text{font-family:"Source Sans 3",sans-serif; font-weight:500; font-size:1rem; color:var(--text); line-height:1.45;}
+  .choice-text .sub{display:block; font-family:"IBM Plex Mono",monospace; font-weight:400; font-size:.74rem; color:var(--muted); margin-top:.15rem;}
+
+  /* Submit */
+  .btn{
+    display:inline-block; font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.98rem; letter-spacing:.01em;
+    color:var(--ink); background:var(--accent); border:0; cursor:pointer;
+    padding:.85rem 1.9rem; border-radius:999px; text-decoration:none;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .btn:hover{background:var(--accent-bright); transform:translateY(-1px);}
+  .btn[disabled]{opacity:.6; cursor:default; transform:none;}
+  .form-actions{margin-top:.4rem;}
+  .form-error{display:none; font-family:"Source Sans 3",sans-serif; font-size:.95rem; color:var(--accent-bright); margin:1.1rem 0 0;}
+  .form-error.show{display:block;}
+  .aside-line{font-size:.9rem; font-family:"Source Serif 4",serif; color:var(--muted); margin:1.5rem 0 0;}
+  .copy-email{background:none; border:0; padding:0; margin:0; font:inherit; color:var(--accent); cursor:pointer; text-decoration:underline; text-underline-offset:.2rem;}
+  .copy-email:hover{color:var(--accent-bright);}
+  .copy-email.copied{color:var(--accent); text-decoration:none;}
+
+  /* ---------- Success state ---------- */
+  .success{display:none; text-align:center; padding:3.2rem 0 1rem;}
+  .success.show{display:block; animation:rise .7s cubic-bezier(.2,.6,.2,1) both;}
+  /* No-JS fallback: FormSubmit redirects to #form-success, :target reveals it. */
+  .success:target{display:block; animation:rise .7s cubic-bezier(.2,.6,.2,1) both;}
+  body:has(.success:target) .page-head, body:has(.success:target) form{display:none;}
+  .success h2:focus{outline:none;}
+  .success .breath{max-width:120px; margin-bottom:2rem;}
+  .success p{color:var(--soft); max-width:26rem; margin:0 auto 1.2rem;}
+
+  /* Signature: the breath */
+  .breath{position:relative; width:100%; aspect-ratio:1; max-width:330px; margin:0 auto;}
+  .breath .ring{position:absolute; border-radius:50%;}
+  .breath .r1{inset:8%;  border:1px solid rgba(242,236,225,.26); animation:breathe 8s ease-in-out infinite;}
+  .breath .r2{inset:19%; border:1px solid rgba(230,163,104,.58); animation:breathe-in 8s ease-in-out infinite;}
+  @keyframes breathe{0%,100%{transform:scale(.94);} 50%{transform:scale(1.05);}}
+  @keyframes breathe-in{0%,100%{transform:scale(1.04);} 50%{transform:scale(.93);}}
+  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+
+  footer{border-top:1px solid var(--rule); margin-top:3.5rem; padding-top:1.8rem; display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted);}
+  footer a{color:var(--muted);}
+  footer .copy-email{color:var(--muted); text-decoration:underline;}
+  footer .copy-email:hover{color:var(--soft);}
+  footer .copy-email.copied{color:var(--accent); text-decoration:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    .breath .ring{animation:none;}
+    .page-head,form,.success.show,.success:target{animation:none;}
+    .btn:hover{transform:none;}
+  }
+
+  @media (max-width:600px){
+    .topbar{padding:.85rem 1.2rem;}
+    .wordmark{font-size:1.1rem;}
+    .container{padding:2.4rem 1.2rem 3rem;}
+    h1{font-size:2.15rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="/">Personal Training <span class="accent">for Meditators</span></a>
+  <a class="back-link" href="/#s06">&larr; Back to the site</a>
+</header>
+
+<div class="container">
+
+  <div class="page-head">
+    <p class="eyebrow">Scholarship application</p>
+    <h1>Let&rsquo;s work it out.</h1>
+    <p class="lede">Glad you&rsquo;re here. I hold a number of reduced-rate spots for students, academics, non-profit staff, people between jobs, and folks doing impact-driven work. Tell me about your situation and I&rsquo;ll get back to you with next steps.</p>
+  </div>
+
+  <form id="scholarship-form" action="https://formsubmit.co/e5140376f99018c5113aaaa81b550434" method="POST">
+    <input type="hidden" name="_subject" value="PTFM scholarship application">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://personaltrainingformeditators.com/scholarship#form-success">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+    <div class="field">
+      <label class="field-label" for="f-name">What&rsquo;s your name? <span class="req">*</span></label>
+      <input type="text" id="f-name" name="name" placeholder="Jane Doe" required autocomplete="name">
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="f-email">And your email? <span class="req">*</span></label>
+      <input type="email" id="f-email" name="email" placeholder="jane@example.com" required autocomplete="email">
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="f-situation">What&rsquo;s your situation? <span class="req">*</span></label>
+      <p class="hint">Student, academic, non-profit or impact-org work, between jobs? A few sentences is plenty &mdash; this just helps me understand where you&rsquo;re at.</p>
+      <textarea id="f-situation" name="situation" required></textarea>
+    </div>
+
+    <div class="field">
+      <fieldset>
+        <legend class="field-label">Have we worked together before? <span class="req">*</span></legend>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="worked_together" value="Yes — current or past client" required>
+            <span class="dot"></span>
+            <span class="choice-text">Yes &mdash; current or past client</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="worked_together" value="No — this would be my first time">
+            <span class="dot"></span>
+            <span class="choice-text">No &mdash; this would be my first time</span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="f-why">Why personal training for meditators? <span class="req">*</span></label>
+      <p class="hint">What draws you here? What would you want the work to help with?</p>
+      <textarea id="f-why" name="why" required></textarea>
+    </div>
+
+    <div class="field">
+      <fieldset>
+        <legend class="field-label">What rate would work for you? <span class="req">*</span></legend>
+        <p class="hint">I hold a limited number of scholarship spots at each tier. Pick the rate that best fits your situation.</p>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="rate" value="10% off" required>
+            <span class="dot"></span>
+            <span class="choice-text">10% off<span class="sub">$1,620 for three months &middot; or $630 a month</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="rate" value="20% off">
+            <span class="dot"></span>
+            <span class="choice-text">20% off<span class="sub">$1,440 for three months &middot; or $560 a month</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="rate" value="30% off">
+            <span class="dot"></span>
+            <span class="choice-text">30% off<span class="sub">$1,260 for three months &middot; or $490 a month</span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="rate" value="Steeper than 30%">
+            <span class="dot"></span>
+            <span class="choice-text">Steeper than 30%<span class="sub">we&rsquo;ll talk it through</span></span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn" type="submit">Submit application</button>
+      <p class="form-error" id="form-error" role="alert">Something didn&rsquo;t go through. Try again in a moment &mdash; or just <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">email me</button> directly.</p>
+      <p class="aside-line">Prefer to skip the form? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button> instead.</p>
+    </div>
+  </form>
+
+  <div class="success" id="form-success">
+    <div class="breath" aria-hidden="true">
+      <span class="ring r1"></span>
+      <span class="ring r2"></span>
+    </div>
+    <h2 id="success-title" tabindex="-1">Thanks for applying.</h2>
+    <p>Your application is in. I&rsquo;ll get back to you by email within a couple of days.</p>
+    <p class="aside-line">In the meantime, feel free to <a href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">book a free intro call</a>.</p>
+  </div>
+
+  <footer>
+    <span>Personal Training for Meditators</span>
+    <span>Tanner Holman &middot; <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email</button> &middot; <a href="https://substack.com/@sniffthis" target="_blank" rel="noopener">Substack</a></span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  // Email: copy to clipboard with a brief confirmation (same behavior as the main page).
+  document.querySelectorAll('.copy-email').forEach(function(ce){
+    ce.addEventListener('click', function(){
+      var email = ce.getAttribute('data-email'), label = ce.textContent;
+      function done(){
+        if(ce.dataset.busy) return;
+        ce.dataset.busy = '1';
+        ce.textContent = 'Copied ✓';
+        ce.classList.add('copied');
+        setTimeout(function(){ ce.textContent = label; ce.classList.remove('copied'); ce.dataset.busy=''; }, 1600);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(email).then(done, done);
+      } else {
+        var t=document.createElement('textarea'); t.value=email; t.style.position='fixed'; t.style.opacity='0';
+        document.body.appendChild(t); t.select();
+        try{document.execCommand('copy');}catch(e){}
+        document.body.removeChild(t); done();
+      }
+    });
+  });
+
+  var form = document.getElementById('scholarship-form');
+  var success = document.getElementById('form-success');
+  var error = document.getElementById('form-error');
+
+  function showSuccess(){
+    form.style.display = 'none';
+    document.querySelector('.page-head').style.display = 'none';
+    success.classList.add('show');
+    window.scrollTo({top:0});
+    document.getElementById('success-title').focus({preventScroll:true});
+  }
+
+  // Returning from the no-JS fallback redirect (or an old ?sent=1 link).
+  if(location.hash === '#form-success' || new URLSearchParams(location.search).get('sent') === '1'){ showSuccess(); }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    error.classList.remove('show');
+    // Per-applicant subject keeps every application in its own Gmail thread.
+    var who = form.querySelector('#f-name').value.trim();
+    if(who){ form.querySelector('[name="_subject"]').value = 'PTFM scholarship application — ' + who; }
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch('https://formsubmit.co/ajax/e5140376f99018c5113aaaa81b550434', {
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:new FormData(form)
+    }).then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(function(d){
+      // FormSubmit reports success as the string "true"; anything else is a failed relay.
+      if(d && (d.success === 'true' || d.success === true)){ showSuccess(); }
+      else { throw new Error(d && d.message); }
+    }).catch(function(){
+      btn.disabled = false; btn.textContent = 'Submit application';
+      error.classList.add('show');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
