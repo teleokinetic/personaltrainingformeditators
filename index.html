@@ -603,6 +603,14 @@
 
 <script>
 (function(){
+  // After any anchor jump (arriving via /#s06, or clicking a contents/FAQ link),
+  // drop the fragment from the URL — Safari re-honors a lingering hash on every
+  // refresh and reopens the page mid-scroll. replaceState keeps the scroll position.
+  function dropHash(){
+    if(location.hash) history.replaceState(null, '', location.pathname + location.search);
+  }
+  window.addEventListener('load', dropHash);
+  window.addEventListener('hashchange', dropHash);
   // Wordmark always returns to the very top of the page (not the #top container, which sits under the sticky header).
   var wm = document.querySelector('.wordmark');
   if(wm){ wm.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); }); }
