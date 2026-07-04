@@ -133,6 +133,13 @@
     .btn:hover,.nav-cta:hover{transform:none;}
   }
 
+  /* ---------- Testimonial video ---------- */
+  .breath.herovid video{width:100%; aspect-ratio:1; object-fit:cover; display:block;
+    border-radius:12px; border:1px solid rgba(242,236,225,.14); background:#000;}
+  .vwrap{margin:26px 0 38px; max-width:540px;}
+  .vwrap video{width:100%; aspect-ratio:1; display:block; border-radius:12px;
+    border:1px solid rgba(242,236,225,.14); background:#000;}
+
   /* ---------- Trust band (open, hairlines) ---------- */
   .logoband{border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:1.4rem .2rem; margin:0;}
   .logoband .logos-label{display:block; font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0 0 1rem;}
@@ -364,10 +371,8 @@
         <p class="sub">One-on-one training designed as an extension of your meditation practice. Learn to enjoy exertion, inhabit your body, and carry spacious clarity into movement.</p>
         <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free intro call</a>
       </div>
-      <div class="breath" aria-hidden="true">
-        <span class="ring r1"></span>
-        <span class="ring r2"></span>
-        <span class="ring r3"></span>
+      <div class="breath herovid">
+        <video src="testimonial-montage-captioned.mp4" muted autoplay loop playsinline aria-label="Clients describing their experience, in captioned clips from real sessions"></video>
       </div>
     </section>
 
@@ -491,6 +496,9 @@
     <section class="section" id="s05">
       <p class="eyebrow">05 &middot; What changed</p>
       <h2>What people say</h2>
+      <div class="vwrap">
+        <video src="testimonial-montage.mp4" controls playsinline preload="metadata"></video>
+      </div>
       <div class="tgrid">
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/scott.jpg" alt="Scott Schaffter"><span class="tname">Scott Schaffter</span></div><blockquote>&ldquo;Tanner has been a superb trainer for three years now &mdash; much of it over video. His approach focused on sustainability rather than complete and utter annihilation, and it helped me grow and maintain consistency. Particularly helpful through rehabbing a knee injury &mdash; a judgement-free space. I can't recommend him more highly!&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><span class="avatar"></span><span class="tname">Cathy Benjamin</span></div><blockquote>&ldquo;I've been pleasantly surprised by how creative Tanner has been &mdash; the &lsquo;exercises&rsquo; don't feel like exercises at all. We always have a lot of fun and I'm never bored. If you're intimidated about starting personal training, I highly encourage you to try working with Tanner.&rdquo;</blockquote></div>
@@ -669,6 +677,11 @@
   }, {passive:true});
   spy();
 })();
+// Respect reduced motion: don't autoplay the hero testimonial loop
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const hv = document.querySelector('.herovid video');
+  if (hv) { hv.removeAttribute('autoplay'); hv.pause(); hv.setAttribute('controls',''); }
+}
 </script>
 
 </body>
