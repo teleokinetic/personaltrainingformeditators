@@ -29,7 +29,7 @@
   }
   *{box-sizing:border-box;}
   html,body{background:var(--bg);}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; scroll-padding-top:5.5rem;}
   body{
     margin:0; color:var(--text);
     font-family:"Source Serif 4",serif; font-size:1.08rem; line-height:1.7;
@@ -49,48 +49,32 @@
     position:sticky; top:0; z-index:20;
   }
   .wordmark{font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:1.2rem; color:var(--text); text-decoration:none;}
-  .wordmark:visited{color:var(--text);} .wordmark .accent, .wordmark:visited .accent{color:var(--accent);}
+  .wordmark:visited{color:var(--text);}
+  .runhead{
+    flex:1 1 auto; min-width:0; text-align:center;
+    font-family:"Newsreader",serif; font-style:italic; font-size:.95rem; color:var(--soft);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    opacity:0; transition:opacity .3s ease;
+  }
+  .runhead.on{opacity:1;}
   .nav-cta{font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.86rem; letter-spacing:.02em; color:var(--ink); background:var(--accent); padding:.6rem 1.35rem; border-radius:999px; text-decoration:none; white-space:nowrap; transition:background .15s ease, transform .15s ease;}
   .nav-cta:visited{color:var(--ink);}
   .nav-cta:hover{background:var(--accent-bright); transform:translateY(-1px);}
 
-  /* ---------- Container: rail | content, centered as a unit ---------- */
+  /* ---------- Container: one centered column; the top bar carries wayfinding ---------- */
   .container{
     display:grid;
-    grid-template-columns:14rem minmax(0,var(--maxw));
-    gap:5rem; align-items:start;
+    grid-template-columns:minmax(0,var(--maxw));
     justify-content:center;
     padding:3rem 3rem 5rem;
   }
 
-  /* ---------- Left CONTENTS rail ---------- */
-  .rail{position:sticky; top:5.5rem; font-size:1rem;}
-  .rail .label{
-    font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:500;
-    letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 1.3rem;
-  }
-  .rail nav a{
-    display:block; padding:.42rem .9rem; margin:.1rem 0;
-    border-left:2px solid transparent;
-    font-family:"Source Sans 3",sans-serif; font-weight:500; font-size:.94rem;
-    color:var(--soft); text-decoration:none; line-height:1.2;
-    transition:color .15s ease, border-color .15s ease;
-  }
-  .rail nav a .num{font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted); margin-right:.55rem;}
-  .rail nav a:hover{color:var(--text);}
-  .rail nav a.active{border-left-color:var(--accent); color:var(--accent);}
-  .rail nav a.active .num{color:var(--accent);}
-  .rail .rail-cta{margin-top:1.6rem; padding-top:1.4rem; border-top:1px solid var(--rule);}
-  .rail .rail-cta a{display:block; padding:.4rem .9rem; color:var(--accent); font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:.94rem; text-decoration:none;}
-  .rail .rail-cta a:hover{text-decoration:underline; text-underline-offset:.2rem;}
-
   /* ---------- Content column ---------- */
   .content{min-width:0;}
-  .section{padding:4.2rem 0;}
-  .content > section:first-child{padding-top:1rem;}
+  .section{padding:5rem 0;}
   .section + .section{border-top:1px solid var(--rule);}
 
-  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 1.5rem;}
+  .format-line{font-family:"Source Sans 3",sans-serif; font-size:.88rem; letter-spacing:.02em; color:var(--muted); margin:1.2rem 0 0;}
 
   h1,h2{font-family:"Newsreader",serif; font-weight:400; letter-spacing:.005em; text-wrap:balance; color:var(--head);}
   h1{font-size:2.95rem; line-height:1.1; margin:0 0 1.3rem;}
@@ -100,7 +84,6 @@
   p{margin:0 0 1.2rem; text-wrap:pretty;}
   .lede{font-size:1.15rem; color:var(--text);}
   strong{font-weight:600; color:var(--text);}
-  .mono{font-family:"IBM Plex Mono",monospace;}
 
   /* ---------- Hero ---------- */
   .hero{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); gap:2rem; align-items:center; padding-top:1.6rem; padding-bottom:4.2rem;}
@@ -131,12 +114,12 @@
     .breath .ring{animation:none;}
     .hero > div > *{animation:none;}
     .btn:hover,.nav-cta:hover{transform:none;}
+    .runhead,.wordmark{transition:none;}
   }
 
-  /* ---------- Trust band (open, hairlines) ---------- */
-  .logoband{border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:1.4rem .2rem; margin:0;}
-  .logoband .logos-label{display:block; font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0 0 1rem;}
-  .logoband .logos-row{display:flex; align-items:center; justify-content:space-between; gap:1.4rem 2.5rem; flex-wrap:wrap;}
+  /* ---------- Trust band: logos alone, centered ---------- */
+  .logoband{padding:2.6rem 0 0; margin:0;}
+  .logoband .logos-row{display:flex; align-items:center; justify-content:center; gap:1.4rem 3rem; flex-wrap:wrap;}
   .logoband .logo-img{height:1.35rem; width:auto; opacity:.7;}
 
   /* ---------- Featured pull-quote ---------- */
@@ -144,33 +127,29 @@
   .featured blockquote{margin:0; font-family:"Newsreader",serif; font-style:italic; font-weight:400; color:var(--text); font-size:1.5rem; line-height:1.45; text-wrap:pretty;}
   .featured .who{display:flex; align-items:center; gap:.7rem; margin-top:1.2rem;}
   .featured .avatar{width:2.4rem; height:2.4rem; border-radius:50%; border:1px solid var(--rule); object-fit:cover;}
-  .featured cite{font-style:normal; font-family:"IBM Plex Mono",monospace; font-size:.76rem; color:var(--muted);}
+  .featured cite{font-style:italic; font-family:"Newsreader",serif; font-size:.95rem; color:var(--muted);}
 
   /* ---------- On/off the cushion: two open columns ---------- */
   .cols{display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:2.4rem;}
   .cols > div{padding:0 2.2rem 0 0;}
   .cols > div + div{border-left:1px solid var(--rule); padding:0 0 0 2.2rem;}
-  .col-label{font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin:0 0 1.2rem;}
+  .col-label{font-family:"Source Serif 4",serif; font-weight:600; font-size:1.08rem; color:var(--text); margin:0 0 1rem;}
   .feat{list-style:none; margin:0; padding:0;}
   .feat li{margin:0 0 1.15rem; line-height:1.55; font-size:1.02rem;}
   .feat li b{color:var(--text);}
   .feat li span{color:var(--muted);}
   #s01 .closing{margin:2.4rem 0 0;}
 
-  /* ---------- Persona quotes: open, accent tick ---------- */
-  .cards{display:flex; flex-direction:column; gap:2.2rem; margin-top:2.4rem;}
-  .qcard{padding:0 0 0 1.6rem; border-left:2px solid var(--accent);}
+  /* ---------- Persona quotes: hang on air alone ---------- */
+  .cards{display:flex; flex-direction:column; gap:2.6rem; margin-top:2.4rem;}
   .qcard .q{font-family:"Newsreader",serif; font-style:italic; font-weight:400; color:var(--text); font-size:1.35rem; line-height:1.35; margin:0 0 .6rem;}
   .qcard p{margin:0; color:var(--soft); font-size:1.02rem;}
 
-  /* ---------- What we do: hairline 2x2 ---------- */
-  .dogrid{display:grid; grid-template-columns:1fr 1fr; margin:2.4rem 0 2rem;}
-  .docard{padding:1.6rem 1.8rem;}
-  .docard:nth-child(odd){border-right:1px solid var(--rule); padding-left:0;}
-  .docard:nth-child(even){padding-right:0;}
-  .docard:nth-child(-n+2){border-bottom:1px solid var(--rule);}
-  .docard:nth-child(n+3){padding-bottom:0;}
-  .docard:nth-child(-n+2){padding-top:0;}
+  /* ---------- What we do: essay flow, hairline seams ---------- */
+  .dogrid{margin:2.2rem 0 2rem;}
+  .docard{padding:1.6rem 0; border-top:1px solid var(--rule);}
+  .docard:first-child{border-top:0; padding-top:0;}
+  .docard:last-child{padding-bottom:0;}
   .docard h3{font-size:1.18rem; margin:0 0 .45rem; line-height:1.25;}
   .docard p{margin:0; color:var(--soft); font-size:1rem; line-height:1.55;}
   .closing{color:var(--soft);}
@@ -179,7 +158,6 @@
   .sessions{display:flex; flex-direction:column; gap:1.1rem; margin-top:2.4rem;}
   .scase{background:var(--raised); border:1px solid var(--rule); border-radius:8px; padding:1.5rem 1.7rem;}
   .scase h4{font-family:"Source Serif 4",serif; font-weight:600; font-size:1.16rem; color:var(--text); margin:0 0 .3rem; line-height:1.25;}
-  .scase h4 .case-id{font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:.8rem; color:var(--accent); margin-right:.6rem;}
   .scase .frame{font-style:italic; color:var(--muted); font-size:.97rem; margin:0 0 1.1rem; line-height:1.5;}
   .scase .tl{display:flex; flex-direction:column; gap:.55rem; margin:0; padding:0; list-style:none;}
   .scase .tl li{display:flex; gap:1rem; align-items:baseline; line-height:1.45;}
@@ -199,7 +177,7 @@
   .price-lede{margin:0 0 2.2rem; color:var(--soft); max-width:60ch;}
   .pcards{display:grid; grid-template-columns:1fr 1fr; gap:1.1rem;}
   .pcard{background:var(--raised); border:1px solid var(--rule); border-radius:8px; padding:1.7rem 1.8rem;}
-  .plan-label{font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 .8rem;}
+  .plan-label{font-family:"Source Serif 4",serif; font-weight:600; font-size:1.05rem; color:var(--text); margin:0 0 .7rem;}
   .plan-price{font-family:"Newsreader",serif; font-size:2.3rem; line-height:1; color:var(--head); margin:0;}
   .plan-price .per{font-size:1.1rem; color:var(--soft);}
   .pcard ul{list-style:none; margin:1rem 0 0; padding:0;}
@@ -223,6 +201,7 @@
   /* ---------- FAQ ---------- */
   .faq{margin-top:1.8rem; border-top:1px solid var(--rule);}
   .faq details{border-bottom:1px solid var(--rule);}
+  .faq details:last-child{border-bottom:0;}
   .faq summary{cursor:pointer; list-style:none; padding:1.05rem 0; font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:1.05rem; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:1rem;}
   .faq summary::-webkit-details-marker{display:none;}
   .faq summary::after{content:"+"; font-family:"IBM Plex Mono",monospace; color:var(--muted); font-size:1.3rem; font-weight:400; transition:color .15s ease;}
@@ -235,10 +214,6 @@
   .final .breath{max-width:120px; margin-bottom:2rem;}
   .final h2{font-size:2.6rem; margin-bottom:1.6rem;}
   .final p{color:var(--soft); max-width:30rem; margin:0 auto 2.2rem;}
-  .final .steps{list-style:none; margin:0 auto 2.4rem; padding:0; max-width:33rem; text-align:left; display:flex; flex-direction:column; gap:.85rem;}
-  .final .steps li{display:flex; gap:1rem; align-items:baseline; line-height:1.5;}
-  .final .steps .step-num{flex:0 0 1.1rem; font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--accent);}
-  .final .steps .step-what{color:var(--soft); font-size:1rem;}
   .final .capacity{font-size:.9rem; color:var(--muted); margin:0 auto 1.9rem;}
   .final .aside-line{font-size:.9rem; color:var(--muted); max-width:30rem; margin:1.3rem auto 0;}
   .final .aside-line .copy-email{color:var(--accent);}
@@ -255,8 +230,7 @@
 
   @media (max-width:980px){
     .topbar{padding:1rem 1.4rem;}
-    .container{grid-template-columns:minmax(0,1fr); gap:2rem; padding:2rem 1.4rem 3rem;}
-    .rail{display:none;}
+    .container{grid-template-columns:minmax(0,1fr); padding:2rem 1.4rem 3rem;}
     .hero{grid-template-columns:1fr; gap:1rem;}
     .breath{max-width:260px;}
     .cols,.access{grid-template-columns:1fr; gap:0;}
@@ -265,12 +239,6 @@
     .cols > div + div{border-left:0; border-top:1px solid var(--rule); padding:1.8rem 0 0;}
     .access .acard{padding:0 0 1.8rem;}
     .access .acard + .acard{border-left:0; border-top:1px solid var(--rule); padding:1.8rem 0 0;}
-    .dogrid{grid-template-columns:1fr;}
-    .docard{padding:1.5rem 0;}
-    .docard:nth-child(odd){border-right:0; padding-left:0;}
-    .docard:nth-child(n){border-bottom:1px solid var(--rule); padding-right:0;}
-    .docard:first-child{padding-top:0;}
-    .docard:last-child{border-bottom:0; padding-bottom:0;}
     .tgrid{columns:1;}
     .bio{grid-template-columns:1fr; gap:1.3rem;}
     h1{font-size:2.7rem;} h2{font-size:1.8rem;}
@@ -281,10 +249,18 @@
   @media (max-width:600px){
     .topbar{padding:.85rem 1.2rem;}
     .nav-cta{display:none;}
-    .wordmark{font-size:1.1rem;}
+    .wordmark{font-size:1.1rem; transition:opacity .3s ease;}
 
-    .container{padding:1.2rem 1.2rem 2.4rem; gap:1.2rem;}
-    .section{padding:3.4rem 0;}
+    /* Book-style swap: inside a section, the running head takes the
+       wordmark's place (the wordmark stays tappable underneath). */
+    .runhead{
+      position:absolute; left:1.2rem; right:1.2rem;
+      text-align:left; font-size:.98rem; pointer-events:none;
+    }
+    .topbar.rh-on .wordmark{opacity:0;}
+
+    .container{padding:1.2rem 1.2rem 2.4rem;}
+    .section{padding:3.8rem 0;}
 
     /* Calmer display type on phones: smaller heads, slightly open leading */
     h1{font-size:2.1rem; line-height:1.16;} h2{font-size:1.5rem; line-height:1.2;} h3{font-size:1.2rem;}
@@ -299,8 +275,8 @@
     .featured blockquote{font-size:1.25rem;}
     .qcard .q{font-size:1.2rem;}
 
-    .logoband{padding:1.3rem 0; margin-top:1.2rem;}
-    .logoband .logos-row{justify-content:center; gap:1.1rem 2rem;}
+    .logoband{padding:2rem 0 0;}
+    .logoband .logos-row{gap:1.1rem 2rem; max-width:240px; margin:0 auto;}
 
     img.portrait{max-width:230px;}
 
@@ -332,27 +308,12 @@
 <body>
 
 <header class="topbar">
-  <a class="wordmark" href="#top">Personal Training <span class="accent">for Meditators</span></a>
+  <a class="wordmark" href="#top">Personal Training for Meditators</a>
+  <span class="runhead" aria-hidden="true"></span>
   <a class="nav-cta" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
 </header>
 
 <div class="container" id="top">
-
-  <!-- LEFT RAIL -->
-  <aside class="rail">
-    <p class="label">Contents</p>
-    <nav>
-      <a href="#s01"><span class="num">01</span>What you'll gain</a>
-      <a href="#s02"><span class="num">02</span>Is this you?</a>
-      <a href="#s03"><span class="num">03</span>What we do</a>
-      <a href="#s04"><span class="num">04</span>A typical session</a>
-      <a href="#s05"><span class="num">05</span>What clients say</a>
-      <a href="#s06"><span class="num">06</span>Cost &amp; coverage</a>
-      <a href="#s07"><span class="num">07</span>Meet Tanner</a>
-      <a href="#s08"><span class="num">08</span>FAQ</a>
-    </nav>
-    <div class="rail-cta"><a href="#start">Start here &rarr;</a></div>
-  </aside>
 
   <!-- CONTENT -->
   <div class="content">
@@ -360,10 +321,10 @@
     <!-- HERO -->
     <section class="hero" id="hero">
       <div>
-        <p class="eyebrow">1:1 training &middot; over video</p>
         <h1>Practice doesn't end<br>when you <em>stand up</em>.</h1>
         <p class="sub">This is personal training with extra steps: you get stronger, you learn to enjoy exertion, and you carry the spaciousness you find on the cushion out into chaotic movement.</p>
         <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free intro call</a>
+        <p class="format-line">1:1 training &middot; over video</p>
       </div>
       <div class="breath" aria-hidden="true">
         <span class="ring r1"></span>
@@ -374,7 +335,6 @@
 
     <!-- TRUST BAND -->
     <div class="logoband">
-      <span class="logos-label">Trusted by practitioners from</span>
       <div class="logos-row">
         <img class="logo-img" src="logos/google.svg" alt="Google">
         <img class="logo-img" src="logos/mercury.png" alt="Mercury">
@@ -392,20 +352,19 @@
       </div>
     </div>
 
-    <section class="section" id="s01">
-      <p class="eyebrow">01 &middot; Why it matters</p>
+    <section class="section" id="s01" data-nav="What you'll gain">
       <h2>On the cushion, and off the cushion</h2>
       <p class="lede">A lot of the meditators I've known didn't have an easy, reliable way into their bodies. I made that shift myself &mdash; from disembodied to embodied, from not enjoying to enjoying &mdash; and it was much easier than I expected. Joy and satisfaction are right there in the body; most people just need a few pointers and a little scaffolding.</p>
       <div class="cols">
         <div>
-          <p class="col-label">1 &middot; Feel good while you sit</p>
+          <p class="col-label">Feel good while you sit</p>
           <ul class="feat">
             <li><b>Stay comfortable longer</b> <span>&mdash; a comfortable, settled seat means the niggling aches don't show up as early, or as often.</span></li>
             <li><b>More to practice with</b> <span>&mdash; a relaxed, embodied body makes sensory experience simultaneously lighter and more vivid.</span></li>
           </ul>
         </div>
         <div>
-          <p class="col-label">2 &middot; Feel good while you move</p>
+          <p class="col-label">Feel good while you move</p>
           <ul class="feat">
             <li><b>Actually enjoy exertion</b> <span>&mdash; experiences of grace, interconnection, and vibrancy are right there in movement, and finding them turns exertion from something you survive into something you enjoy.</span></li>
             <li><b>Spaciousness within chaos</b> <span>&mdash; practicing spaciousness while you move makes it much easier to find in the confusion of everyday life.</span></li>
@@ -417,8 +376,7 @@
     </section>
 
     <!-- IS THIS YOU -->
-    <section class="section" id="s02">
-      <p class="eyebrow">02 &middot; Who it's for</p>
+    <section class="section" id="s02" data-nav="Is this you?">
       <h2>Is this you?</h2>
       <p class="lede">The people I work best with tend to arrive from a few different places. Do any of these sound like you?</p>
       <div class="cards">
@@ -438,8 +396,7 @@
     </section>
 
     <!-- WHAT WE ACTUALLY DO -->
-    <section class="section" id="s03">
-      <p class="eyebrow">03 &middot; What we do together</p>
+    <section class="section" id="s03" data-nav="What we do">
       <h2>What we actually do</h2>
       <p class="lede">Every session is one hour, and no two look alike: for one person it's a workout combined with an embodiment practice; for another, forty minutes of gentle movement that doesn't look like a workout at all. Sometimes it's really practical &mdash; an exercise routine that makes sitting cross-legged comfortable. We use whatever will help you most: strength training, mobility, somatics, standing meditation, posture work.</p>
       <div class="dogrid">
@@ -452,13 +409,12 @@
     </section>
 
     <!-- A TYPICAL SESSION -->
-    <section class="section" id="s04">
-      <p class="eyebrow">04 &middot; What it looks like</p>
+    <section class="section" id="s04" data-nav="A typical session">
       <h2>A typical session</h2>
       <p class="lede">Here are three session outlines, anonymized:</p>
       <div class="sessions">
         <div class="scase">
-          <h4><span class="case-id">A</span>Finding pleasure in exertion</h4>
+          <h4>Finding pleasure in exertion</h4>
           <p class="frame">A meditator who learned to dread exertion after a lifetime of unpleasant exercise.</p>
           <ul class="tl">
             <li><span class="time">0&ndash;10</span><span class="what">Check-in</span></li>
@@ -467,7 +423,7 @@
           </ul>
         </div>
         <div class="scase">
-          <h4><span class="case-id">B</span>Fluidity for a busy parent</h4>
+          <h4>Fluidity for a busy parent</h4>
           <p class="frame">A parent with a toddler and little spare time.</p>
           <ul class="tl">
             <li><span class="time">0&ndash;10</span><span class="what">Check-in</span></li>
@@ -477,7 +433,7 @@
           </ul>
         </div>
         <div class="scase">
-          <h4><span class="case-id">C</span>Bridging strength and meditation</h4>
+          <h4>Bridging strength and meditation</h4>
           <p class="frame">Already trains regularly, but it feels walled off from his meditation.</p>
           <ul class="tl">
             <li><span class="time">0&ndash;10</span><span class="what">Check-in</span></li>
@@ -489,23 +445,21 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section" id="s05">
-      <p class="eyebrow">05 &middot; What changed</p>
+    <section class="section" id="s05" data-nav="What clients say">
       <h2>What people say</h2>
       <div class="tgrid">
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/scott.jpg" alt="Scott Schaffter"><span class="tname">Scott Schaffter</span></div><blockquote>&ldquo;Tanner has been a superb trainer for three years now &mdash; much of it over video. His approach focused on sustainability rather than complete and utter annihilation, and it helped me grow and maintain consistency. Particularly helpful through rehabbing a knee injury &mdash; a judgement-free space. I can't recommend him more highly!&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><span class="avatar"></span><span class="tname">Cathy Benjamin</span></div><blockquote>&ldquo;I've been pleasantly surprised by how creative Tanner has been &mdash; the &lsquo;exercises&rsquo; don't feel like exercises at all. We always have a lot of fun and I'm never bored. If you're intimidated about starting personal training, I highly encourage you to try working with Tanner.&rdquo;</blockquote></div>
-        <div class="tcard"><div class="thead"><span class="avatar"></span><span class="tname">Vaidhyanathan</span></div><blockquote>&ldquo;I felt like I'd never get rid of the pain. Now I can release my low back at will, move my neck into new territory, and I'm back to walking and running.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/max.jpg" alt="Max Soweski"><span class="tname">Max Soweski</span></div><blockquote>&ldquo;An easy recommendation for anyone who meditates. Meditation can create habits of being static and even disembodied &mdash; turns out the antidote to this is feeling into the many accomplishments our bodies achieve on a daily basis! Tanner makes this readily available.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/joe.jpg" alt="Joe Gherity"><span class="tname">Joe Gherity</span></div><blockquote>&ldquo;I recommend it as a bridge into easeful movement that I simply didn't think was possible on my own. It expands the possibility space for how you experience your body.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/yetsal.jpg" alt="Ye'tsal Khandro"><span class="tname">Ye'tsal Khandro</span></div><blockquote>&ldquo;Tanner brought new life to my opening awareness meditation practice. By connecting with my body, it became much easier to stay with sensations, slow down, and at times allow thoughts to completely fall away. I find myself wishing this had been available to me earlier, as so many of my meditation sits might have felt more settled and embodied.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/matthew.jpg" alt="Matthew Phillips"><span class="tname">Matthew Phillips</span></div><blockquote>&ldquo;I've had plenty of meditation teachers, instructors, and podcasts tell me to &lsquo;feel the earth support me,&rsquo; but to be honest I never really got it. The way I explored it with Tanner made me really feel embodied for the first time &mdash; and it's something I still enjoy checking into at various points during the day.&rdquo;</blockquote></div>
+        <div class="tcard"><div class="thead"><span class="avatar"></span><span class="tname">Vaidhyanathan</span></div><blockquote>&ldquo;I felt like I'd never get rid of the pain. Now I can release my low back at will, move my neck into new territory, and I'm back to walking and running.&rdquo;</blockquote></div>
       </div>
     </section>
 
     <!-- ACCESS -->
-    <section class="section" id="s06">
-      <p class="eyebrow">06 &middot; Money stuff</p>
+    <section class="section" id="s06" data-nav="Cost &amp; coverage">
       <h2>Cost &amp; coverage</h2>
       <p class="price-lede">Every new client starts with a three-month commitment. We work roughly weekly, though some clients end up working more often and some less. We&rsquo;ll set a cadence that fits.</p>
       <div class="pcards">
@@ -543,8 +497,7 @@
     </section>
 
     <!-- MEET TANNER -->
-    <section class="section" id="s07">
-      <p class="eyebrow">07 &middot; Your trainer</p>
+    <section class="section" id="s07" data-nav="Meet Tanner">
       <h2>Meet Tanner</h2>
       <div class="bio">
         <img class="portrait" src="headshots/tanner.jpg" alt="Tanner Holman">
@@ -556,8 +509,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="s08">
-      <p class="eyebrow">08 &middot; Good to know</p>
+    <section class="section" id="s08" data-nav="FAQ">
       <h2>Frequently asked</h2>
       <div class="faq">
         <details><summary>Is this remote?</summary><div class="ans">Yes &mdash; over video. You'll need a bit of space and a camera.</div></details>
@@ -623,46 +575,38 @@
       }
     });
   });
-  var rail = document.querySelector('.rail nav');
-  if(!rail) return;
-  var links = [].slice.call(rail.querySelectorAll('a[href^="#"]'));
-  var byId = {}, sections = [];
-  links.forEach(function(a){
-    var id = a.getAttribute('href').slice(1);
-    var el = document.getElementById(id);
-    if(el){ byId[id] = a; sections.push(el); }
-  });
-  function activate(id){
-    links.forEach(function(a){ a.classList.remove('active'); });
-    if(byId[id]) byId[id].classList.add('active');
+  // Running head: the top bar names the section you're in, like a book.
+  var rh = document.querySelector('.runhead');
+  var topbar = document.querySelector('.topbar');
+  if(!rh || !topbar) return;
+  var sections = [].slice.call(document.querySelectorAll('section[data-nav]'));
+  var ender = document.getElementById('start');
+  var current = null;
+  function set(sec){
+    var id = sec ? sec.id : null;
+    if(id === current) return;
+    current = id;
+    if(!sec){ rh.classList.remove('on'); topbar.classList.remove('rh-on'); return; }
+    rh.textContent = sec.getAttribute('data-nav');
+    rh.classList.add('on'); topbar.classList.add('rh-on');
   }
-  // Clicking a contents item makes it active immediately; briefly lock the
-  // scroll-spy so it doesn't override the click while the page jumps.
-  var lockUntil = 0;
-  links.forEach(function(a){
-    a.addEventListener('click', function(){
-      activate(a.getAttribute('href').slice(1));
-      lockUntil = Date.now() + 700;
-    });
-  });
-  // Active = the last section whose top has crossed 35% down the viewport.
+  // Current = the last section whose top has crossed 35% down the viewport;
+  // nothing shows while still in the hero zone.
   function spy(){
-    if(Date.now() < lockUntil) return;
     var marker = window.innerHeight * 0.35;
-    var current = null; // nothing highlighted while still in the hero zone
+    var cur = null;
     for(var i=0;i<sections.length;i++){
-      if(sections[i].getBoundingClientRect().top <= marker) current = sections[i];
+      if(sections[i].getBoundingClientRect().top <= marker) cur = sections[i];
     }
-    if(window.innerHeight + window.scrollY >= document.body.scrollHeight - 2){
-      current = sections[sections.length-1];
-    }
-    if(current){ activate(current.id); }
-    else { links.forEach(function(a){ a.classList.remove('active'); }); }
+    // The closing CTA is the book's back cover: the wordmark returns.
+    if(ender && ender.getBoundingClientRect().top <= marker) cur = null;
+    set(cur);
   }
   var ticking = false;
   window.addEventListener('scroll', function(){
     if(!ticking){ requestAnimationFrame(function(){ spy(); ticking=false; }); ticking=true; }
   }, {passive:true});
+  window.addEventListener('resize', spy);
   spy();
 })();
 </script>
