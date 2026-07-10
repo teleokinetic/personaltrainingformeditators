@@ -74,7 +74,7 @@
   .section{padding:5rem 0;}
   .section + .section{border-top:1px solid var(--rule);}
 
-  .format-line{font-family:"Source Sans 3",sans-serif; font-size:.88rem; letter-spacing:.02em; color:var(--muted); margin:1.2rem 0 0;}
+  .format-line{font-family:"Source Sans 3",sans-serif; font-size:.88rem; letter-spacing:.02em; color:var(--muted); margin:.8rem 0 0;}
 
   h1,h2{font-family:"Newsreader",serif; font-weight:400; letter-spacing:.005em; text-wrap:balance; color:var(--head);}
   h1{font-size:2.95rem; line-height:1.1; margin:0 0 1.3rem;}
@@ -117,13 +117,14 @@
     .runhead,.wordmark{transition:none;}
   }
 
-  /* ---------- Trust band: logos alone, centered ---------- */
-  .logoband{padding:2.6rem 0 0; margin:0;}
-  .logoband .logos-row{display:flex; align-items:center; justify-content:center; gap:1.4rem 3rem; flex-wrap:wrap;}
-  .logoband .logo-img{height:1.35rem; width:auto; opacity:.7;}
+  /* ---------- Trust credit: rides under the featured quote ---------- */
+  .logoband{display:flex; align-items:baseline; flex-wrap:wrap; gap:.9rem 1.7rem; padding:1.6rem 0 0; margin:0 0 .6rem;}
+  .logoband .logos-label{font-family:"Newsreader",serif; font-style:italic; font-size:.92rem; color:var(--muted);}
+  .logoband .logos-row{display:flex; align-items:center; gap:1.2rem 2rem; flex-wrap:wrap; flex:1 1 auto;}
+  .logoband .logo-img{height:1.15rem; width:auto; opacity:.55;}
 
   /* ---------- Featured pull-quote ---------- */
-  .featured{margin:3.4rem 0 .6rem;}
+  .featured{margin:3rem 0 0;}
   .featured blockquote{margin:0; font-family:"Newsreader",serif; font-style:italic; font-weight:400; color:var(--text); font-size:1.5rem; line-height:1.45; text-wrap:pretty;}
   .featured .who{display:flex; align-items:center; gap:.7rem; margin-top:1.2rem;}
   .featured .avatar{width:2.4rem; height:2.4rem; border-radius:50%; border:1px solid var(--rule); object-fit:cover;}
@@ -275,8 +276,9 @@
     .featured blockquote{font-size:1.25rem;}
     .qcard .q{font-size:1.2rem;}
 
-    .logoband{padding:2rem 0 0;}
-    .logoband .logos-row{gap:1.1rem 2rem; max-width:240px; margin:0 auto;}
+    .logoband{padding:1.3rem 0 0; gap:.7rem 1.2rem;}
+    .logoband .logos-row{gap:.9rem 1.4rem;}
+    .logoband .logo-img{height:.95rem;}
 
     img.portrait{max-width:230px;}
 
@@ -333,22 +335,23 @@
       </div>
     </section>
 
-    <!-- TRUST BAND -->
-    <div class="logoband">
-      <div class="logos-row">
-        <img class="logo-img" src="logos/google.svg" alt="Google">
-        <img class="logo-img" src="logos/mercury.png" alt="Mercury">
-        <img class="logo-img" src="logos/mit.svg" alt="MIT">
-        <img class="logo-img" src="logos/evolving-ground.png" alt="Evolving Ground">
-      </div>
-    </div>
-
     <!-- FEATURED TESTIMONIAL -->
     <div class="featured">
       <blockquote>&ldquo;It went from an arduous obligation to an extension of my contemplative practice that I find really pleasant and look forward to. My mana and HP are higher than ever. &hellip; When I meditate, it's great &mdash; and now exercise feels like that too.&rdquo;</blockquote>
       <div class="who">
         <img class="avatar" src="headshots/elwyn.jpg" alt="Elwyn Foote">
         <cite>&mdash; Elwyn Foote</cite>
+      </div>
+    </div>
+
+    <!-- TRUST CREDIT -->
+    <div class="logoband">
+      <span class="logos-label">Trusted by practitioners from</span>
+      <div class="logos-row">
+        <img class="logo-img" src="logos/google.svg" alt="Google">
+        <img class="logo-img" src="logos/mercury.png" alt="Mercury">
+        <img class="logo-img" src="logos/mit.svg" alt="MIT">
+        <img class="logo-img" src="logos/evolving-ground.png" alt="Evolving Ground">
       </div>
     </div>
 
