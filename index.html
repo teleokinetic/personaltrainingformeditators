@@ -88,6 +88,9 @@
   .section + .band, .band + .section{border-top:0;}
   .photoband{padding:0;}
   .photoband img{display:block; width:100%; height:min(56vh,520px); object-fit:cover;}
+  /* Contained variant: shows the full figure instead of a cover crop */
+  .photoband.contain{padding:2.4rem 0; background:var(--raised);}
+  .photoband.contain img{width:auto; max-width:min(92%,560px); height:auto; max-height:min(82vh,700px); margin:0 auto; object-fit:contain; border-radius:8px;}
   .quoteband{background:var(--raised-2); padding-top:4.6rem; padding-bottom:4.6rem; text-align:center;}
   .quoteband p{font-family:"Newsreader",serif; font-weight:400; font-size:clamp(1.9rem,4.5vw,2.9rem); line-height:1.15; color:var(--head); margin:0; text-wrap:balance;}
 
@@ -416,8 +419,8 @@
     </section>
 
     <!-- IS THIS YOU -->
-    <section class="section band" id="s02" data-nav="Is this you?">
-      <h2>Is this you?</h2>
+    <section class="section band" id="s02" data-nav="Am I a good fit?">
+      <h2>Am I a good fit?</h2>
       <p class="lede">The people I work best with tend to arrive from a few different places. Do any of these sound like you?</p>
       <div class="cards">
         <div class="qcard">
@@ -436,11 +439,11 @@
     </section>
 
     <!-- A breath of play between chapters -->
-    <figure class="photoband">
+    <figure class="photoband contain">
       <img src="photos/handstand-800.jpg"
            srcset="photos/handstand-800.jpg 800w, photos/handstand.jpg 1167w"
-           sizes="100vw" width="1167" height="1206" loading="lazy"
-           alt="A one-armed handstand in a sunlit studio, legs scissored in the air beneath a disco ball.">
+           sizes="(max-width:600px) 92vw, 560px" width="1167" height="1206" loading="lazy"
+           alt="Tanner mid one-armed handstand in a sunlit studio, legs scissored beneath a disco ball.">
     </figure>
 
     <!-- WHAT WE ACTUALLY DO -->
@@ -500,7 +503,7 @@
            alt="Tanner lunging across a gym floor with a red training bell held behind his back.">
     </figure>
     <aside class="quoteband">
-      <p>I will not wreck you.</p>
+      <p>You can enjoy exertion.</p>
     </aside>
 
     <!-- TESTIMONIALS -->
@@ -520,7 +523,7 @@
     <!-- ACCESS -->
     <section class="section" id="s06" data-nav="Cost &amp; coverage">
       <h2>Cost &amp; coverage</h2>
-      <p class="price-lede">Every new client starts with a three-month commitment. We work roughly weekly, though some clients end up working more often and some less. We&rsquo;ll set a cadence that fits.</p>
+      <p class="price-lede">Every new client starts with a three-month commitment. People normally meet with me at least once a week, but some prefer more.</p>
       <div class="pcards">
         <div class="pcard">
           <p class="plan-label">Three months</p>
@@ -571,14 +574,14 @@
     <section class="section" id="s08" data-nav="FAQ">
       <h2>Frequently asked</h2>
       <div class="faq">
-        <details><summary>Is this remote?</summary><div class="ans">Yes &mdash; over video. You'll need a bit of space and a camera.</div></details>
-        <details><summary>Do I need equipment?</summary><div class="ans">Not to start &mdash; your body and the floor go a long way. If strength work becomes part of your practice, we'll figure out gear that fits your setup and budget.</div></details>
-        <details><summary>How often would we meet?</summary><div class="ans">We set a cadence that fits your life. The usual standard is roughly one session per week. You commit to three months of work at the outset, so we have enough time to see real progress.</div></details>
-        <details><summary>Isn't this just personal training with extra steps?</summary><div class="ans">That's exactly what this is. But the extra steps are the point: we go beyond programming and accountability, into a learning relationship &mdash; training how you experience movement, not just the cool stuff you can do. Not many fitness professionals speak meditator. I also have no interest in dependency: the aim is a practice you can author yourself, not an automated routine.</div></details>
+        <details><summary>Do I need to be a serious meditator?</summary><div class="ans">No. If you have some kind of contemplative practice, even a wobbly one, this can work well. What matters more is the commitment: you're excited about the possibility of making this a three-month commitment, and you have a taste of what awareness practice can do for you. That's enough. You've experienced transformation in meditation, and you suspect movement could feel the same. You really do.</div></details>
+        <details><summary>Do I need to be fit, flexible, or experienced?</summary><div class="ans">No, not at all. We'll start where you are, and based on that, we make sure the path is &ldquo;walkable.&rdquo; If you feel ready to try new things and be an active learner, you are more than equipped.</div></details>
+        <details><summary>Who is this <em>not</em> for?</summary><div class="ans">Don't book a call if you're in an active crisis, or dealing with a severe health issue or severe depression. This also takes reliable commitment: at least one live session a week, plus four hours of formal practice. If things are so precarious in your life right now that you don't think you could commit to that reliably, it's a no-go.</div></details>
+        <details><summary>Isn't this just personal training with extra steps?</summary><div class="ans">It's basically personal training with extra steps. The key difference is that the aim is not just to transform the body, but to transform your relationship with it. Exertion can be experienced as enjoyable. People get the chance to remember what it feels like to play while they move. It's also a great opportunity to extend your meditation practice off the cushion. If you find that your spaciousness and equanimity vanish as soon as you start doing something physically hard or when learning a new physical skill, my sense is that you could get a lot from this kind of work. Unlike many other fitness professionals, I love speaking meditator.</div></details>
+        <details><summary>What do I need?</summary><div class="ans">All you need is a bit of space and a camera. We'll meet over Zoom. There's no special equipment required: we can accomplish everything we need with your body weight and materials you can easily access in and around your home. If you have a gym membership or want equipment, we can leverage that. Ultimately, any equipment level is fine.</div></details>
+        <details><summary>How often would we meet?</summary><div class="ans">People normally meet with me at least once a week, but some prefer more. You commit to three months of work at the outset, so we have enough time to see real progress.</div></details>
         <details><summary>What does it cost?</summary><div class="ans">$1,800 for the three months, paid upfront &mdash; or $700 a month. That&rsquo;s $150 vs. $175 per session. If cost is a barrier, scholarship and reimbursement options are under <a href="#s06">Cost &amp; coverage</a>.</div></details>
-        <details><summary>What if I decide it&rsquo;s not for me?</summary><div class="ans">If you decide it&rsquo;s not for you, I&rsquo;ll refund the rest, minus the cost of the first session.</div></details>
-        <details><summary>Do I need to be fit, flexible, or experienced?</summary><div class="ans">No. You need willingness to be an active participant and to &ldquo;learn to fish.&rdquo;</div></details>
-        <details><summary>Do I need to be a serious meditator?</summary><div class="ans">No. If you have some kind of contemplative practice &mdash; even a wobbly one &mdash; you'll be at home here. What matters is that you're interested in approaching movement this way.</div></details>
+        <details><summary>What if I decide it&rsquo;s not for me?</summary><div class="ans">If you decide it's not for you after the first full session, you can get a full refund minus the cost of the first session. If you continue past that, you're responsible for the full amount.</div></details>
       </div>
     </section>
 
