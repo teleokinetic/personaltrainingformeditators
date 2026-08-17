@@ -76,6 +76,21 @@
   .section{padding:5rem 0;}
   .section + .section{border-top:1px solid var(--rule);}
 
+  /* ---------- Chapter bands: full-bleed steps of the paper ----------
+     Negative margins stretch a band to the viewport; the matching padding
+     (50vw − half the column) walks its content back into the column. */
+  html, body{overflow-x:clip;}
+  .band, .quoteband, .photoband{
+    margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+    padding-left:calc(50vw - 50%); padding-right:calc(50vw - 50%);
+  }
+  .band{background:var(--raised);}
+  .section + .band, .band + .section{border-top:0;}
+  .photoband{padding:0;}
+  .photoband img{display:block; width:100%; height:min(56vh,520px); object-fit:cover;}
+  .quoteband{background:var(--raised-2); padding-top:4.6rem; padding-bottom:4.6rem; text-align:center;}
+  .quoteband p{font-family:"Newsreader",serif; font-weight:400; font-size:clamp(1.9rem,4.5vw,2.9rem); line-height:1.15; color:var(--head); margin:0; text-wrap:balance;}
+
   .format-line{font-family:"Source Sans 3",sans-serif; font-size:.88rem; letter-spacing:.02em; color:var(--muted); margin:.8rem 0 0;}
 
   h1,h2{font-family:"Newsreader",serif; font-weight:400; letter-spacing:.005em; text-wrap:balance; color:var(--head);}
@@ -176,6 +191,15 @@
   .tcard .tname{font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:.92rem; color:var(--text);}
   .tcard blockquote{margin:0; font-style:italic; color:var(--soft); font-size:.97rem; line-height:1.55;}
   img.avatar{object-fit:cover; display:block;}
+  .tcard.tfold{display:none;}
+  .tmore{
+    display:block; margin:.6rem auto 0; cursor:pointer;
+    font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:.92rem;
+    color:var(--accent); background:none; border:1px solid var(--rule-strong);
+    border-radius:999px; padding:.55rem 1.4rem;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .tmore:hover{border-color:var(--accent); color:var(--accent-hover);}
 
   /* ---------- Pricing: two open columns ---------- */
   .price-lede{margin:0 0 2.2rem; color:var(--soft); max-width:60ch;}
@@ -213,8 +237,14 @@
   .faq summary:hover::after{color:var(--accent);}
   .faq .ans{padding:0 0 1.15rem; color:var(--soft); font-size:1.02rem;}
 
-  /* ---------- Final CTA: open air, ring revisited ---------- */
-  .final{padding:5rem 0 1.5rem; text-align:center; border-top:1px solid var(--rule);}
+  /* ---------- Final CTA: open air, ring revisited, deepest band ---------- */
+  .final{
+    padding:5rem 0 1.5rem; text-align:center;
+    background:var(--raised-2);
+    margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+    padding-left:calc(50vw - 50%); padding-right:calc(50vw - 50%);
+    padding-bottom:2.6rem;
+  }
   .final .breath{max-width:120px; margin-bottom:2rem;}
   .final h2{font-size:2.6rem; margin-bottom:1.6rem;}
   .final p{color:var(--soft); max-width:30rem; margin:0 auto 2.2rem;}
@@ -278,6 +308,8 @@
 
     .featured blockquote{font-size:1.25rem;}
     .qcard .q{font-size:1.2rem;}
+    .photoband img{height:min(44vh,340px);}
+    .quoteband{padding-top:3.2rem; padding-bottom:3.2rem;}
 
     .logoband{padding:1.3rem 0 0; gap:.7rem 1.2rem;}
     .logoband .logos-row{gap:.9rem 1.4rem;}
@@ -382,7 +414,7 @@
     </section>
 
     <!-- IS THIS YOU -->
-    <section class="section" id="s02" data-nav="Is this you?">
+    <section class="section band" id="s02" data-nav="Is this you?">
       <h2>Is this you?</h2>
       <p class="lede">The people I work best with tend to arrive from a few different places. Do any of these sound like you?</p>
       <div class="cards">
@@ -400,6 +432,14 @@
         </div>
       </div>
     </section>
+
+    <!-- A breath of play between chapters -->
+    <figure class="photoband">
+      <img src="photos/handstand-800.jpg"
+           srcset="photos/handstand-800.jpg 800w, photos/handstand.jpg 1167w"
+           sizes="100vw" width="1167" height="1206" loading="lazy"
+           alt="A one-armed handstand in a sunlit studio, legs scissored in the air beneath a disco ball.">
+    </figure>
 
     <!-- WHAT WE ACTUALLY DO -->
     <section class="section" id="s03" data-nav="What we do">
@@ -450,17 +490,28 @@
       </div>
     </section>
 
+    <!-- The training floor, then the promise -->
+    <figure class="photoband">
+      <img src="photos/gym-lunge-800.jpg"
+           srcset="photos/gym-lunge-800.jpg 800w, photos/gym-lunge.jpg 1179w"
+           sizes="100vw" width="1179" height="1050" loading="lazy"
+           alt="Tanner lunging across a gym floor with a red training bell held behind his back.">
+    </figure>
+    <aside class="quoteband">
+      <p>I will not wreck you.</p>
+    </aside>
+
     <!-- TESTIMONIALS -->
-    <section class="section" id="s05" data-nav="What clients say">
+    <section class="section band" id="s05" data-nav="What clients say">
       <h2>What people say</h2>
       <div class="tgrid">
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/scott.jpg" alt="Scott Schaffter"><span class="tname">Scott Schaffter</span></div><blockquote>&ldquo;Tanner has been a superb trainer for three years now &mdash; much of it over video. His approach focused on sustainability rather than complete and utter annihilation, and it helped me grow and maintain consistency. Particularly helpful through rehabbing a knee injury &mdash; a judgement-free space. I can't recommend him more highly!&rdquo;</blockquote></div>
-        <div class="tcard"><div class="thead"><span class="avatar"></span><span class="tname">Cathy Benjamin</span></div><blockquote>&ldquo;I've been pleasantly surprised by how creative Tanner has been &mdash; the &lsquo;exercises&rsquo; don't feel like exercises at all. We always have a lot of fun and I'm never bored. If you're intimidated about starting personal training, I highly encourage you to try working with Tanner.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/max.jpg" alt="Max Soweski"><span class="tname">Max Soweski</span></div><blockquote>&ldquo;An easy recommendation for anyone who meditates. Meditation can create habits of being static and even disembodied &mdash; turns out the antidote to this is feeling into the many accomplishments our bodies achieve on a daily basis! Tanner makes this readily available.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/joe.jpg" alt="Joe Gherity"><span class="tname">Joe Gherity</span></div><blockquote>&ldquo;I recommend it as a bridge into easeful movement that I simply didn't think was possible on my own. It expands the possibility space for how you experience your body.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/yetsal.jpg" alt="Ye'tsal Khandro"><span class="tname">Ye'tsal Khandro</span></div><blockquote>&ldquo;Tanner brought new life to my opening awareness meditation practice. By connecting with my body, it became much easier to stay with sensations, slow down, and at times allow thoughts to completely fall away. I find myself wishing this had been available to me earlier, as so many of my meditation sits might have felt more settled and embodied.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/matthew.jpg" alt="Matthew Phillips"><span class="tname">Matthew Phillips</span></div><blockquote>&ldquo;I've had plenty of meditation teachers, instructors, and podcasts tell me to &lsquo;feel the earth support me,&rsquo; but to be honest I never really got it. The way I explored it with Tanner made me really feel embodied for the first time &mdash; and it's something I still enjoy checking into at various points during the day.&rdquo;</blockquote></div>
-        <div class="tcard"><div class="thead"><span class="avatar"></span><span class="tname">Vaidhyanathan</span></div><blockquote>&ldquo;I felt like I'd never get rid of the pain. Now I can release my low back at will, move my neck into new territory, and I'm back to walking and running.&rdquo;</blockquote></div>
+        <div class="tcard"><div class="thead"><span class="tname">Cathy Benjamin</span></div><blockquote>&ldquo;I've been pleasantly surprised by how creative Tanner has been &mdash; the &lsquo;exercises&rsquo; don't feel like exercises at all. We always have a lot of fun and I'm never bored. If you're intimidated about starting personal training, I highly encourage you to try working with Tanner.&rdquo;</blockquote></div>
+        <div class="tcard"><div class="thead"><span class="tname">Vaidhyanathan</span></div><blockquote>&ldquo;I felt like I'd never get rid of the pain. Now I can release my low back at will, move my neck into new territory, and I'm back to walking and running.&rdquo;</blockquote></div>
       </div>
     </section>
 
@@ -581,6 +632,27 @@
       }
     });
   });
+  // Testimonial fold: show the first four, tuck the rest behind a button.
+  // Without JS the wall simply stays fully expanded.
+  var tgrid = document.querySelector('.tgrid');
+  if(tgrid){
+    var tcards = [].slice.call(tgrid.querySelectorAll('.tcard'));
+    if(tcards.length > 4){
+      var tucked = tcards.slice(4);
+      tucked.forEach(function(c){ c.classList.add('tfold'); });
+      var more = document.createElement('button');
+      more.type = 'button'; more.className = 'tmore';
+      more.textContent = 'Show ' + tucked.length + ' more';
+      more.setAttribute('aria-expanded', 'false');
+      tgrid.parentNode.insertBefore(more, tgrid.nextSibling);
+      more.addEventListener('click', function(){
+        var open = more.getAttribute('aria-expanded') === 'true';
+        more.setAttribute('aria-expanded', String(!open));
+        tucked.forEach(function(c){ c.classList.toggle('tfold', open); });
+        more.textContent = open ? 'Show ' + tucked.length + ' more' : 'Show fewer';
+      });
+    }
+  }
   // Running head: the top bar names the section you're in, like a book.
   var rh = document.querySelector('.runhead');
   var topbar = document.querySelector('.topbar');
