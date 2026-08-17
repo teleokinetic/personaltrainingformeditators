@@ -89,7 +89,7 @@
 
   /* ---------- Hero ---------- */
   .hero{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); gap:2rem; align-items:center; padding-top:1.6rem; padding-bottom:4.2rem;}
-  .hero .breath{max-width:290px;}
+  .hero-photo{display:block; width:100%; max-width:340px; margin:0 auto; aspect-ratio:10/11; object-fit:cover; object-position:50% 20%; border-radius:10px; border:1px solid var(--rule);}
   .hero .sub{font-size:1.14rem; color:var(--soft); margin-bottom:2rem; max-width:30rem;}
   .btn{display:inline-block; font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.98rem; letter-spacing:.01em; color:var(--ink); background:var(--accent); padding:.85rem 1.9rem; border-radius:999px; text-decoration:none; transition:background .15s ease, transform .15s ease;}
   .btn:visited{color:var(--ink);}
@@ -109,12 +109,13 @@
   .hero > div > *:nth-child(2){animation-delay:.08s;}
   .hero > div > *:nth-child(3){animation-delay:.16s;}
   .hero > div > *:nth-child(4){animation-delay:.24s;}
+  .hero > .hero-photo{animation:rise .7s cubic-bezier(.2,.6,.2,1) both; animation-delay:.14s;}
   @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     .breath .ring{animation:none;}
-    .hero > div > *{animation:none;}
+    .hero > div > *, .hero > .hero-photo{animation:none;}
     .btn:hover,.nav-cta:hover{transform:none;}
     .runhead,.wordmark{transition:none;}
   }
@@ -235,7 +236,7 @@
     .topbar{padding:1rem 1.4rem;}
     .container{grid-template-columns:minmax(0,1fr); padding:2rem 1.4rem 3rem;}
     .hero{grid-template-columns:1fr; gap:1rem;}
-    .breath{max-width:260px;}
+    .hero-photo{max-width:320px; margin:1.6rem auto 0;}
     .cols,.access{grid-template-columns:1fr; gap:0;}
     .pcards{grid-template-columns:1fr;}
     .cols > div{padding:0 0 1.8rem;}
@@ -269,11 +270,11 @@
     h1{font-size:2.1rem; line-height:1.16;} h2{font-size:1.5rem; line-height:1.2;} h3{font-size:1.2rem;}
     .lede{font-size:1.13rem;}
 
-    /* Hero: text first on phones; the breath waits for the final CTA */
+    /* Hero: text first on phones; the photo rides just below it */
     .hero{padding-top:2.6rem; padding-bottom:2.6rem; gap:0;}
-    .hero .breath{display:none;}
     .hero .sub{margin-bottom:0;}
     .hero .btn{display:none;}   /* sticky bar covers booking */
+    .hero-photo{max-width:100%; aspect-ratio:1/1; object-position:50% 25%; margin:1.7rem 0 0;}
 
     .featured blockquote{font-size:1.25rem;}
     .qcard .q{font-size:1.2rem;}
@@ -330,11 +331,11 @@
         <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free intro call</a>
         <p class="format-line">1:1 training &middot; over video</p>
       </div>
-      <div class="breath" aria-hidden="true">
-        <span class="ring r1"></span>
-        <span class="ring r2"></span>
-        <span class="ring r3"></span>
-      </div>
+      <img class="hero-photo" src="photos/court-800.jpg"
+           srcset="photos/court-800.jpg 800w, photos/court.jpg 1179w"
+           sizes="(max-width:600px) 92vw, 340px"
+           width="1179" height="1298" fetchpriority="high"
+           alt="Tanner smiling on an outdoor basketball court, holding a red training bell.">
     </section>
 
     <!-- FEATURED TESTIMONIAL -->
