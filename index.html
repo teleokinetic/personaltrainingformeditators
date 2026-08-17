@@ -133,6 +133,7 @@
     .hero > div > *, .hero > .hero-photo{animation:none;}
     .btn:hover,.nav-cta:hover{transform:none;}
     .runhead,.wordmark{transition:none;}
+    .topbar{transition:none;}
   }
 
   /* ---------- Trust credit: rides under the featured quote ---------- */
@@ -281,7 +282,8 @@
 
   /* ---------- Phones (<=600px) ---------- */
   @media (max-width:600px){
-    .topbar{padding:.85rem 1.2rem;}
+    .topbar{padding:.85rem 1.2rem; transition:transform .25s ease;}
+    .topbar.tucked{transform:translateY(-100%);}
     .nav-cta{display:none;}
     .wordmark{font-size:1.1rem; transition:opacity .3s ease;}
 
@@ -680,11 +682,26 @@
     if(ender && ender.getBoundingClientRect().top <= marker) cur = null;
     set(cur);
   }
+  // Phone chrome diet: the top bar tucks away while reading downward and
+  // returns on any upward scroll, so the page gets its screen back.
+  var mqPhone = window.matchMedia('(max-width:600px)');
+  var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var lastY = window.scrollY;
+  function chrome(){
+    var y = window.scrollY;
+    if(mqPhone.matches && !mqReduce.matches){
+      if(y > lastY + 6 && y > 180) topbar.classList.add('tucked');
+      else if(y < lastY - 6 || y < 80) topbar.classList.remove('tucked');
+    } else {
+      topbar.classList.remove('tucked');
+    }
+    lastY = y;
+  }
   var ticking = false;
   window.addEventListener('scroll', function(){
-    if(!ticking){ requestAnimationFrame(function(){ spy(); ticking=false; }); ticking=true; }
+    if(!ticking){ requestAnimationFrame(function(){ spy(); chrome(); ticking=false; }); ticking=true; }
   }, {passive:true});
-  window.addEventListener('resize', spy);
+  window.addEventListener('resize', function(){ spy(); chrome(); });
   spy();
 })();
 </script>
