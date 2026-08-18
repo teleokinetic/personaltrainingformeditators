@@ -206,7 +206,12 @@
   .tmore:hover{border-color:var(--accent); color:var(--accent-hover);}
 
   /* ---------- Pricing: two open columns ---------- */
-  .price-lede{margin:0 0 2.2rem; color:var(--soft); max-width:60ch;}
+  .price-statement{font-family:"Newsreader",serif; font-size:1.5rem; line-height:1.35; color:var(--head); margin:0 0 2.1rem; text-wrap:balance; max-width:32rem;}
+  .pcard .btn{margin-top:1.4rem;}
+  .outcomes{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem 2.4rem; margin-top:2.2rem;}
+  .outcome{display:flex; align-items:center; gap:.85rem;}
+  .outcome svg{flex:none;}
+  .outcome span{font-weight:600; font-size:1.05rem; color:var(--text); line-height:1.4;}
   .pcards{display:grid; grid-template-columns:1fr 1fr; gap:1.1rem;}
   .pcard{background:var(--card); border:1px solid var(--rule); border-radius:8px; padding:1.7rem 1.8rem;}
   .plan-label{font-family:"Source Serif 4",serif; font-weight:600; font-size:1.05rem; color:var(--text); margin:0 0 .7rem;}
@@ -273,6 +278,7 @@
     .hero-photo{max-width:320px; margin:1.6rem auto 0;}
     .cols,.access{grid-template-columns:1fr; gap:0;}
     .pcards{grid-template-columns:1fr;}
+    .outcomes{grid-template-columns:1fr;}
     .cols > div{padding:0 0 1.8rem;}
     .cols > div + div{border-left:0; border-top:1px solid var(--rule); padding:1.8rem 0 0;}
     .access .acard{padding:0 0 1.8rem;}
@@ -304,6 +310,7 @@
     /* Calmer display type on phones: smaller heads, slightly open leading */
     h1{font-size:2.1rem; line-height:1.16;} h2{font-size:1.5rem; line-height:1.2;} h3{font-size:1.2rem;}
     .lede{font-size:1.13rem;}
+    .price-statement{font-size:1.3rem;}
 
     /* Hero: text first on phones; the photo rides just below it */
     .hero{padding-top:2.6rem; padding-bottom:2.6rem; gap:0;}
@@ -504,9 +511,9 @@
     </section>
 
     <!-- ACCESS -->
-    <section class="section" id="s06" data-nav="Cost &amp; coverage">
-      <h2>Cost &amp; coverage</h2>
-      <p class="price-lede">Every new client starts with a three-month commitment. People normally meet with me at least once a week, but some prefer more.</p>
+    <section class="section" id="s06" data-nav="Cost">
+      <h2>Begin your practice</h2>
+      <p class="price-statement">Three months to transform your experience of being a body.</p>
       <div class="pcards">
         <div class="pcard">
           <p class="plan-label">Three months</p>
@@ -514,8 +521,8 @@
           <ul>
             <li>12 sessions, typically weekly</li>
             <li>$150 per session &mdash; saves $300</li>
-            <li>Refundable after the first session</li>
           </ul>
+          <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
         </div>
         <div class="pcard">
           <p class="plan-label">Monthly</p>
@@ -523,9 +530,15 @@
           <ul>
             <li>4 sessions a month</li>
             <li>$175 per session</li>
-            <li>Continues for as long as it serves</li>
           </ul>
+          <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
         </div>
+      </div>
+      <div class="outcomes">
+        <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>Uncover your enjoyment of exertion</span></div>
+        <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>Feel more comfortable</span></div>
+        <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>More vitality and connection</span></div>
+        <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>Accomplish your goals</span></div>
       </div>
       <div class="access">
         <div class="acard">
@@ -563,7 +576,7 @@
         <details><summary>Isn't this just personal training with extra steps?</summary><div class="ans">It's basically personal training with extra steps. The key difference is that the aim is not just to transform the body, but to transform your relationship with it. Exertion can be experienced as enjoyable. People get the chance to remember what it feels like to play while they move. It's also a great opportunity to extend your meditation practice off the cushion. If you find that your spaciousness and equanimity vanish as soon as you start doing something physically hard or when learning a new physical skill, my sense is that you could get a lot from this kind of work. Unlike many other fitness professionals, I love speaking meditator.</div></details>
         <details><summary>What do I need?</summary><div class="ans">All you need is a bit of space and a camera. We'll meet over Zoom. There's no special equipment required: we can accomplish everything we need with your body weight and materials you can easily access in and around your home. If you have a gym membership or want equipment, we can leverage that. Ultimately, any equipment level is fine.</div></details>
         <details><summary>How often would we meet?</summary><div class="ans">People normally meet with me at least once a week, but some prefer more. You commit to three months of work at the outset, so we have enough time to see real progress.</div></details>
-        <details><summary>What does it cost?</summary><div class="ans">$1,800 for the three months, paid upfront &mdash; or $700 a month. That&rsquo;s $150 vs. $175 per session. If cost is a barrier, scholarship and reimbursement options are under <a href="#s06">Cost &amp; coverage</a>.</div></details>
+        <details><summary>What does it cost?</summary><div class="ans">$1,800 for the three months, paid upfront &mdash; or $700 a month. That&rsquo;s $150 vs. $175 per session. If cost is a barrier, scholarship and reimbursement options are in the <a href="#s06">Cost</a> section.</div></details>
         <details><summary>What if I decide it&rsquo;s not for me?</summary><div class="ans">If you decide it's not for you after the first full session, you can get a full refund minus the cost of the first session. If you continue past that, you're responsible for the full amount.</div></details>
       </div>
     </section>
