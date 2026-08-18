@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Personal Training for Meditators</title>
-<meta name="description" content="One-on-one personal training with extra steps: get stronger, learn to enjoy exertion, and carry the spaciousness you find on the cushion out into chaotic movement.">
+<meta name="description" content="Transform your experience of movement. Personal training with extra steps: untangle your relationship to exercise, move better, and enjoy exertion.">
 <meta property="og:title" content="Personal Training for Meditators">
-<meta property="og:description" content="Get stronger, enjoy exertion, and carry the spaciousness you find on the cushion out into movement.">
+<meta property="og:description" content="Personal training with extra steps: untangle your relationship to exercise, move better, and enjoy exertion.">
 <meta property="og:image" content="https://personaltrainingformeditators.com/og.png">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
-<meta property="og:image:alt" content="Personal Training for Meditators — get stronger, enjoy exertion, and carry the spaciousness you find on the cushion out into movement.">
+<meta property="og:image:alt" content="Personal Training for Meditators — untangle your relationship to exercise, move better, and enjoy exertion.">
 <meta property="og:url" content="https://personaltrainingformeditators.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -206,7 +206,12 @@
   .tmore:hover{border-color:var(--accent); color:var(--accent-hover);}
 
   /* ---------- Pricing: two open columns ---------- */
-  .price-lede{margin:0 0 2.2rem; color:var(--soft); max-width:60ch;}
+  .price-statement{font-family:"Newsreader",serif; font-size:1.5rem; line-height:1.35; color:var(--head); margin:0 0 2.1rem; text-wrap:balance;}
+  .price-cta{margin:2.4rem 0 0;}
+  .outcomes{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem 2.4rem; margin-top:2.2rem;}
+  .outcome{display:flex; align-items:center; gap:.85rem;}
+  .outcome svg{flex:none;}
+  .outcome span{font-weight:600; font-size:1.05rem; color:var(--text); line-height:1.4;}
   .pcards{display:grid; grid-template-columns:1fr 1fr; gap:1.1rem;}
   .pcard{background:var(--card); border:1px solid var(--rule); border-radius:8px; padding:1.7rem 1.8rem;}
   .plan-label{font-family:"Source Serif 4",serif; font-weight:600; font-size:1.05rem; color:var(--text); margin:0 0 .7rem;}
@@ -252,7 +257,6 @@
   .final .breath{max-width:120px; margin-bottom:2rem;}
   .final h2{font-size:2.6rem; margin-bottom:1.6rem;}
   .final p{color:var(--soft); max-width:30rem; margin:0 auto 2.2rem;}
-  .final .capacity{font-size:.9rem; color:var(--muted); margin:0 auto 1.9rem;}
   .final .aside-line{font-size:.9rem; color:var(--muted); max-width:30rem; margin:1.3rem auto 0;}
   .final .aside-line .copy-email{color:var(--accent);}
   .final .aside-line .copy-email:hover{color:var(--accent-hover);}
@@ -273,6 +277,7 @@
     .hero-photo{max-width:320px; margin:1.6rem auto 0;}
     .cols,.access{grid-template-columns:1fr; gap:0;}
     .pcards{grid-template-columns:1fr;}
+    .outcomes{grid-template-columns:1fr;}
     .cols > div{padding:0 0 1.8rem;}
     .cols > div + div{border-left:0; border-top:1px solid var(--rule); padding:1.8rem 0 0;}
     .access .acard{padding:0 0 1.8rem;}
@@ -304,6 +309,7 @@
     /* Calmer display type on phones: smaller heads, slightly open leading */
     h1{font-size:2.1rem; line-height:1.16;} h2{font-size:1.5rem; line-height:1.2;} h3{font-size:1.2rem;}
     .lede{font-size:1.13rem;}
+    .price-statement{font-size:1.3rem;}
 
     /* Hero: text first on phones; the photo rides just below it */
     .hero{padding-top:2.6rem; padding-bottom:2.6rem; gap:0;}
@@ -363,8 +369,8 @@
     <!-- HERO -->
     <section class="hero" id="hero">
       <div>
-        <h1>Practice doesn't end<br>when you <em>stand up</em>.</h1>
-        <p class="sub">This is personal training with extra steps: you get stronger, you learn to enjoy exertion, and you carry the spaciousness you find on the cushion out into chaotic movement.</p>
+        <h1>Transform your experience of movement.</h1>
+        <p class="sub">This is personal training with extra steps: untangle your relationship to exercise, move better, and enjoy exertion.</p>
         <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free intro call</a>
         <p class="format-line">1:1 training &middot; over video</p>
       </div>
@@ -396,46 +402,30 @@
     </div>
 
     <section class="section" id="s01" data-nav="What you'll gain">
-      <h2>On the cushion, and off the cushion</h2>
-      <p class="lede">A lot of the meditators I've known didn't have an easy, reliable way into their bodies. I made that shift myself &mdash; from disembodied to embodied, from not enjoying to enjoying &mdash; and it was much easier than I expected. Joy and satisfaction are right there in the body; most people just need a few pointers and a little scaffolding.</p>
+      <h2>A new relationship with movement</h2>
+      <p class="lede">Movement is present in every activity of your life: washing the dishes, taking out the trash, lifting a heavy thing when heavy things need to be lifted. Change your experience of movement, and your experience of being alive gets better.</p>
       <div class="cols">
         <div>
-          <p class="col-label">Feel good while you sit</p>
+          <p class="col-label">Unlearn what's in the way</p>
           <ul class="feat">
-            <li><b>Stay comfortable longer</b> <span>&mdash; a comfortable, settled seat means the niggling aches don't show up as early, or as often.</span></li>
-            <li><b>More to practice with</b> <span>&mdash; a relaxed, embodied body makes sensory experience simultaneously lighter and more vivid.</span></li>
+            <li><b>Uncover your enjoyment of exertion</b> <span>&mdash; it's the natural state: kids on a playground have it, dogs have it.</span></li>
+            <li><b>Feel more comfortable</b> <span>&mdash; a comfortable, settled seat means the niggling aches don't show up as early, or as often.</span></li>
           </ul>
         </div>
         <div>
-          <p class="col-label">Feel good while you move</p>
+          <p class="col-label">Expand what's possible</p>
           <ul class="feat">
-            <li><b>Actually enjoy exertion</b> <span>&mdash; experiences of grace, interconnection, and vibrancy are right there in movement, and finding them turns exertion from something you survive into something you enjoy.</span></li>
-            <li><b>Spaciousness within chaos</b> <span>&mdash; practicing spaciousness while you move makes it much easier to find in the confusion of everyday life.</span></li>
-            <li><b>Get stronger</b> <span>&mdash; once you enjoy exertion, strength, mobility, and cardiovascular capacity come along almost as a byproduct.</span></li>
+            <li><b>More vitality and connection</b> <span>&mdash; a relaxed, embodied body makes sensory experience lighter and more vivid. A sense of capacity and self-trust in movement becomes familiar again.</span></li>
+            <li><b>Accomplish your goals</b> <span>&mdash; improve your cardio, run your first 5K, get your first handstand. You define the goal, and we build a practice that will get you there.</span></li>
           </ul>
         </div>
       </div>
-      <p class="closing">Enjoyment is the base of all of it &mdash; it's what makes establishing the habit, going deeper, keeping it alive so much easier. One client's daily practice turned enjoyable the week it became about listening for pleasurable sensation; he found himself hungering for more. Nobody prescribed that top-down.</p>
     </section>
 
     <!-- IS THIS YOU -->
     <section class="section band" id="s02" data-nav="Am I a good fit?">
       <h2>Am I a good fit?</h2>
-      <p class="lede">The people I work best with tend to arrive from a few different places. Do any of these sound like you?</p>
-      <div class="cards">
-        <div class="qcard">
-          <p class="q">&ldquo;I know exercise is good for me, but it sucks.&rdquo;</p>
-          <p>Exercise feels like a grind. You know it's healthy or whatever, but it's decidedly unfun. Thankfully, you know from meditation that your relationship to an experience can change. Maybe it's possible to <em>love</em> exertion.</p>
-        </div>
-        <div class="qcard">
-          <p class="q">&ldquo;I have an exercise habit, but it feels separate from meditation.&rdquo;</p>
-          <p>You can show up to the gym and hit your daily run. You like it. You want the clarity you find sitting to come with you when you run, lift, or play on the floor with your kid. Extending meditation into movement makes those insights anti-fragile &mdash; you'd learn to thrive in chaos, not just in a blissful space you find only on the cushion.</p>
-        </div>
-        <div class="qcard">
-          <p class="q">&ldquo;I'm spacious on the cushion, but I lose it when I start moving.&rdquo;</p>
-          <p>You can find real spaciousness in stillness. But where does it go when you start lifting weights &mdash; or juggling three balls, or learning a dance step? What if you'd already practiced finding spaciousness within chaos?</p>
-        </div>
-      </div>
+      <p class="lede">You're excited about what's possible. You've experienced transformation in meditation, but you sense that something's missing when it comes to movement. Maybe movement is not something you enjoy. Maybe you don't have a lot of confidence, or you're just not sure what to do. You want to unlearn what gets in the way of natural enjoyment, and you want to expand your movement possibilities. If you want this, you're a good fit.</p>
     </section>
 
     <!-- A breath of play between chapters -->
@@ -447,14 +437,13 @@
     </figure>
 
     <!-- WHAT WE ACTUALLY DO -->
-    <section class="section" id="s03" data-nav="What we do">
-      <h2>What we actually do</h2>
-      <p class="lede">Every session is one hour, and no two look alike: for one person it's a workout combined with an embodiment practice; for another, forty minutes of gentle movement that doesn't look like a workout at all. Sometimes it's really practical &mdash; an exercise routine that makes sitting cross-legged comfortable. We use whatever will help you most: strength training, mobility, somatics, standing meditation, posture work.</p>
+    <section class="section" id="s03" data-nav="How it works">
+      <h2>How it works</h2>
       <div class="dogrid">
-        <div class="docard"><h3>Find pleasure in movement</h3><p>You might have forty ways to work with a thought and ~none for your body. So we train attention in motion: guided meditations are woven through the movement itself, such as listening for pleasurable sensation. Games and improvisation also give enjoyment a boost and expand what counts as exercise.</p></div>
-        <div class="docard"><h3>Move with ease and economy</h3><p>Real-time feedback so your movement becomes lighter, smoother, and biomechanically sound. And a byproduct of easier movement is more ease in your sitting and standing practice.</p></div>
-        <div class="docard"><h3>Get stronger</h3><p>The standard things that make you stronger, done well: progressive strength work, calibrated loads, improving one's form.</p></div>
-        <div class="docard"><h3>Learning to fish</h3><p>I'm not just an accountability buddy &mdash; this goes beyond accountability, into self-responsibility. I expect my clients to do their homework, bring their own ideas, and demonstrate what they've learned. Not in a hardcore sense &mdash; I just find it so important that my clients are actually learning, not passive participants.</p></div>
+        <div class="docard"><h3>The container</h3><p>You'll have at least one live one-hour session a week, plus four hours of practice on your own. Initial commitment: three months.</p></div>
+        <div class="docard"><h3>How we begin</h3><p>We start where you are. We establish a baseline. We figure out what you most want from working together. From there, we establish goals.</p></div>
+        <div class="docard"><h3>Unlearn and expand</h3><p>We unlearn what gets in the way of enjoyment, pleasure, and comfort through somatic practice and gentle movement. And we expand what's possible through games and improvisation, and real-time feedback on your form during training.</p></div>
+        <div class="docard"><h3>Every session is different</h3><p>Our focus is always goal-dependent. If your main goal is to increase your enjoyment of exertion, that will probably look different than chasing your first muscle-up (both routes are available). We use whatever will help you most: strength training, mobility, you name it.</p></div>
       </div>
       <p class="closing">I will not wreck you. With most clients, I start from where enjoyment and capacity are already available, and help grow practice from there.</p>
     </section>
@@ -485,7 +474,7 @@
         </div>
         <div class="scase">
           <h4>Bridging strength and meditation</h4>
-          <p class="frame">Already trains regularly, but it feels walled off from his meditation.</p>
+          <p class="frame">Already trains regularly, but it feels walled off from his meditation. Current goal: extending his runs to 30 minutes.</p>
           <ul class="tl">
             <li><span class="time">0&ndash;10</span><span class="what">Check-in</span></li>
             <li><span class="time">10&ndash;35</span><span class="what">Strength work &mdash; calibrating load, refining form</span></li>
@@ -508,10 +497,10 @@
 
     <!-- TESTIMONIALS -->
     <section class="section band" id="s05" data-nav="What clients say">
-      <h2>What people say</h2>
+      <h2>What clients say</h2>
       <div class="tgrid">
-        <div class="tcard"><div class="thead"><img class="avatar" src="headshots/scott.jpg" alt="Scott Schaffter"><span class="tname">Scott Schaffter</span></div><blockquote>&ldquo;Tanner has been a superb trainer for three years now &mdash; much of it over video. His approach focused on sustainability rather than complete and utter annihilation, and it helped me grow and maintain consistency. Particularly helpful through rehabbing a knee injury &mdash; a judgement-free space. I can't recommend him more highly!&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/max.jpg" alt="Max Soweski"><span class="tname">Max Soweski</span></div><blockquote>&ldquo;An easy recommendation for anyone who meditates. Meditation can create habits of being static and even disembodied &mdash; turns out the antidote to this is feeling into the many accomplishments our bodies achieve on a daily basis! Tanner makes this readily available.&rdquo;</blockquote></div>
+        <div class="tcard"><div class="thead"><img class="avatar" src="headshots/scott.jpg" alt="Scott Schaffter"><span class="tname">Scott Schaffter</span></div><blockquote>&ldquo;Tanner has been a superb trainer for three years now &mdash; much of it over video. His approach focused on sustainability rather than complete and utter annihilation, and it helped me grow and maintain consistency. Particularly helpful through rehabbing a knee injury &mdash; a judgement-free space. I can't recommend him more highly!&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/joe.jpg" alt="Joe Gherity"><span class="tname">Joe Gherity</span></div><blockquote>&ldquo;I recommend it as a bridge into easeful movement that I simply didn't think was possible on my own. It expands the possibility space for how you experience your body.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/yetsal.jpg" alt="Ye'tsal Khandro"><span class="tname">Ye'tsal Khandro</span></div><blockquote>&ldquo;Tanner brought new life to my opening awareness meditation practice. By connecting with my body, it became much easier to stay with sensations, slow down, and at times allow thoughts to completely fall away. I find myself wishing this had been available to me earlier, as so many of my meditation sits might have felt more settled and embodied.&rdquo;</blockquote></div>
         <div class="tcard"><div class="thead"><img class="avatar" src="headshots/matthew.jpg" alt="Matthew Phillips"><span class="tname">Matthew Phillips</span></div><blockquote>&ldquo;I've had plenty of meditation teachers, instructors, and podcasts tell me to &lsquo;feel the earth support me,&rsquo; but to be honest I never really got it. The way I explored it with Tanner made me really feel embodied for the first time &mdash; and it's something I still enjoy checking into at various points during the day.&rdquo;</blockquote></div>
@@ -521,9 +510,9 @@
     </section>
 
     <!-- ACCESS -->
-    <section class="section" id="s06" data-nav="Cost &amp; coverage">
-      <h2>Cost &amp; coverage</h2>
-      <p class="price-lede">Every new client starts with a three-month commitment. People normally meet with me at least once a week, but some prefer more.</p>
+    <section class="section" id="s06" data-nav="Begin your practice">
+      <h2>Begin your practice</h2>
+      <p class="price-statement">Three months to transform your experience of being a body.</p>
       <div class="pcards">
         <div class="pcard">
           <p class="plan-label">Three months</p>
@@ -531,7 +520,6 @@
           <ul>
             <li>12 sessions, typically weekly</li>
             <li>$150 per session &mdash; saves $300</li>
-            <li>Refundable after the first session</li>
           </ul>
         </div>
         <div class="pcard">
@@ -540,10 +528,16 @@
           <ul>
             <li>4 sessions a month</li>
             <li>$175 per session</li>
-            <li>Continues for as long as it serves</li>
           </ul>
         </div>
       </div>
+      <div class="outcomes">
+        <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>Uncover your enjoyment of exertion</span></div>
+        <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>Feel more comfortable</span></div>
+        <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>More vitality and connection</span></div>
+        <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>Accomplish your goals</span></div>
+      </div>
+      <p class="price-cta"><a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a></p>
       <div class="access">
         <div class="acard">
           <h3>Your company may cover this</h3>
@@ -564,7 +558,12 @@
       <div class="bio">
         <img class="portrait" src="headshots/tanner.jpg" alt="Tanner Holman">
         <div>
-          <p>I fractured my back when I was 15. My baseball dreams died a slow death over the next year of rehab &mdash; and were instead replaced with nightmares of those stupid little exercise printouts in fluorescently lit offices. The rehab barely worked; it wasn't until theatre school, four years later, that I learned to enjoy movement again. That's when my pain went away. That experience eventually pulled me out of a doctorate track in physical therapy (I was done with printouts) and into full-time training. Certified since 2022, I've worked with normies and athletes, and one-on-one with people in chronic pain. These days I work mostly with meditators: people who already know transformation is possible, and want to extend it into their bodies. For years my own meditation was heady and uncomfortable &mdash; until I learned to find openness and enjoyment in the body.</p>
+          <p>I've always loved movement. In fifth grade, my favorite way to read was riding a ripstick around the driveway. (I promise it was neither as impressive nor as hard as it sounds.) I was one of those Golden Retriever kids: if there was a ball involved, I was happy. I played sports seriously until I was 15. Then I suddenly found myself looking at an MRI showing two stress fractures in my spine. I was able to walk and move normally shortly after that, but then spent the next two years in and out of rehab, doing those stupid little exercise printouts in fluorescently lit offices, trying to regain function. Eventually I gave up. I was pretty devastated, and went looking for a new place to pour my passion that wasn't going to be as physically demanding. I'd had a long-standing interest in acting, so I went to theatre school.</p>
+          <p>In actor training, movement became about comfort, enjoyment, and expression. The relationship I'd lost was starting to come back: I was a Golden Retriever again. (That's also when my pain went away.)</p>
+          <p>I went from being unable to play a full baseball game &mdash; or golf, or basketball &mdash; without a lot of pain, to enjoying exertion again: two soccer leagues, several seasons of flag football, a year of Brazilian jiu-jitsu, a serious amount of bouldering, contact improv, hip-hop. I can squat one and a half times my body weight. I've done pull-ups for reps with 45 pounds hanging from my feet. Along the way I tore my right knee badly (the terrible triad: meniscus, ACL, MCL) and recovered. I wouldn't attribute any of it to one specific modality. It was the change in my relationship to movement. When I went from brutalized to enjoyment, everything changed: the possibility space just grew. If you'd told me any of that in 2017, I wouldn't have believed you. In 2017, an hour-long car ride could do a real number on my lower back.</p>
+          <p>During the pandemic, I was doing Feldenkrais almost every day and pairing it with meditation. Through movement, it became clear that kindness and gentleness are much more fertile ground for learning. I didn't have that kind of relationship with anything until I found it with my body. That's what let my meditation change.</p>
+          <p>And it runs both ways. If you've found enjoyment meditating, you can find it moving. If you've found it moving, you can find it meditating. I physically suffered through my first meditation retreat in 2019. I've sat at least one a year since, sometimes two, and it's been radically different year over year: from really uncomfortable to actively enjoyable. These days I can sit six to ten hours a day on retreat and feel pretty dang good.</p>
+          <p>I'm NASM certified, and certified in pain reprocessing therapy. I've worked with normies and athletes, and one-on-one with people in chronic pain. I've been a practitioner with Evolving Ground since it formed, and a facilitator since 2024. These days my favorite thing is coaching meditators: people who already know transformation is possible, and want to extend it into their bodies. Usually that means making the move from exercise as an unpleasant grind to exertion that can be fun, actually. And beyond that, accomplishing physical things they never thought they could: their first push-up, their first 10K.</p>
           <p>For those who love a list of modalities, here are some of my biggest influences: mainstream exercise science&trade;, Feldenkrais, Alexander, Fighting Monkey Practice, Ido Portal, Vajrayana, dance. I've spent most of the last ten years immersed in these modalities; it's been a joy to shift my focus to teaching them.</p>
         </div>
       </div>
@@ -577,10 +576,14 @@
         <details><summary>Do I need to be a serious meditator?</summary><div class="ans">No. If you have some kind of contemplative practice, even a wobbly one, this can work well. What matters more is the commitment: you're excited about the possibility of making this a three-month commitment, and you have a taste of what awareness practice can do for you. That's enough. You've experienced transformation in meditation, and you suspect movement could feel the same. You really do.</div></details>
         <details><summary>Do I need to be fit, flexible, or experienced?</summary><div class="ans">No, not at all. We'll start where you are, and based on that, we make sure the path is &ldquo;walkable.&rdquo; If you feel ready to try new things and be an active learner, you are more than equipped.</div></details>
         <details><summary>Who is this <em>not</em> for?</summary><div class="ans">Don't book a call if you're in an active crisis, or dealing with a severe health issue or severe depression. This also takes reliable commitment: at least one live session a week, plus four hours of formal practice. If things are so precarious in your life right now that you don't think you could commit to that reliably, it's a no-go.</div></details>
-        <details><summary>Isn't this just personal training with extra steps?</summary><div class="ans">It's basically personal training with extra steps. The key difference is that the aim is not just to transform the body, but to transform your relationship with it. Exertion can be experienced as enjoyable. People get the chance to remember what it feels like to play while they move. It's also a great opportunity to extend your meditation practice off the cushion. If you find that your spaciousness and equanimity vanish as soon as you start doing something physically hard or when learning a new physical skill, my sense is that you could get a lot from this kind of work. Unlike many other fitness professionals, I love speaking meditator.</div></details>
-        <details><summary>What do I need?</summary><div class="ans">All you need is a bit of space and a camera. We'll meet over Zoom. There's no special equipment required: we can accomplish everything we need with your body weight and materials you can easily access in and around your home. If you have a gym membership or want equipment, we can leverage that. Ultimately, any equipment level is fine.</div></details>
+        <details><summary>Isn't this just personal training with extra steps?</summary><div class="ans">Basically, yes. The key difference is that the aim is not just to transform the body, but to transform your relationship with it. Exertion can be experienced as enjoyable. People get the chance to remember what it feels like to play while they move. It's also a great opportunity to extend your meditation practice off the cushion. If you find that your spaciousness and equanimity vanish as soon as you start doing something physically hard or when learning a new physical skill, my sense is that you could get a lot from this kind of work. Unlike many other fitness professionals, I love speaking meditator.</div></details>
+        <details><summary>What goals could I work toward?</summary><div class="ans">The goals I see most are finding enjoyment in movement and establishing a practice. Sometimes it's as mundane as knowing what you're doing at the gym: what counts as good form and what doesn't. Then there's strength and skill work: barbells, kettlebells, machines, running, cycling, dance. Gymnastic and bodyweight strength has been a particular focus of mine: ring work, animal movement, locomotion, your first handstand, your first push-up, all the way up to your first muscle-up. And there's complementing athletic performance: a bespoke program to help you perform better in whatever context you play in. Grappling, climbing, field sports, court sports: I have at least some experience in all of them. The list is pretty vast.</div></details>
+        <details><summary>What do I need?</summary><div class="ans">All you need is a bit of space and a camera. We'll meet over Zoom. There's no special equipment required: we can accomplish everything we need with your body weight and materials you can easily access in and around your home. If you have a gym membership or want equipment, we can leverage that. If you need equipment to reach your particular goals, we will talk about that.</div></details>
         <details><summary>How often would we meet?</summary><div class="ans">People normally meet with me at least once a week, but some prefer more. You commit to three months of work at the outset, so we have enough time to see real progress.</div></details>
-        <details><summary>What does it cost?</summary><div class="ans">$1,800 for the three months, paid upfront &mdash; or $700 a month. That&rsquo;s $150 vs. $175 per session. If cost is a barrier, scholarship and reimbursement options are under <a href="#s06">Cost &amp; coverage</a>.</div></details>
+        <details><summary>Why a three-month commitment?</summary><div class="ans">Three months is a container. There's nothing magic about the number. Partly it's a filter: if you're not able to commit to three months of practice, real transformation is less likely. That's the same reason we aim for four hours of weekly practice. Partly it's how long change takes: tissues adapt at their own rate, and real progress in most modalities needs time to become obvious and familiar. And the three months give you a chance to relax into a new relationship with movement. Unlearning and learning both require repetition: you get exposed to the familiarity, confidence, and self-trust that emerge, over and over, until they become your default mode.</div></details>
+        <details><summary>Why four hours of practice a week?</summary><div class="ans">The four hours are how you come to own the practice. For transformation to take place, you need to be in the weeds. How you structure them is flexible. You can accumulate movement through the week, and the intensity will vary. Four hours isn't a cap: it's a healthy minimum for reliable progress.</div></details>
+        <details><summary>What if I'm out of town, or have to miss a session?</summary><div class="ans">That's totally fine. We'll find a minimum viable way to keep your practice alive while you're away. Skipping a week happens; as a default, we try not to skip more than two of the twelve weeks.</div></details>
+        <details><summary>What does it cost?</summary><div class="ans">$1,800 for the three months, paid upfront &mdash; or $700 a month. That&rsquo;s $150 vs. $175 per session. If cost is a barrier, scholarship and reimbursement options are under <a href="#s06">Begin your practice</a>.</div></details>
         <details><summary>What if I decide it&rsquo;s not for me?</summary><div class="ans">If you decide it's not for you after the first full session, you can get a full refund minus the cost of the first session. If you continue past that, you're responsible for the full amount.</div></details>
       </div>
     </section>
@@ -591,11 +594,10 @@
         <span class="ring r1"></span>
         <span class="ring r2"></span>
       </div>
-      <h2>Start with a free call</h2>
-      <p>The first thing we'll do is hop on a 30-minute call. If it's a fit, we jump straight into our first three months &mdash; typically a week or two of setting up your program, and then things really get cooking. You'll wrap that first period with a new sense of what it's like to be an embodied being, a way of relating to movement that feels good, and a lot more confidence to run your own experiments &mdash; to try things, to move your attention, and to know why you're doing it.</p>
-      <p class="capacity">I take on a handful of clients at a time.</p>
+      <h2>Get started</h2>
+      <p>The 30-minute call is just a chance for us to get to know each other and see if it's a good fit.</p>
       <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
-      <p class="aside-line">No pressure to sign up for anything. Prefer to write first? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button>.</p>
+      <p class="aside-line">Prefer to write first? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button>.</p>
     </section>
 
     <footer>
