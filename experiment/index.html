@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incentive-Aligned Personal Training &middot; Personal Training for Meditators</title>
+<meta name="description" content="You pay half when you commit, and you only pay the other half if I get you the results you're hoping for.">
+<meta property="og:title" content="Incentive-aligned personal training">
+<meta property="og:description" content="You pay half when you commit, and you only pay the other half if I get you the results you're hoping for.">
+<meta property="og:image" content="https://personaltrainingformeditators.com/og.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="Personal Training for Meditators — untangle your relationship to exercise, move better, and enjoy exertion.">
+<meta property="og:url" content="https://personaltrainingformeditators.com/experiment/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAF7F1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%233A5A80' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7F1; --raised:#F1EBDE; --raised-2:#E9E1CF; --card:#FFFDF9;
+    --text:#2E2A24; --head:#2B3442; --soft:#4A463E; --muted:#665F51;
+    --accent:#3A5A80; --accent-hover:#2E4A6B; --visited:#5B4A86;
+    --rule:#E3DBCB; --rule-strong:#CBC1AC; --ink:#FBF9F4;
+    --maxw:46rem;
+  }
+  *{box-sizing:border-box;}
+  html,body{background:var(--bg); overflow-x:clip;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; color:var(--text);
+    font-family:"Source Serif 4",serif; font-size:1.08rem; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent); color:var(--ink);}
+  a{color:var(--accent); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.22rem;}
+  a:visited{color:var(--visited);}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between; gap:2rem;
+    padding:1.1rem 3rem;
+    background:rgba(250,247,241,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+    position:sticky; top:0; z-index:20;
+  }
+  .wordmark{font-family:"Source Sans 3",sans-serif; font-weight:600; font-size:1.2rem; color:var(--text); text-decoration:none;}
+  .wordmark:visited{color:var(--text);}
+  .nav-cta{font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.86rem; letter-spacing:.02em; color:var(--ink); background:var(--accent); padding:.6rem 1.35rem; border-radius:999px; text-decoration:none; white-space:nowrap; transition:background .15s ease, transform .15s ease;}
+  .nav-cta:visited{color:var(--ink);}
+  .nav-cta:hover{background:var(--accent-hover); transform:translateY(-1px);}
+
+  /* ---------- Single centered column ---------- */
+  .container{
+    display:grid;
+    grid-template-columns:minmax(0,var(--maxw));
+    justify-content:center;
+    padding:3rem 3rem 5rem;
+  }
+  .content{min-width:0;}
+  .section{padding:4.2rem 0;}
+  .content > section:first-child{padding-top:1rem;}
+  .section + .section{border-top:1px solid var(--rule);}
+
+  h1,h2{font-family:"Newsreader",serif; font-weight:400; letter-spacing:.005em; text-wrap:balance; color:var(--head);}
+  h1{font-size:2.95rem; line-height:1.1; margin:0 0 1.3rem;}
+  h2{font-size:2.15rem; line-height:1.12; margin:0 0 1.1rem;}
+  h1 em, h2 em{font-style:italic; font-weight:400;}
+  p{margin:0 0 1.2rem; text-wrap:pretty;}
+  strong{font-weight:600; color:var(--text);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:1.6rem; padding-bottom:4.2rem;}
+  .hero .sub{font-size:1.14rem; color:var(--soft); margin-bottom:0; max-width:36rem;}
+  .hero > *{animation:rise .7s cubic-bezier(.2,.6,.2,1) both;}
+  .hero > *:nth-child(2){animation-delay:.08s;}
+  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+
+  .btn{display:inline-block; font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.98rem; letter-spacing:.01em; color:var(--ink); background:var(--accent); padding:.85rem 1.9rem; border-radius:999px; text-decoration:none; transition:background .15s ease, transform .15s ease;}
+  .btn:visited{color:var(--ink);}
+  .btn:hover{background:var(--accent-hover); transform:translateY(-1px);}
+
+  /* ---------- The deal: numbered seam list (hairlines, mono numerals) ---------- */
+  .terms{list-style:none; margin:2.2rem 0 0; padding:0; counter-reset:term;}
+  .terms li{
+    counter-increment:term;
+    display:grid; grid-template-columns:2.4rem 1fr; column-gap:.6rem;
+    padding:1.25rem 0; border-top:1px solid var(--rule);
+  }
+  .terms li:first-child{border-top:0; padding-top:0;}
+  .terms li:last-child{padding-bottom:0;}
+  .terms li::before{
+    content:counter(term, decimal-leading-zero);
+    font-family:"IBM Plex Mono",monospace; font-size:.8rem; color:var(--muted);
+    padding-top:.42rem; line-height:1;
+  }
+  .terms p{margin:0; color:var(--soft); font-size:1.02rem; line-height:1.62;}
+  .terms p + p{margin-top:.55rem;}
+
+  /* ---------- Final CTA ---------- */
+  .final{
+    padding:5rem 0 1.5rem; text-align:center;
+    background:var(--raised-2);
+    margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+    padding-left:calc(50vw - 50%); padding-right:calc(50vw - 50%);
+    padding-bottom:2.6rem;
+  }
+  .final .breath{max-width:120px; margin-bottom:2rem;}
+  .final h2{font-size:2.6rem; margin-bottom:1.6rem;}
+  .final p{color:var(--soft); max-width:30rem; margin:0 auto 2.2rem;}
+  .final .aside-line{font-size:.9rem; color:var(--muted); max-width:30rem; margin:1.3rem auto 0;}
+  .final .aside-line .copy-email{color:var(--accent);}
+  .final .aside-line .copy-email:hover{color:var(--accent-hover);}
+
+  /* Signature: the breath */
+  .breath{position:relative; width:100%; aspect-ratio:1; max-width:330px; margin:0 auto;}
+  .breath .ring{position:absolute; border-radius:50%;}
+  .breath .r1{inset:8%;  border:1px solid rgba(43,52,66,.30); animation:breathe 8s ease-in-out infinite;}
+  .breath .r2{inset:19%; border:1px solid rgba(198,73,61,.55); animation:breathe-in 8s ease-in-out infinite;}
+  @keyframes breathe{0%,100%{transform:scale(.94);} 50%{transform:scale(1.05);}}
+  @keyframes breathe-in{0%,100%{transform:scale(1.04);} 50%{transform:scale(.93);}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .breath .ring{animation:none;}
+    .hero > *{animation:none;}
+    .btn:hover,.nav-cta:hover{transform:none;}
+  }
+
+  footer{border-top:1px solid var(--rule); margin-top:3.5rem; padding-top:1.8rem; display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted);}
+  footer a{color:var(--muted);}
+  .copy-email{background:none; border:0; padding:0; margin:0; font:inherit; color:var(--muted); cursor:pointer; text-decoration:underline; text-underline-offset:.2rem;}
+  .copy-email:hover{color:var(--soft);}
+  .copy-email.copied{color:var(--accent); text-decoration:none;}
+
+  @media (max-width:980px){
+    .topbar{padding:1rem 1.4rem;}
+    .container{grid-template-columns:minmax(0,1fr); padding:2rem 1.4rem 3rem;}
+    h1{font-size:2.7rem;} h2{font-size:1.8rem;}
+    .final h2{font-size:2.1rem;}
+  }
+
+  @media (max-width:600px){
+    .topbar{padding:.85rem 1.2rem; gap:1rem;}
+    .wordmark{font-size:1rem; white-space:nowrap;}
+    .nav-cta{font-size:.8rem; padding:.45rem .9rem; line-height:1.2;}
+    .container{padding:1.2rem 1.2rem 2.4rem;}
+    .section{padding:3rem 0;}
+    h1{font-size:2.1rem; line-height:1.16;} h2{font-size:1.5rem; line-height:1.2;}
+    .hero{padding-top:2.6rem; padding-bottom:2.6rem;}
+    .terms li{grid-template-columns:2rem 1fr; column-gap:.4rem; padding:1.1rem 0;}
+    .final{padding-top:3.6rem; padding-bottom:1rem;}
+    .final .breath{max-width:96px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="/">Personal Training for Meditators</a>
+  <a class="nav-cta" href="https://cal.com/tannerholman/intro?source=experiment" target="_blank" rel="noopener">Book a free call</a>
+</header>
+
+<div class="container">
+  <div class="content">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1><em>Incentive-aligned</em> personal training</h1>
+      <p class="sub">You pay half when you commit, and you only pay the other half if I get you the results you're hoping for.</p>
+    </section>
+
+    <!-- WHY -->
+    <section class="section" id="why">
+      <h2>Why I'm running it</h2>
+      <p>Real change requires real commitment from both the trainer and the client. The money is buying commitment. And if I don't take you where you want to go, I don't get paid!</p>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <h2>How it works</h2>
+      <ol class="terms">
+        <li><p>You define the goal, and we build a practice that will get you there. It has to be realistic, and connected to something you actually really, really want.</p></li>
+        <li><p>You pay half when you commit: $900. The other $900 you pay if I get you the results you're hoping for. The <a href="/#s06">standard offer</a> is $1,800 for the three months, or $700 a month.</p></li>
+        <li><p>If you get injured or sick, we pause, or we mutually recalibrate your goal to your new circumstances.</p></li>
+        <li><p>If you hit the goal early, say at week four, the second half is paid then, and we keep going. You get your weekly sessions for the full three months. If you want to hit another goal, great.</p></li>
+        <li><p>If we finish and you haven't reached the goal, you pay me what you think it was worth, assuming you're continuing to make progress. If you feel you're not making progress toward the goal, you pay nothing on top of the initial commitment. And <strong>if you're unsure whether or not you've achieved the result, you pay nothing.</strong> For a measurable goal (say, your first pull-up), achievement is clear. For a goal that relies on your felt sense, it's up to you.</p></li>
+        <li><p>The results depend on you doing the practice: at least one live session a week, plus four hours on your own. If you need to miss a live session, that's okay. As a default, don't commit to the twelve-week program if you'll need to miss more than two live sessions. Also, don't commit to the program if you can't reliably put in four hours on your own each week.</p></li>
+        <li><p>If you stop partway without injury or illness, you owe the other half, the same as you would on the standard offer.</p></li>
+        <li><p>If you decide it's not for you after the first full session, you get a full refund. After session one, we're mutually locked in!</p></li>
+      </ol>
+    </section>
+
+    <!-- GOALS -->
+    <section class="section" id="goals">
+      <h2>What goals work</h2>
+      <p>The goals I see most are finding enjoyment in movement and establishing a practice. Sometimes it's as mundane as knowing what you're doing at the gym: what counts as good form and what doesn't. Then there's strength and skill work: barbells, kettlebells, machines, running, cycling, dance. Gymnastic and bodyweight strength has been a particular focus of mine: ring work, animal movement, locomotion, your first handstand, your first push-up, all the way up to your first muscle-up. And there's complementing athletic performance: a bespoke program to help you perform better in whatever context you play in. Grappling, climbing, field sports, court sports: I have at least some experience in all of them. The list is pretty vast.</p>
+      <p>This is for people who feel very strongly about reaching their goal. If you're not sure about your goal, ask! I'll let you know if it's possible. I only accept goals I can confidently coach you toward. Process goals (running three times a week) and result goals (a mile time, a back squat number) both work. For weight loss and nutrition I can serve as an accountability partner and resource guide, not as an expert.</p>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final" id="start">
+      <div class="breath" aria-hidden="true">
+        <span class="ring r1"></span>
+        <span class="ring r2"></span>
+      </div>
+      <h2>Get started</h2>
+      <p>The 30-minute call is a chance for us to get to know each other and see if it's a good fit.</p>
+      <a class="btn" href="https://cal.com/tannerholman/intro?source=experiment" target="_blank" rel="noopener">Book a free call</a>
+      <p class="aside-line">Prefer to write first? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button>.</p>
+    </section>
+
+    <footer>
+      <span>Personal Training for Meditators</span>
+      <span>Tanner Holman &middot; <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email</button> &middot; <a href="https://substack.com/@sniffthis" target="_blank" rel="noopener">Substack</a></span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  // Email: copy to clipboard with a brief confirmation.
+  function flash(el, label){
+    if(el.dataset.busy) return;
+    el.dataset.busy = '1';
+    var prev = el.textContent;
+    el.textContent = label;
+    el.classList.add('copied');
+    setTimeout(function(){ el.textContent = prev; el.classList.remove('copied'); el.dataset.busy=''; }, 1600);
+  }
+  function copyText(text, el, label){
+    function done(){ flash(el, label); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var t=document.createElement('textarea'); t.value=text; t.style.position='fixed'; t.style.opacity='0';
+      document.body.appendChild(t); t.select();
+      try{document.execCommand('copy');}catch(e){}
+      document.body.removeChild(t); done();
+    }
+  }
+  document.querySelectorAll('.copy-email').forEach(function(ce){
+    ce.addEventListener('click', function(){
+      copyText(ce.getAttribute('data-email'), ce, 'Copied ✓');
+    });
+  });
+})();
+</script>
+
+<!-- GoatCounter: pageviews + the page's click events (cookieless; count.js skips localhost) -->
+<script>
+(function(){
+  function gc(path){
+    if(window.goatcounter && window.goatcounter.count){
+      window.goatcounter.count({path: path, event: true});
+    }
+  }
+  // Booking CTAs on this page, and the click back to the standard offer.
+  [
+    ['.topbar .nav-cta', 'experiment-cta-nav'],
+    ['.final .btn', 'experiment-cta-final'],
+    ['.terms a[href="/#s06"]', 'experiment-standard-offer']
+  ].forEach(function(pair){
+    var el = document.querySelector(pair[0]);
+    if(el) el.addEventListener('click', function(){ gc(pair[1]); });
+  });
+})();
+</script>
+<script data-goatcounter="https://ptfm.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>
