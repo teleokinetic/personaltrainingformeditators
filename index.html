@@ -208,6 +208,7 @@
   /* ---------- Pricing: two open columns ---------- */
   .price-statement{font-family:"Newsreader",serif; font-size:1.5rem; line-height:1.35; color:var(--head); margin:0 0 2.1rem; text-wrap:balance;}
   .price-cta{margin:2.4rem 0 0;}
+  .price-note{margin:1.5rem 0 0; color:var(--soft); font-size:1rem; line-height:1.6; text-wrap:pretty;}
   .outcomes{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem 2.4rem; margin-top:2.2rem;}
   .outcome{display:flex; align-items:center; gap:.85rem;}
   .outcome svg{flex:none;}
@@ -531,6 +532,7 @@
           </ul>
         </div>
       </div>
+      <p class="price-note">Alongside the standard offer, I'm also running a pricing experiment called <a href="/experiment/">incentive-aligned personal training</a>. You pay half when you commit, and you only pay the other half if I get you the results you're hoping for.</p>
       <div class="outcomes">
         <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>Uncover your enjoyment of exertion</span></div>
         <div class="outcome"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.5" stroke="rgba(43,52,66,.32)" stroke-width="1"/><circle cx="10" cy="10" r="4.5" stroke="rgba(198,73,61,.55)" stroke-width="1"/></svg><span>Feel more comfortable</span></div>
@@ -595,7 +597,7 @@
         <span class="ring r2"></span>
       </div>
       <h2>Get started</h2>
-      <p>The 30-minute call is just a chance for us to get to know each other and see if it's a good fit.</p>
+      <p>The 30-minute call is a chance for us to get to know each other and see if it's a good fit.</p>
       <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
       <p class="aside-line">Prefer to write first? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button>.</p>
     </section>
@@ -755,6 +757,8 @@
   if(re) re.addEventListener('click', function(){ gc('pricing-reimbursement'); });
   var sch = document.querySelector('.acard a[href="/scholarship"]');
   if(sch) sch.addEventListener('click', function(){ gc('pricing-scholarship'); });
+  var ex = document.querySelector('.price-note a[href="/experiment/"]');
+  if(ex) ex.addEventListener('click', function(){ gc('pricing-experiment'); });
   // FAQ: which questions get opened (once per pageview each).
   document.querySelectorAll('.faq details').forEach(function(d){
     var fired = false;
