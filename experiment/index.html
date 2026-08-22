@@ -62,9 +62,8 @@
     padding:3rem 3rem 5rem;
   }
   .content{min-width:0;}
-  .section{padding:4.2rem 0;}
+  .section{padding:3.6rem 0; border-top:1px solid var(--rule);}
   .content > section:first-child{padding-top:1rem;}
-  .section + .section{border-top:1px solid var(--rule);}
 
   h1,h2{font-family:"Newsreader",serif; font-weight:400; letter-spacing:.005em; text-wrap:balance; color:var(--head);}
   h1{font-size:2.95rem; line-height:1.1; margin:0 0 1.3rem;}
@@ -74,46 +73,67 @@
   strong{font-weight:600; color:var(--text);}
 
   /* ---------- Hero ---------- */
-  .hero{padding-top:1.6rem; padding-bottom:4.2rem;}
+  .hero{padding-top:1.6rem; padding-bottom:3.4rem;}
   .hero .sub{font-size:1.14rem; color:var(--soft); margin-bottom:0; max-width:36rem;}
   .hero > *{animation:rise .7s cubic-bezier(.2,.6,.2,1) both;}
   .hero > *:nth-child(2){animation-delay:.08s;}
+  .hero > *:nth-child(3){animation-delay:.16s;}
+  .hero > *:nth-child(4){animation-delay:.22s;}
+
+  /* The deal at a glance: stacked rows (homepage .pcard + .plan-price values) */
+  .deal{display:flex; flex-direction:column; gap:0; margin-top:2.2rem; background:var(--card); border:1px solid var(--rule); border-radius:8px; padding:.35rem 1.8rem;}
+  .deal-item{display:grid; grid-template-columns:7.6rem 1fr; align-items:baseline; gap:1.2rem; padding:1.05rem 0;}
+  .deal-item + .deal-item{border-top:1px solid var(--rule);}
+  .deal-num{font-family:"Newsreader",serif; font-size:2.5rem; line-height:1; color:var(--head); margin:0;}
+  .deal-cap{font-size:1.06rem; color:var(--soft); line-height:1.5; margin:0;}
+
+  /* Eyebrow labels (as on /reimbursement/) */
+  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.7rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 1.2rem;}
   @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
 
   .btn{display:inline-block; font-family:"Source Sans 3",sans-serif; font-weight:700; font-size:.98rem; letter-spacing:.01em; color:var(--ink); background:var(--accent); padding:.85rem 1.9rem; border-radius:999px; text-decoration:none; transition:background .15s ease, transform .15s ease;}
   .btn:visited{color:var(--ink);}
   .btn:hover{background:var(--accent-hover); transform:translateY(-1px);}
 
-  /* ---------- The deal: numbered seam list (hairlines, mono numerals) ---------- */
-  .terms{list-style:none; margin:2.2rem 0 0; padding:0; counter-reset:term;}
-  .terms li{
+  /* ---------- The terms: grouped numbered seam lists (hairlines, mono numerals) ---------- */
+  .tgroup{margin-top:2rem;}
+  .tgroup + .tgroup{margin-top:2.6rem;}
+  .tgroup .eyebrow{margin:0 0 .2rem;}
+  .terms{list-style:none; margin:0; padding:0;}
+  .terms > li{
     counter-increment:term;
     display:grid; grid-template-columns:2.4rem 1fr; column-gap:.6rem;
     padding:1.25rem 0; border-top:1px solid var(--rule);
   }
-  .terms li:first-child{border-top:0; padding-top:0;}
-  .terms li:last-child{padding-bottom:0;}
-  .terms li::before{
+  .terms > li:last-child{padding-bottom:0;}
+  .terms > li::before{
     content:counter(term, decimal-leading-zero);
     font-family:"IBM Plex Mono",monospace; font-size:.8rem; color:var(--muted);
     padding-top:.42rem; line-height:1;
   }
   .terms p{margin:0; color:var(--soft); font-size:1.02rem; line-height:1.62;}
   .terms p + p{margin-top:.55rem;}
-  .fine-note{font-family:"Source Sans 3",sans-serif; font-size:.9rem; color:var(--muted); margin:1.6rem 0 0;}
+  .outcomes-list{list-style:none; margin:.55rem 0 .6rem; padding:0; display:flex; flex-direction:column; gap:.35rem;}
+  .outcomes-list li{position:relative; padding-left:1.15rem; color:var(--soft); font-size:1.02rem; line-height:1.55;}
+  .outcomes-list li::before{content:""; position:absolute; left:0; top:.78rem; width:.45rem; height:1px; background:var(--rule-strong);}
+  .fine-note{font-family:"Source Sans 3",sans-serif; font-size:.9rem; color:var(--muted); margin:1.2rem 0 0;}
 
-  /* ---------- Final CTA ---------- */
-  .final{
-    padding:5rem 0 1.5rem; text-align:center;
-    background:var(--raised-2);
-    margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
-    padding-left:calc(50vw - 50%); padding-right:calc(50vw - 50%);
-    padding-bottom:2.6rem;
-  }
-  .final .breath{max-width:120px; margin-bottom:2rem;}
-  .final h2{font-size:2.6rem; margin-bottom:1.6rem;}
-  .final p{color:var(--soft); max-width:30rem; margin:0 auto 2.2rem;}
-  .final .aside-line{font-size:.9rem; color:var(--muted); max-width:30rem; margin:1.3rem auto 0;}
+  /* ---------- Goals: one sentence-group per line ---------- */
+  .goal-list{list-style:none; margin:0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.5rem;}
+  .goal-list li{position:relative; padding-left:1.3rem; line-height:1.6;}
+  .goal-list li::before{content:""; position:absolute; left:0; top:.85rem; width:.5rem; height:1px; background:var(--rule-strong);}
+
+  /* ---------- Final CTA: card bookend (echoes the deal card) ---------- */
+  .final{text-align:left; padding:3.6rem 0 0; border-top:1px solid var(--rule);}
+  .final-card{background:var(--card); border:1px solid var(--rule); border-radius:8px; padding:1.9rem 2rem; display:grid; grid-template-columns:auto 1fr; gap:1.7rem; align-items:center;}
+  .final .breath{width:64px; max-width:64px; margin:0;}
+  .final h2{font-size:1.8rem; margin:0 0 .45rem;}
+  .final p{color:var(--soft); margin:0 0 1.1rem; max-width:34rem;}
+  .final .row{display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;}
+  .final .row .or{font-size:.95rem; color:var(--soft); margin:0;}
+  .final .row .or .copy-email{color:var(--accent); font-size:inherit;}
+  .final .row .or .copy-email:hover{color:var(--accent-hover);}
+  .final .aside-line{font-size:.9rem; color:var(--muted); margin:1.2rem 0 0;}
   .final .aside-line .copy-email{color:var(--accent);}
   .final .aside-line .copy-email:hover{color:var(--accent-hover);}
 
@@ -142,7 +162,7 @@
     .topbar{padding:1rem 1.4rem;}
     .container{grid-template-columns:minmax(0,1fr); padding:2rem 1.4rem 3rem;}
     h1{font-size:2.7rem;} h2{font-size:1.8rem;}
-    .final h2{font-size:2.1rem;}
+    .final h2{font-size:1.8rem;}
   }
 
   @media (max-width:600px){
@@ -152,10 +172,16 @@
     .container{padding:1.2rem 1.2rem 2.4rem;}
     .section{padding:3rem 0;}
     h1{font-size:2.1rem; line-height:1.16;} h2{font-size:1.5rem; line-height:1.2;}
-    .hero{padding-top:2.6rem; padding-bottom:2.6rem;}
-    .terms li{grid-template-columns:2rem 1fr; column-gap:.4rem; padding:1.1rem 0;}
-    .final{padding-top:3.6rem; padding-bottom:1rem;}
-    .final .breath{max-width:96px;}
+    .hero{padding-top:2.2rem; padding-bottom:2.6rem;}
+    .deal{padding:.3rem 1.2rem; margin-top:1.8rem;}
+    .deal-item{grid-template-columns:5.4rem 1fr; gap:.8rem; padding:.95rem 0;}
+    .deal-num{font-size:2rem;}
+    .deal-cap{font-size:1rem;}
+    .terms > li{grid-template-columns:2rem 1fr; column-gap:.4rem; padding:1.1rem 0;}
+    .final{padding-top:3rem;}
+    .final-card{grid-template-columns:minmax(0,1fr); gap:1rem; padding:1.3rem 1.2rem;}
+    .final .breath{width:48px; max-width:48px;}
+    .final h2{font-size:1.5rem;}
   }
 </style>
 </head>
@@ -171,49 +197,102 @@
 
     <!-- HERO -->
     <section class="hero">
-      <h1><em>Incentive-aligned</em> personal training</h1>
+      <h1>Incentive-aligned personal training</h1>
       <p class="sub">You pay half when you commit, and you only pay the other half if I get you the results you're hoping for.</p>
+      <div class="deal">
+        <div class="deal-item">
+          <p class="deal-num">$900</p>
+          <p class="deal-cap">when you commit</p>
+        </div>
+        <div class="deal-item">
+          <p class="deal-num">$900</p>
+          <p class="deal-cap">if I get you the results you're hoping for</p>
+        </div>
+        <div class="deal-item">
+          <p class="deal-num">$0</p>
+          <p class="deal-cap">more if you're unsure whether you achieved the result</p>
+        </div>
+      </div>
+      <p class="fine-note">The <a href="/#s06">standard offer</a> is $1,800 for the three months, or $700 a month.</p>
     </section>
 
     <!-- WHY -->
     <section class="section" id="why">
       <h2>Why I'm running it</h2>
-      <p>Real change requires real commitment from both the trainer and the client. The money is buying commitment. And if I don't take you where you want to go, I don't get paid!</p>
+      <p>Real change requires real commitment from both the trainer and the client. Your initial investment helps us commit. But if I don't take you where you want to go, I don't get paid.</p>
       <p class="fine-note">Shout out to <a href="https://chrislakin.blog/p/bounty-your-bottleneck" target="_blank" rel="noopener">Chris Lakin</a> for the inspiration behind this. Chris does incentive-aligned coaching for AI researchers.</p>
     </section>
 
     <!-- HOW IT WORKS -->
     <section class="section" id="how">
       <h2>How it works</h2>
-      <ol class="terms">
-        <li><p>You define the goal, and we build a practice that will get you there. It has to be realistic, and connected to something you actually really, really want.</p></li>
-        <li><p>You pay half when you commit: $900. The other $900 you pay if I get you the results you're hoping for. The <a href="/#s06">standard offer</a> is $1,800 for the three months, or $700 a month. Scholarships are for the standard offer only: I don't want the experiment to put someone who needs a scholarship in a bad spot.</p></li>
-        <li><p>If you get injured or sick, we pause, or we mutually recalibrate your goal to your new circumstances.</p></li>
-        <li><p>If you hit the goal early, say at week four, the second half is paid then, and we keep going. You get your weekly sessions for the full three months. If you want to hit another goal, great.</p></li>
-        <li><p>If we finish and you haven't reached the goal, you pay me what you think it was worth, assuming you're continuing to make progress. If you feel you're not making progress toward the goal, you pay nothing on top of the initial commitment. And <strong>if you're unsure whether or not you've achieved the result, you pay nothing.</strong> For a measurable goal (say, your first pull-up), achievement is clear. For a goal that relies on your felt sense, it's up to you.</p></li>
-        <li><p>The results depend on you doing the practice: at least one live session a week, plus four hours on your own. If you need to miss a live session, that's okay. As a default, don't commit to the twelve-week program if you'll need to miss more than two live sessions. Also, don't commit to the program if you can't reliably put in four hours on your own each week.</p></li>
-        <li><p>If you stop partway without injury or illness, you owe the other half, the same as you would on the standard offer.</p></li>
-        <li><p>If you decide it's not for you after the first full session, you get a full refund. After session one, we're mutually locked in!</p></li>
-      </ol>
+      <div class="tgroup">
+        <p class="eyebrow">The structure</p>
+        <ol class="terms" style="counter-reset:term 0;">
+          <li><p>You define the goal, and we build a practice that will get you there. It has to be realistic, and connected to something you actually really, really want.</p></li>
+          <li><p>You pay half when you commit: $900. The other $900 you pay if I get you the results you're hoping for. Scholarships are for the standard offer only: I don't want the experiment to put someone who needs a scholarship in a bad spot.</p></li>
+        </ol>
+      </div>
+
+      <div class="tgroup">
+        <p class="eyebrow">What I ask of you</p>
+        <ol class="terms" style="counter-reset:term 2;">
+          <li><p>The results depend on you doing the practice: at least one live session a week, plus four hours on your own. If you need to miss a live session, that's okay. As a default, don't commit to the twelve-week program if you'll need to miss more than two live sessions. Also, don't commit to the program if you can't reliably put in four hours on your own each week.</p></li>
+        </ol>
+      </div>
+
+      <div class="tgroup">
+        <p class="eyebrow">What happens if&hellip;</p>
+        <ol class="terms" style="counter-reset:term 3;">
+          <li><p>If you hit the goal early, say at week four, the second half is paid then, and we keep going. You get your weekly sessions for the full three months. If you want to hit another goal, great.</p></li>
+          <li>
+            <div>
+              <p>If we finish and you haven't reached the goal:</p>
+              <ul class="outcomes-list">
+                <li>You pay me what you think it was worth, assuming you're continuing to make progress.</li>
+                <li>If you feel you're not making progress toward the goal, you pay nothing on top of the initial commitment.</li>
+                <li><strong>If you're unsure whether or not you've achieved the result, you pay nothing.</strong></li>
+              </ul>
+              <p>For a measurable goal (say, your first pull-up), achievement is clear. For a goal that relies on your felt sense, it's up to you.</p>
+            </div>
+          </li>
+          <li><p>If you get injured or sick, we pause, or we mutually recalibrate your goal to your new circumstances.</p></li>
+          <li><p>If you stop partway without injury or illness, you owe the other half, the same as you would on the standard offer.</p></li>
+          <li><p>If you decide it's not for you after the first full session, you get a full refund. After session one, we're mutually locked in!</p></li>
+        </ol>
+      </div>
     </section>
 
     <!-- GOALS -->
     <section class="section" id="goals">
       <h2>What goals work</h2>
-      <p>The goals I see most are finding enjoyment in movement and establishing a practice. Sometimes it's as mundane as knowing what you're doing at the gym: what counts as good form and what doesn't. Then there's strength and skill work: barbells, kettlebells, machines, running, cycling, dance. Gymnastic and bodyweight strength has been a particular focus of mine: ring work, animal movement, locomotion, your first handstand, your first push-up, all the way up to your first muscle-up. And there's complementing athletic performance: a bespoke program to help you perform better in whatever context you play in. Grappling, climbing, field sports, court sports: I have at least some experience in all of them. The list is pretty vast.</p>
-      <p>This is for people who feel very strongly about reaching their goal. If you're not sure about your goal, ask! I'll let you know if it's possible. I only accept goals I can confidently coach you toward. Process goals (running three times a week) and result goals (a mile time, a back squat number) both work. For weight loss and nutrition I can serve as an accountability partner and resource guide, not as an expert.</p>
+      <ul class="goal-list">
+        <li>The goals I see most are <strong>finding enjoyment in movement and establishing a practice</strong>.</li>
+        <li>Sometimes it's as mundane as <strong>knowing what you're doing at the gym</strong>: what counts as good form and what doesn't.</li>
+        <li>Then there's <strong>strength and skill work</strong>: barbells, kettlebells, machines, running, cycling, dance.</li>
+        <li><strong>Gymnastic and bodyweight strength</strong> has been a particular focus of mine: ring work, animal movement, locomotion, your first handstand, your first push-up, all the way up to your first muscle-up.</li>
+        <li>And there's <strong>complementing athletic performance</strong>: a bespoke program to help you perform better in whatever context you play in. Grappling, climbing, field sports, court sports: I have at least some experience in all of them.</li>
+      </ul>
+      <p>This is for people who feel very strongly about reaching their goal. If you're not sure if I can help with your particular goal, ask! I'll let you know if it's possible. I only accept goals I can confidently coach you toward. Process goals (running three times a week) and result goals (a mile time, a back squat number) both work. For weight loss and nutrition I can serve as an accountability partner and resource guide, not as an expert.</p>
     </section>
 
     <!-- FINAL CTA -->
     <section class="final" id="start">
-      <div class="breath" aria-hidden="true">
-        <span class="ring r1"></span>
-        <span class="ring r2"></span>
+      <div class="final-card">
+        <div class="breath" aria-hidden="true">
+          <span class="ring r1"></span>
+          <span class="ring r2"></span>
+        </div>
+        <div>
+          <h2>Get started</h2>
+          <p>The 30-minute call is a chance for us to get to know each other and see if it's a good fit.</p>
+          <div class="row">
+            <a class="btn" href="https://cal.com/tannerholman/intro?source=experiment" target="_blank" rel="noopener">Book a free call</a>
+            <p class="or">or <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">email me</button> first.</p>
+          </div>
+        </div>
       </div>
-      <h2>Get started</h2>
-      <p>The 30-minute call is a chance for us to get to know each other and see if it's a good fit.</p>
-      <a class="btn" href="https://cal.com/tannerholman/intro?source=experiment" target="_blank" rel="noopener">Book a free call</a>
-      <p class="aside-line">Prefer to write first? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button>.</p>
+      <p class="aside-line">Not sure about the experiment? <a href="/#s06">The standard offer is here</a>.</p>
     </section>
 
     <footer>
@@ -266,10 +345,11 @@
   [
     ['.topbar .nav-cta', 'experiment-cta-nav'],
     ['.final .btn', 'experiment-cta-final'],
-    ['.terms a[href="/#s06"]', 'experiment-standard-offer']
+    ['a[href="/#s06"]', 'experiment-standard-offer']
   ].forEach(function(pair){
-    var el = document.querySelector(pair[0]);
-    if(el) el.addEventListener('click', function(){ gc(pair[1]); });
+    document.querySelectorAll(pair[0]).forEach(function(el){
+      el.addEventListener('click', function(){ gc(pair[1]); });
+    });
   });
 })();
 </script>
