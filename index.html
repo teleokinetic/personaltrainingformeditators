@@ -248,19 +248,16 @@
   .faq .ans{padding:0 0 1.15rem; color:var(--soft); font-size:1.02rem;}
 
   /* ---------- Final CTA: open air, ring revisited, deepest band ---------- */
-  .final{
-    padding:5rem 0 1.5rem; text-align:center;
-    background:var(--raised-2);
-    margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
-    padding-left:calc(50vw - 50%); padding-right:calc(50vw - 50%);
-    padding-bottom:2.6rem;
-  }
-  .final .breath{max-width:120px; margin-bottom:2rem;}
-  .final h2{font-size:2.6rem; margin-bottom:1.6rem;}
-  .final p{color:var(--soft); max-width:30rem; margin:0 auto 2.2rem;}
-  .final .aside-line{font-size:.9rem; color:var(--muted); max-width:30rem; margin:1.3rem auto 0;}
-  .final .aside-line .copy-email{color:var(--accent);}
-  .final .aside-line .copy-email:hover{color:var(--accent-hover);}
+  /* Final CTA: card bookend */
+  .final{text-align:left; padding:5rem 0 0; border-top:1px solid var(--rule);}
+  .final-card{background:var(--card); border:1px solid var(--rule); border-radius:8px; padding:1.9rem 2rem; display:grid; grid-template-columns:auto 1fr; gap:1.7rem; align-items:center;}
+  .final .breath{width:64px; max-width:64px; margin:0;}
+  .final h2{font-size:1.8rem; margin:0 0 .45rem;}
+  .final p{color:var(--soft); margin:0 0 1.1rem; max-width:34rem;}
+  .final .row{display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;}
+  .final .row .or{font-size:.95rem; color:var(--soft); margin:0;}
+  .final .row .or .copy-email{color:var(--accent); font-size:inherit;}
+  .final .row .or .copy-email:hover{color:var(--accent-hover);}
 
   footer{border-top:1px solid var(--rule); margin-top:3.5rem; padding-top:1.8rem; display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted);}
   footer a{color:var(--muted);}
@@ -286,7 +283,7 @@
     .tgrid{columns:1;}
     .bio{grid-template-columns:1fr; gap:1.3rem;}
     h1{font-size:2.7rem;} h2{font-size:1.8rem;}
-    .final h2{font-size:2.1rem;}
+    .final h2{font-size:1.8rem;}
   }
 
   /* ---------- Phones (<=600px) ---------- */
@@ -329,9 +326,10 @@
 
     img.portrait{max-width:230px;}
 
-    .final{padding:3.6rem 0 1rem;}
-    .final .breath{max-width:96px;}
-    .final h2{font-size:1.9rem;}
+    .final{padding:3.8rem 0 0;}
+    .final-card{grid-template-columns:minmax(0,1fr); gap:1rem; padding:1.3rem 1.2rem;}
+    .final .breath{width:48px; max-width:48px;}
+    .final h2{font-size:1.5rem;}
 
     body{padding-bottom:5.25rem;}
     .mobile-cta-bar{
@@ -592,14 +590,21 @@
 
     <!-- START HERE -->
     <section class="final" id="start">
-      <div class="breath" aria-hidden="true">
-        <span class="ring r1"></span>
-        <span class="ring r2"></span>
+      <div class="final-card">
+        <div class="breath" aria-hidden="true">
+          <span class="ring r1"></span>
+          <span class="ring r2"></span>
+          <span class="ring r3"></span>
+        </div>
+        <div>
+          <h2>Get started</h2>
+          <p>The 30-minute call is a chance for us to get to know each other and see if it's a good fit.</p>
+          <div class="row">
+            <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
+            <p class="or">or <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">email me</button> first.</p>
+          </div>
+        </div>
       </div>
-      <h2>Get started</h2>
-      <p>The 30-minute call is a chance for us to get to know each other and see if it's a good fit.</p>
-      <a class="btn" href="https://cal.com/tannerholman/intro" target="_blank" rel="noopener">Book a free call</a>
-      <p class="aside-line">Prefer to write first? <button type="button" class="copy-email" data-email="tannerholman97@gmail.com">Email me</button>.</p>
     </section>
 
     <footer>
