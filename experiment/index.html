@@ -174,9 +174,12 @@
     h1{font-size:2.1rem; line-height:1.16;} h2{font-size:1.5rem; line-height:1.2;}
     .hero{padding-top:2.2rem; padding-bottom:2.6rem;}
     .deal{padding:.3rem 1.2rem; margin-top:1.8rem;}
-    .deal-item{grid-template-columns:5.4rem 1fr; gap:.8rem; padding:.95rem 0;}
-    .deal-num{font-size:2rem;}
-    .deal-cap{font-size:1rem;}
+    /* Ledger rows on phones: caption reads first, amount on a right rail
+       (first caption line and number share a 1.5rem line box, so wrapped
+       captions hang under themselves instead of under the number) */
+    .deal-item{grid-template-columns:minmax(0,1fr) max-content; align-items:start; gap:1.2rem; padding:.95rem 0;}
+    .deal-num{grid-column:2; grid-row:1; font-size:1.6rem; line-height:1.5rem; text-align:right;}
+    .deal-cap{grid-column:1; grid-row:1; font-size:1rem;}
     .terms > li{grid-template-columns:2rem 1fr; column-gap:.4rem; padding:1.1rem 0;}
     .final{padding-top:3rem;}
     .final-card{grid-template-columns:minmax(0,1fr); gap:1rem; padding:1.3rem 1.2rem;}
